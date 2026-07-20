@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Solutions | SIEC Water</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png" />
+    <link rel="apple-touch-icon" href="./images/favicon.png" />
+    <link rel="shortcut icon" href="./images/favicon.png" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Zain:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+    <style>
+     
+    :root {
+      --mint: #f8fcfa;
+      --mint2: #f2f9f6;
+      --mint3: #eaf7f2;
+      --sage: #d8eee5;
+      --t100: #d8f6ee;
+      --t200: #b7ebde;
+      --t300: #86dbc8;
+      --t400: #53c8af;
+      --t500: #26af93;
+      --t600: #0f8f78;
+      --t700: #0a7563;
+      --ink: #112a23;
+      --ink2: #2a463d;
+      --ink3: #48675b;
+      --ink4: #6b897d;
+      --ink5: #93ada3;
+      --border: #dcebe4;
+      --border-light: #eaf4ef;
+    }
+  
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{
+    font-family:"Manrope", system-ui, sans-serif;
+    background:#EFECE3;
+  }
+  .font-serif-italic{ font-family:"Fraunces", Georgia, serif; font-style:italic; }
+ 
+  .services-section{
+    background: white;
+    position:relative;
+    overflow:hidden;
+    padding: 88px 0 100px;
+  }
+  /* faint texture ring, signature element */
+  .services-section::before{
+    content:"";
+    position:absolute;
+    top:-220px; right:-220px;
+    width:560px; height:560px;
+    border-radius:50%;
+    border:1px solid rgba(217,164,65,0.14);
+  }
+  .services-section::after{
+    content:"";
+    position:absolute;
+    top:-140px; right:-140px;
+    width:560px; height:560px;
+    border-radius:50%;
+    border:1px solid rgba(217,164,65,0.10);
+  }
+ 
+  .wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding:0 40px;
+    position:relative;
+    z-index:2;
+  }
+ 
+  /* CTA pill */
+  .cta-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    background: var(--t100);
+    border-radius:999px;
+    /* padding:2px; */
+    /* padding-right:2px; */
+    cursor:pointer;
+    transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s;
+  }
+  .cta-pill:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+  }
+  .cta-pill-icon{
+    width:44px; height:44px;
+    border-radius:50%;
+    background: var(--t200);
+    color: green;
+    display:flex; align-items:center; justify-content:center;
+    font-size:15px;
+    flex-shrink:0;
+    transition: background .3s;
+  }
+  .cta-pill:hover .cta-pill-icon{ background: var(--t300); }
+  .cta-pill-label{
+    font-weight:700;
+    font-size:14px;
+    letter-spacing:0.01em;
+    color: var(--forest-dark);
+    white-space:nowrap;
+    background:var(--t300);
+    padding:6px 12px;
+    border-radius:999px;
+  }
+ 
+   /* Cards - REDUCED HEIGHT */
+  .card{
+    border-radius:28px;
+    padding:20px;  /* reduced from 24px */
+    height:380px;  /* reduced from 500px */
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    transition: transform .45s cubic-bezier(.4,0,.2,1);
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .card:hover{ transform: translateY(-8px); }
+ 
+  .card-light{
+    background-color:rgb(230, 230, 230);
+    color: var(--t700);
+    border:1px solid rgb(189, 189, 189);
+  }
+  .card-sage{
+    background: var(--sage);
+    color:var(--ink4);
+    border:1px solid var(--t300);
+  }
+ 
+  .card-title{
+    font-weight:800;
+    font-size:22px;  /* reduced from 28px */
+    line-height:1.15;
+    letter-spacing:-0.01em;
+    margin-bottom:6px;  /* reduced from 10px */
+  }
+  .card-light .card-title{ color: gray; }
+ 
+ 
+  .card-desc{
+    font-size:13px;  /* reduced from 14.5px */
+    line-height:1.5;
+    font-weight:500;
+    margin-bottom:12px;  /* reduced from 18px */
+    max-width: 92%;
+  }
+  .card-light .card-desc{ color:#6b7a75; }
+  .card-sage .card-desc{ color: gray; }
+ 
+  .card-image-wrap{
+    position:relative;
+    flex:1;
+    border-radius:20px;
+    overflow:hidden;
+    min-height:0;
+  }
+  .card-image-wrap img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+    transition: transform .6s cubic-bezier(.4,0,.2,1);
+  }
+  .card:hover .card-image-wrap img{ transform: scale(1.05); }
+ 
+  .arrow-btn{
+    position:absolute;
+    right:14px; bottom:-14px;  /* adjusted position */
+    width:48px; height:48px;   /* reduced from 56px */
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--t500);
+    background: var(--t700);
+    transition: transform .35s cubic-bezier(.4,0,.2,1);
+    font-size:16px;  /* reduced from 18px */
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+    border:3px solid var(--cream);  /* reduced from 4px */
+    margin-bottom:12px;  /* reduced from 16px */
+  }
+  .card-sage .arrow-btn{ border-color: var(--sage); }
+ 
+  .arrow-dark{ background:var(--t200); cursor:pointer; color:white; }
+  .arrow-mustard{ background: var(--t200); color: var(--forest-dark);  cursor:pointer; }
+ 
+  @media (max-width: 1024px){
+    .cards-row{ grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 680px){
+    .cards-row{ grid-template-columns: 1fr !important; }
+    .services-section{ padding: 64px 0 72px; }
+    .wrap{ padding: 0 24px; }
+    .heading-row{ flex-direction:column; align-items:flex-start !important; gap:28px; }
+  }
+
+  /* Card clickable wrapper */
+  .card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .card-link .card {
+    height: 100%;
+  }
+    </style>
+  </head>
+
+  <body>
+    <div id="header"></div>
+
+    <!-- ========== HERO (full height) ========== -->
+    <section class="relative hero-full bg-[#F5F7F6]">
+      <div class="max-w-[1700px] mx-auto px-2 w-full">
+        <div
+          class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[75vh] w-full"
+        >
+          <!-- Banner Image -->
+          <img
+            src="./Images/solution_banner.png"
+            alt="SIEC Solutions"
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <!-- Overlay gradient -->
+          <div class="absolute inset-0 bg-gradient-to-br from-[#053F37]/80 via-[#0A2E2E]/60 to-[#0F8F78]/40"></div>
+
+          <!-- Ambient drops -->
+          <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-[#26AF93]/20 blur-3xl"></div>
+          <div class="absolute -left-16 bottom-0 w-72 h-72 rounded-full bg-[#B7EBDE]/10 blur-3xl"></div>
+
+          <div class="relative z-10 max-w-5xl mx-auto px-6 md:px-10 py-16 md:py-20 text-center flex flex-col justify-center min-h-[75vh]">
+            <div class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6 animate-fade-up mx-auto">
+              <span class="w-2 h-2 bg-[var(--t200)] rounded-full animate-pulse"></span>
+              <span class="text-xs font-mono uppercase tracking-widest text-white font-medium">Our Solutions</span>
+            </div>
+
+            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.1] tracking-tighter animate-fade-up delay-1">
+              Engineering the
+              <span class="text-[var(--t200)] font-light italic">Future</span>
+              of Water
+            </h1>
+
+            <p class="mt-6 text-white/85 text-lg max-w-2xl mx-auto leading-relaxed animate-fade-up delay-2">
+              Intelligent, sustainable and high-performance water &amp; wastewater infrastructure for
+              industries, communities and smart cities.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-3 mt-8 animate-fade-up delay-3">
+              <span class="px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-mono uppercase tracking-widest">Treat</span>
+              <span class="px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-mono uppercase tracking-widest">Transform</span>
+              <span class="px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-mono uppercase tracking-widest">Sustain</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICES SECTION ========== -->
+    <section class="services-section">
+      <div class="wrap">
+     
+        <!-- Heading row -->
+        <div class="heading-row" style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:56px;">
+          <div>
+            <h2 class="font-['Fraunces'] text-3xl md:text-4xl font-semibold text-[#112A23] mt-2">
+              Your Path <span class="text-[#26AF93] font-['Georgia'] italic">To Success</span>
+            </h2>
+          </div>
+     
+          <div class="cta-pill" onclick="window.location.href='./solutions.html'">
+            <span class="cta-pill-icon"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
+            <span class="cta-pill-label">View All Services</span>
+          </div>
+        </div>
+     
+        <!-- Cards -->
+        <div class="cards-row" style="display:grid; grid-template-columns:repeat(3,1fr); gap:32px;">
+     
+          <!-- Card 1 : Pure Water -->
+          <a href="./solutions-details.html?solution=pure-water" class="card-link">
+            <div class="card card-light">
+              <h3 class="card-title">Pure Water, <br/>Perfectly Engineered</h3>
+              <p class="card-desc">Design and Development of Water Treatment Systems</p>
+              <div class="card-image-wrap">
+                <img src="/Images/solutions1.png" alt="Pure Water" />
+                <div class="arrow-btn arrow-dark"><i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+            </div>
+          </a>
+     
+          <!-- Card 2 : Wastewater -->
+          <a href="./solutions-details.html?solution=sewage-reinvented" class="card-link">
+            <div class="card card-sage">
+              <h3 class="card-title">Wastewater <br/>Reinvented</h3>
+              <p class="card-desc">Comprehensive Sewage Treatment Solutions</p>
+              <div class="card-image-wrap">
+                <img src="/Images/solutions2.png" alt="Wastewater Reinvented" />
+                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+            </div>
+          </a>
+     
+          <!-- Card 3 : Next-Gen Effluent -->
+          <a href="./solutions-details.html?solution=effluent-treatment" class="card-link">
+            <div class="card card-sage">
+              <h3 class="card-title">Next-Gen Effluent <br/>&amp; Treatment Solutions</h3>
+              <p class="card-desc">Comprehensive Effluent Treatment Solutions</p>
+              <div class="card-image-wrap">
+                <img src="/Images/solutions3.png" alt="Effluent Treatment" />
+                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 4 : Reclaim Reuse -->
+          <a href="./solutions-details.html?solution=reclaim-reuse" class="card-link">
+            <div class="card card-sage">
+              <h3 class="card-title">Reclaim Reuse <br/>&amp; Restore</h3>
+              <p class="card-desc">Water Recycling, ZLD & Resource Recovery</p>
+              <div class="card-image-wrap">
+                <img src="/Images/solutions4.png" alt="Reclaim Reuse" />
+                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 5 : Smart Sustainability -->
+          <a href="./solutions-details.html?solution=smart-sustainability" class="card-link">
+            <div class="card card-sage">
+              <h3 class="card-title">Smart Sustainability in<br/> Every Drop</h3>
+              <p class="card-desc">Integrated Water Management & Sustainable Infrastructure</p>
+              <div class="card-image-wrap">
+                <img src="/Images/solutions5.png" alt="Smart Sustainability" />
+                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 6 : Intelligence -->
+          <a href="./solutions-details.html?solution=intelligence" class="card-link">
+            <div class="card card-sage">
+              <h3 class="card-title">Intelligence <br/>That Powers Water</h3>
+              <p class="card-desc">Digitalization, Automation & Remote Monitoring</p>
+              <div class="card-image-wrap">
+                <img src="/Images/solutions6.png" alt="Intelligence That Powers Water" />
+                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Card 7 : Supplies -->
+          <a href="./solutions-details.html?solution=supplies" class="card-link">
+            <div class="card card-sage">
+              <h3 class="card-title">Supplies <br/>That Power Purity</h3>
+              <p class="card-desc">Reliable Chemicals, Membranes & Spares for Every Drop</p>
+              <div class="card-image-wrap">
+                <img src="/Images/solutions7.png" alt="Supplies That Power Purity" />
+                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
+              </div>
+            </div>
+          </a>
+     
+        </div>
+      </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <script src="../header/header.js"></script>
+    <script src="../footer/footer.js"></script>
+
+    <!-- Navigation helper -->
+    <script>
+      // All solution cards are now wrapped in <a> tags with proper hrefs
+      // The "View All Services" button also navigates to the solutions page
+      console.log('Solutions page loaded. Click any card to navigate to details page.');
+    </script>
+  </body>
+</html>

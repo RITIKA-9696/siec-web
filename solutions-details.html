@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solution Details | SIEC Water</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png" />
+  <link rel="apple-touch-icon" href="./images/favicon.png" />
+  <link rel="shortcut icon" href="./images/favicon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:opsz,wght@14..32,100..900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <style>
+    :root {
+      --mint: #f8fcfa;
+      --mint2: #f2f9f6;
+      --mint3: #eaf7f2;
+      --sage: #d8eee5;
+      --t100: #d8f6ee;
+      --t200: #b7ebde;
+      --t300: #86dbc8;
+      --t400: #53c8af;
+      --t500: #26af93;
+      --t600: #0f8f78;
+      --t700: #0a7563;
+      --ink: #112a23;
+      --ink2: #2a463d;
+      --ink3: #48675b;
+      --ink4: #6b897d;
+      --ink5: #93ada3;
+      --border: #dcebe4;
+      --border-light: #eaf4ef;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", "General Sans", sans-serif;
+      background: var(--mint);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+    .font-display { font-family: "Fraunces", Georgia, serif; }
+    .font-mono { font-family: "Azeret Mono", monospace; }
+
+    .sub-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.5rem 1.2rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      text-align: center;
+    }
+    .sub-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--t400);
+      box-shadow: 0 16px 40px rgba(38,175,147,0.10);
+    }
+    .sub-card .icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: var(--t100);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--t600);
+      font-size: 22px;
+      margin: 0 auto 0.75rem;
+      transition: 0.3s;
+    }
+    .sub-card:hover .icon-wrap {
+      background: var(--t500);
+      color: white;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      padding: 1.5rem;
+    }
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .overlay-content {
+      background: #fff;
+      max-width: 720px;
+      width: 100%;
+      border-radius: 28px;
+      padding: 2rem 2rem 1.8rem;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+      transform: scale(0.95) translateY(10px);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .overlay.active .overlay-content {
+      transform: scale(1) translateY(0);
+    }
+    .overlay-close {
+      position: sticky;
+      top: 0;
+      float: right;
+      background: var(--mint2);
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--ink3);
+      transition: 0.2s;
+      z-index: 10;
+      margin-bottom: 0.5rem;
+    }
+    .overlay-close:hover {
+      background: var(--t100);
+      color: var(--t700);
+    }
+    .detail-tag {
+      background: var(--mint3);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 0.15rem 0.9rem;
+      font-size: 0.6rem;
+      font-family: 'Azeret Mono', monospace;
+      color: var(--ink3);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      display: inline-block;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem 1.2rem;
+    }
+    @media (max-width: 500px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--ink2);
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--mint3);
+    }
+    .feature-item i {
+      color: var(--t500);
+      font-size: 0.7rem;
+      width: 16px;
+      text-align: center;
+    }
+
+    /* Full height hero */
+    .hero-full {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+    }
+    @media (max-width: 640px) {
+      .hero-full { min-height: 60vh; }
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Azeret Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--t600);
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: var(--t700);
+    }
+
+    /* Application chips */
+    .app-chip {
+      background: var(--mint2);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 0.2rem 1rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--ink3);
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="header"></div>
+
+  <!-- ===== DYNAMIC HERO ===== -->
+  <section class="relative hero-full bg-[#F5F7F6]">
+    <div class="max-w-[1700px] mx-auto px-2 w-full">
+      <div class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[70vh] w-full">
+        <img id="hero-banner" src="./Images/solution_banner.png" alt="Solution" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-br from-[#053F37]/80 via-[#0A2E2E]/60 to-[#0F8F78]/40"></div>
+        <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-[#26AF93]/20 blur-3xl"></div>
+        <div class="absolute -left-16 bottom-0 w-72 h-72 rounded-full bg-[#B7EBDE]/10 blur-3xl"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 md:px-10 py-16 md:py-20 text-center flex flex-col justify-center min-h-[70vh]">
+          <div class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6 animate-fade-up mx-auto">
+            <span class="w-2 h-2 bg-[var(--t200)] rounded-full animate-pulse"></span>
+            <span id="hero-badge" class="text-xs font-mono uppercase tracking-widest text-white font-medium">Pure Water, Perfectly Engineered</span>
+          </div>
+          <h1 id="hero-title" class="font-display text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.1] tracking-tighter">
+            Pure Water, <span class="text-[var(--t200)] font-light italic">Perfectly Engineered</span>
+          </h1>
+          <p id="hero-desc" class="mt-6 text-white/85 text-lg max-w-2xl mx-auto leading-relaxed">
+            Precision-driven water treatment solutions — engineered for performance, purity, and sustainability.
+          </p>
+          <div class="flex flex-wrap justify-center gap-3 mt-8">
+            <span class="px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-mono uppercase tracking-widest">Treat</span>
+            <span class="px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-mono uppercase tracking-widest">Transform</span>
+            <span class="px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-mono uppercase tracking-widest">Sustain</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BACK LINK ===== -->
+  <section class="max-w-6xl mx-auto px-6 pt-4">
+    <a href="./solutions.html" class="back-link">
+      <i class="fa-solid fa-arrow-left"></i> Back to Solutions
+    </a>
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <section class="max-w-6xl mx-auto px-6 py-8" id="main-content">
+    <!-- dynamically populated -->
+  </section>
+
+  <!-- ===== OVERLAY ===== -->
+  <div id="overlay" class="overlay">
+    <div class="overlay-content">
+      <button id="overlay-close" class="overlay-close"><i class="fa-solid fa-xmark"></i></button>
+      <div id="overlay-body"></div>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <div id="footer"></div>
+
+  <script src="../header/header.js"></script>
+  <script src="../footer/footer.js"></script>
+
+  <script>
+    (function() {
+      // ----- ALL SOLUTION DATA -----
+      const solutions = {
+        'pure-water': {
+          id: 'pure-water',
+          label: 'Pure Water, Perfectly Engineered',
+          badge: 'Pure Water, Perfectly Engineered',
+          title: 'Pure Water, <span class="text-[var(--t200)] font-light italic">Perfectly Engineered</span>',
+          desc: 'Precision-driven water treatment solutions — from desalination to condensate polishing, engineered for performance, purity, and sustainability.',
+          banner: './Images/solution_banner.png',
+          philosophy: {
+            heading: 'Pure Water, Perfectly Engineered',
+            content: `At SIEC Water, we engineer precision-driven water treatment solutions tailored to meet complex water quality challenges across industries. Our philosophy of "Pure Water, Perfectly Engineered" is more than a tagline—it reflects a systemic, performance-oriented approach grounded in science, technology, and sustainability.
+
+            We begin with a thorough analysis of raw water characteristics, followed by selection of the most effective treatment train—whether it's reverse osmosis, ultrafiltration, ion exchange, or hybrid systems. Every plant is custom engineered to optimize recovery, reduce energy consumption, and meet specific compliance or reuse standards.
+
+            Our modular and scalable solutions integrate advanced automation (SCADA/IoT), energy recovery systems, and smart diagnostics to ensure ease of operation, long-term reliability, and data-backed decision-making. From compact mobile systems to complex industrial-scale installations, SIEC Water ensures that every drop is delivered with purity, performance, and precision.`
+          },
+          modules: [
+            { key: 'desalination', icon: 'fa-solid fa-water', label: 'Desalination System', desc: 'Seawater & brackish water' },
+            { key: 'ro', icon: 'fa-solid fa-filter-circle-dollar', label: 'Reverse Osmosis (RO)', desc: 'High-purity membrane separation' },
+            { key: 'uf', icon: 'fa-solid fa-filter', label: 'Ultra Filtration (UF)', desc: 'Superior clarity & pathogen removal' },
+            { key: 'ion-exchange', icon: 'fa-solid fa-atom', label: 'Ion Exchange System', desc: 'Selective dissolved ion removal' },
+            { key: 'cpu', icon: 'fa-solid fa-industry', label: 'Condensate Polishing (CPU)', desc: 'High-purity condensate recovery' }
+          ]
+        },
+        'sewage-reinvented': {
+          id: 'sewage-reinvented',
+          label: 'Wastewater Reinvented',
+          badge: 'Sewage Reinvented',
+          title: 'Sewage <span class="text-[var(--t200)] font-light italic">Reinvented</span>',
+          desc: 'Transforming sewage into a valuable resource through circular economy, advanced biological treatment, and resource recovery.',
+          banner: './Images/solution_banner.png',
+          philosophy: {
+            heading: 'Sewage Reinvented',
+            content: `At SIEC Water, we don't just treat sewage, we transform it into a valuable resource. Our approach to "Sewage Reinvented" is built on the principles of circular economy, advanced biological treatment, and resource recovery. We design next-generation sewage treatment plants (STPs) that go beyond compliance—focusing on energy efficiency, nutrient recovery, water reuse, and minimized environmental footprint.
+
+            Leveraging technologies like MBBR, MBR, SBR, and the A2O process, we customize treatment solutions based on influent characteristics and site-specific challenges. Intelligent process control, low-footprint design, and modular scalability make our plants ideal for both urban and industrial settings.
+
+            Whether it's reducing BOD, recovering treated water for HVAC or landscaping, or producing Class A sludge for co-composting, SIEC Water is redefining what modern sewage treatment looks like—clean, compact, and future-ready.`
+          },
+          modules: [
+            { key: 'stp', icon: 'fa-solid fa-wind', label: 'Sewage Treatment Plant', desc: 'MBBR, MBR, SBR, A2O' },
+            { key: 'tertiary', icon: 'fa-solid fa-layer-group', label: 'Tertiary Treatment Unit', desc: 'Polishing for reuse' },
+            { key: 'sludge', icon: 'fa-solid fa-droplet-slash', label: 'Sludge Treatment & Dewatering', desc: 'Volume reduction & recovery' },
+            { key: 'odor', icon: 'fa-solid fa-wind', label: 'Odor & Residue Management', desc: 'Environmental control' },
+            { key: 'decentralized', icon: 'fa-solid fa-box', label: 'Decentralized Treatment', desc: 'Compact & modular' }
+          ]
+        },
+        'effluent-treatment': {
+          id: 'effluent-treatment',
+          label: 'Next-Gen Effluent & Treatment Solutions',
+          badge: 'Effluent Treatment',
+          title: 'Next-Gen Effluent <span class="text-[var(--t200)] font-light italic">&amp; Treatment Solutions</span>',
+          desc: 'Comprehensive effluent treatment solutions for industrial wastewater management.',
+          banner: './Images/solution_banner.png',
+          philosophy: {
+            heading: 'Next-Gen Effluent & Treatment Solutions',
+            content: `At SIEC Water, we design and deliver advanced effluent treatment solutions that tackle the most challenging industrial wastewater streams. Our next-generation systems combine biological, chemical, and physical treatment processes to achieve superior contaminant removal, resource recovery, and regulatory compliance.
+
+            We specialize in treating effluents from diverse industries including chemical, pharmaceutical, textile, food and beverage, and automotive. Our solutions incorporate advanced oxidation, membrane bioreactors (MBR), reverse osmosis, and zero liquid discharge (ZLD) systems to ensure complete water recovery and minimal environmental impact.
+
+            By integrating intelligent automation, real-time monitoring, and data-driven process optimization, we help our clients achieve operational excellence while reducing water footprint, energy consumption, and waste disposal costs.`
+          },
+          modules: [
+            { key: 'chemical', icon: 'fa-solid fa-flask', label: 'Chemical Treatment', desc: 'Coagulation, precipitation & oxidation' },
+            { key: 'biological', icon: 'fa-solid fa-leaf', label: 'Biological Treatment', desc: 'Aerobic & anaerobic processes' },
+            { key: 'membrane', icon: 'fa-solid fa-filter', label: 'Membrane Systems', desc: 'MBR, UF, RO for high-quality effluent' },
+            { key: 'zld', icon: 'fa-solid fa-infinity', label: 'Zero Liquid Discharge', desc: 'Complete water recovery & salt crystallization' },
+            { key: 'automation', icon: 'fa-solid fa-microchip', label: 'Smart Process Control', desc: 'SCADA, IoT & predictive analytics' }
+          ]
+        },
+        'reclaim-reuse': {
+          id: 'reclaim-reuse',
+          label: 'Reclaim, Reuse, Restore',
+          badge: 'Reclaim. Reuse. Restore.',
+          title: 'Reclaim. <span class="text-[var(--t200)] font-light italic">Reuse.</span> Restore.',
+          desc: 'Closing the loop in water management — converting waste streams into sustainable water resources.',
+          banner: './Images/solution_banner.png',
+          philosophy: {
+            heading: 'Reclaim. Reuse. Restore.',
+            content: `At SIEC Water, we believe that every drop counts—and every drop can be reclaimed. Our "Reclaim. Reuse. Restore." philosophy centers on closing the loop in water management by converting waste streams into sustainable water resources. Through innovative integration of treatment, polishing, and recycling systems, we help clients minimize freshwater dependency and achieve water circularity.
+
+            Our reclaim and reuse systems include ultra-filtration (UF), reverse osmosis (RO), membrane bioreactors (MBR), disinfection, and nutrient polishing to produce high-quality treated water for diverse reuse applications—cooling towers, process water, flushing, and irrigation.
+
+            By restoring water quality and reintroducing it into the value chain, we empower industries, institutions, and cities to meet stringent discharge norms and sustainability goals while significantly lowering water-related costs and environmental impact.`
+          },
+          modules: [
+            { key: 'reuse', icon: 'fa-solid fa-arrows-rotate', label: 'Water Reuse & Recycling', desc: 'Closed-loop systems' },
+            { key: 'zld', icon: 'fa-solid fa-infinity', label: 'Zero Liquid Discharge', desc: '95-98% water recovery' },
+            { key: 'rainwater', icon: 'fa-solid fa-cloud-rain', label: 'Rainwater Harvesting', desc: 'Sustainable collection' },
+            { key: 'decentralized', icon: 'fa-solid fa-box', label: 'Compact Reuse Units', desc: 'Site-level solutions' },
+            { key: 'non-potable', icon: 'fa-solid fa-tree', label: 'Non-Potable Reuse', desc: 'Cooling, irrigation, flushing' }
+          ]
+        },
+        'smart-sustainability': {
+          id: 'smart-sustainability',
+          label: 'Smart Sustainability in Every Drop',
+          badge: 'Smart Sustainability in Every Drop',
+          title: 'Smart Sustainability <span class="text-[var(--t200)] font-light italic">in Every Drop</span>',
+          desc: 'Intelligent, adaptive water infrastructure — resilient, low-carbon, and cost-effective.',
+          banner: './Images/solution_banner.png',
+          philosophy: {
+            heading: 'Smart Sustainability in Every Drop',
+            content: `At SIEC Water, sustainability is not a feature, it's a foundation. Our "Smart Sustainability in Every Drop" approach reimagines water infrastructure as an intelligent, adaptive ecosystem. We embed environmental stewardship into every solution we design, leveraging smart technologies and circular strategies to minimize waste, optimize resource use, and maximize impact.
+
+            Through real-time monitoring, AI-enabled control systems, energy-efficient processes, and green chemistry, we deliver water and wastewater systems that are not only compliant—but resilient, low-carbon, and cost-effective. Rainwater harvesting, zero liquid discharge, energy recovery, and water reuse are core to our sustainability DNA.
+
+            Each drop treated is not just water restored, it's a step toward climate resilience, regulatory leadership, and long-term operational excellence.`
+          },
+          modules: [
+            { key: 'energy-efficient', icon: 'fa-solid fa-bolt', label: 'Energy-Efficient Systems', desc: 'Reduced carbon footprint' },
+            { key: 'circular', icon: 'fa-solid fa-recycle', label: 'Circular Economy Integration', desc: 'Resource optimization' },
+            { key: 'esg', icon: 'fa-solid fa-leaf', label: 'Green Certifications & ESG', desc: 'Compliance & leadership' },
+            { key: 'low-chemical', icon: 'fa-solid fa-flask', label: 'Low Chemical Footprint', desc: 'Green chemistry' },
+            { key: 'rainwater', icon: 'fa-solid fa-cloud-rain', label: 'Rainwater & Stormwater', desc: 'Sustainable management' }
+          ]
+        },
+        'intelligence': {
+          id: 'intelligence',
+          label: 'Intelligence That Powers Water',
+          badge: 'Intelligence That Powers Water',
+          title: 'Intelligence <span class="text-[var(--t200)] font-light italic">That Powers Water</span>',
+          desc: 'SCADA, IoT, AI, and digital twins — transforming water systems into smart, self-optimizing assets.',
+          banner: './Images/solution_banner.png',
+          philosophy: {
+            heading: 'Intelligence That Powers Water',
+            content: `At SIEC Water, we bring intelligence to the heart of water treatment. Our "Intelligence That Powers Water" philosophy integrates automation, data analytics, and digital control to transform traditional water systems into smart, self-optimizing assets.
+
+            We design SCADA-enabled, IoT-integrated water and effluent treatment systems that offer real-time visibility, predictive maintenance, adaptive dosing, and remote operations. Whether managing complex industrial wastewater or ensuring ultrapure process water, our intelligent systems enhance efficiency, uptime, and compliance while reducing human error and operating costs.
+
+            By embedding intelligence into every valve, sensor, and screen, SIEC ensures that your water infrastructure isn't just reactive, it's proactive, responsive, and future-ready.`
+          },
+          modules: [
+            { key: 'digital-twin', icon: 'fa-solid fa-cubes', label: 'Digital Twin Technology', desc: 'Virtual simulation & optimization' },
+            { key: 'scada', icon: 'fa-solid fa-display', label: 'SCADA & Automation', desc: 'Centralized control' },
+            { key: 'iot', icon: 'fa-solid fa-wifi', label: 'IoT & Sensor Networks', desc: 'Real-time visibility' },
+            { key: 'ai-ml', icon: 'fa-solid fa-brain', label: 'AI & ML Integration', desc: 'Predictive analytics' },
+            { key: 'analytics', icon: 'fa-solid fa-chart-pie', label: 'Data Analytics & Compliance', desc: 'Informed decision-making' }
+          ]
+        },
+        'supplies': {
+          id: 'supplies',
+          label: 'Supplies That Power Purity',
+          badge: 'Supplies That Power Purity',
+          title: 'Supplies <span class="text-[var(--t200)] font-light italic">That Power Purity</span>',
+          desc: 'High-quality chemicals, membranes, filtration media, and components — backed by technical support and logistics.',
+          banner: './Images/solution_banner.png',
+          philosophy: {
+            heading: 'Supplies That Power Purity',
+            content: `At SIEC Water, we deliver more than just materials—we deliver performance. Our complete range of high-quality chemicals, membranes, filtration media, and auxiliary components ensures that every water and wastewater treatment plant operate at its peak.
+
+            From coagulants, disinfectants, and antiscalants to RO membranes, MBBR media, and dosing systems, we source and supply trusted brands tailored to your plant's specific process needs. Our supply solutions are backed by technical support, compatibility assurance, and logistics efficiency—ensuring timely availability, regulatory compliance, and uninterrupted operations.
+
+            With SIEC as your supply partner, you gain more than inventory, you gain the confidence that every drop of water processed is backed by purity, reliability, and precision.`
+          },
+          modules: [
+            { key: 'chemicals', icon: 'fa-solid fa-flask', label: 'Water Treatment Chemicals', desc: 'Coagulants, disinfectants, antiscalants' },
+            { key: 'membranes', icon: 'fa-solid fa-filter', label: 'Membranes', desc: 'RO, UF, MBR' },
+            { key: 'filtration', icon: 'fa-solid fa-water', label: 'Filtration Systems', desc: 'Media, cartridges, skids' },
+            { key: 'mechanical', icon: 'fa-solid fa-gear', label: 'Pumps, Blowers & Components', desc: 'Mechanical equipment' },
+            { key: 'monitoring', icon: 'fa-solid fa-gauge-high', label: 'Monitoring & Utility Systems', desc: 'Controls & instrumentation' }
+          ]
+        }
+      };
+
+      // ----- MODULE DETAIL DATA (ENHANCED with full descriptions) -----
+      const moduleDetails = {
+        // ---- DESALINATION ----
+        desalination: {
+          title: 'Desalination System',
+          icon: 'fa-solid fa-water',
+          subtitle: 'Transforming Saline Water into Sustainable Freshwater Solutions',
+          description: `Engineered to convert seawater, brackish water, and high-TDS sources into high-quality usable water. Our systems combine cutting-edge membrane technologies with intelligent process control to:
+
+          • Maximize water recovery and process efficiency
+          • Reduce energy consumption through optimized pressure management and Energy Recovery Devices (ERD)
+          • Minimize membrane fouling, scaling, and operational stress
+          • Utilize corrosion-resistant materials for enhanced durability in high-salinity environments
+          • Maintain stable operating pressure for improved membrane life and system performance.
+
+          Designed for industrial, municipal, and infrastructure applications, our desalination solutions provide a sustainable answer to increasing water scarcity challenges.`,
+          features: [
+            'High Water Recovery Efficiency',
+            'Energy Efficient Operation',
+            'Advanced RO Membrane Technology',
+            'Automated SCADA/IoT Integration',
+            'Modular & Scalable Design',
+            'Reduced Operating Cost',
+            'Long Term Reliability',
+            'Minimal Environmental Impact'
+          ],
+          applications: ['Industrial Water Supply', 'Municipal Water Systems', 'Power Plant Operations', 'Coastal Infrastructure', 'Resorts & Communities', 'Mining Operations'],
+          tags: ['SWRO', 'BWRO', 'ERD', 'High recovery', 'Energy efficient']
+        },
+        ro: {
+          title: 'Reverse Osmosis (RO) System',
+          icon: 'fa-solid fa-filter-circle-dollar',
+          subtitle: 'Advanced Membrane Technology For High Purity Water',
+          description: `SIEC Water's Reverse Osmosis systems utilize advanced membrane separation technology to remove dissolved salts, ions, heavy metals, organics, and other contaminants from water. Designed for maximum efficiency and reliability, our RO systems consistently deliver high-quality water while optimizing recovery and reducing operating costs. Our modular and scalable RO solutions are suitable for a wide range of industrial, commercial, and municipal applications, ensuring purity, performance, and sustainability.`,
+          features: ['High-purity water production', 'Modular & scalable design', 'Optimized recovery & low OPEX', 'IoT-ready smart monitoring', 'Suitable for wide range of applications'],
+          applications: ['Industrial water purification', 'Commercial water systems', 'Municipal water treatment'],
+          tags: ['High purity', 'Low fouling', 'Modular']
+        },
+        uf: {
+          title: 'Ultra Filtration (UF) System',
+          icon: 'fa-solid fa-filter',
+          subtitle: 'Advanced Membrane Technology for Superior Water Clarity',
+          description: `SIEC Water's Ultra Filtration (UF) Systems utilize advanced membrane separation technology to effectively remove suspended solids, colloids, bacteria, viruses, and high molecular-weight contaminants from water. Designed for superior filtration efficiency and operational reliability, our UF systems ensure consistent water quality while reducing chemical consumption and pretreatment requirements. Our modular and scalable UF solutions are integrated with intelligent automation and monitoring systems, making them ideal for industrial, municipal, and water reuse applications.`,
+          features: ['High suspended solids removal', 'Effective bacteria & virus removal', 'Low chemical consumption', 'Automated backwash operation', 'SCADA / IoT integration', 'Modular & compact design', 'Energy efficient operation', 'Reliable long-term performance'],
+          applications: ['Industrial pre-treatment', 'Municipal water reuse', 'Desalination pre-treatment'],
+          tags: ['Bacteria removal', 'Compact', 'Energy efficient']
+        },
+        'ion-exchange': {
+          title: 'Ion Exchange System',
+          icon: 'fa-solid fa-atom',
+          subtitle: 'Advanced Resin Technology for High-Purity Water Treatment',
+          description: `SIEC Water's Ion Exchange Systems utilize advanced resin-based technology to selectively remove dissolved ions and impurities from water. The process efficiently exchanges undesirable ions such as calcium, magnesium, nitrates, silica, and heavy metals with desirable ions, ensuring superior water quality and process reliability. Our intelligent and customized systems are engineered for high performance, operational efficiency, and long-term sustainability across industrial and commercial applications.`,
+          features: ['Selective ion removal', 'High-purity water output', 'Custom resin configurations', 'Operational reliability', 'Low chemical usage'],
+          applications: ['Industrial demineralization', 'Boiler feed water', 'Pharmaceutical production', 'Electronics manufacturing'],
+          tags: ['High purity', 'Custom resin', 'Heavy metal removal']
+        },
+        cpu: {
+          title: 'Condensate Polishing Unit (CPU)',
+          icon: 'fa-solid fa-industry',
+          subtitle: 'Advanced Resin Technology for High-Purity Water Treatment',
+          description: `SIEC Water's Condensate Polishing Unit (CPU) Systems are designed to remove dissolved impurities, suspended particles, corrosion products, silica, and ionic contaminants from condensate streams to ensure high-purity water recovery. Our systems utilize advanced ion exchange resins, filtration technologies, and intelligent monitoring systems to protect boilers, turbines, and steam generation equipment while improving plant efficiency and reducing operating costs. Engineered for superior performance and operational reliability, CPU systems maximize condensate reuse and minimize freshwater consumption.`,
+          features: ['High conductivity reduction', 'Silica removal capability', 'High purification efficiency', 'Automated monitoring & control', 'Modular & compact design', 'Low operating cost', 'Long-term reliability'],
+          applications: ['Power plants', 'Refineries', 'Petrochemical facilities', 'Steam generation systems'],
+          tags: ['High purity', 'Low OPEX', 'Boiler protection']
+        },
+        // ---- Wastewater ----
+        stp: {
+          title: 'Sewage Treatment Plant (STP)',
+          icon: 'fa-solid fa-wind',
+          subtitle: 'Advanced Biological Treatment Technologies',
+          description: `Advanced biological treatment technologies including MBBR, MBR, SBR, ASP, and hybrid systems designed for enhanced organic load reduction and nutrient removal. Intelligent process monitoring with integrated SCADA systems, online analyzers, IoT-enabled sensors, and real-time monitoring for process stability and operational efficiency.`,
+          features: ['Biological process optimization', 'Nutrient removal (N & P)', 'Energy-efficient aeration', 'Modular & compact design', 'SCADA / IoT monitoring'],
+          applications: ['Municipal wastewater', 'Residential complexes', 'Commercial buildings'],
+          tags: ['MBBR', 'MBR', 'SBR', 'ASP']
+        },
+        tertiary: {
+          title: 'Tertiary Treatment Unit (TTU)',
+          icon: 'fa-solid fa-layer-group',
+          subtitle: 'Polishing Treated Water to Reuse-Grade Quality',
+          description: `Polishing treated wastewater to reuse-grade quality using advanced filtration and disinfection. Removes residual suspended solids, polishes for reuse standards, and offers UV / ozone disinfection options in a compact footprint.`,
+          features: ['Removes residual suspended solids', 'Polishing for reuse standards', 'UV / ozone disinfection options', 'Compact footprint'],
+          applications: ['Water reuse', 'Irrigation', 'Industrial cooling'],
+          tags: ['Polishing', 'Reuse', 'Disinfection']
+        },
+        sludge: {
+          title: 'Sludge Treatment & Dewatering',
+          icon: 'fa-solid fa-droplet-slash',
+          subtitle: 'Thickening, Dewatering, and Stabilization',
+          description: `Thickening, dewatering, and stabilization to reduce sludge volume and disposal costs. Includes sludge thickening & dewatering, reduced disposal volume, resource recovery approach, and low environmental impact.`,
+          features: ['Sludge thickening & dewatering', 'Reduced disposal volume', 'Resource recovery approach', 'Low environmental impact'],
+          applications: ['Municipal STP', 'Industrial ETP', 'Food processing'],
+          tags: ['Thickening', 'Dewatering', 'Volume reduction']
+        },
+        odor: {
+          title: 'Odor & Residue Management',
+          icon: 'fa-solid fa-wind',
+          subtitle: 'Comprehensive Odor Control and Residue Management',
+          description: `Comprehensive odor control and residue management systems for environmentally sustainable operations. Includes odor reduction systems, lower environmental impact, sustainable plant operation, and chemical & biological treatment.`,
+          features: ['Odor reduction systems', 'Lower environmental impact', 'Sustainable plant operation', 'Chemical & biological treatment'],
+          applications: ['STP', 'ETP', 'Food & beverage', 'Chemical plants'],
+          tags: ['Odor control', 'Residue management', 'Sustainable']
+        },
+        decentralized: {
+          title: 'Decentralized Treatment Solutions',
+          icon: 'fa-solid fa-box',
+          subtitle: 'Compact, Modular Systems for Site-Level Treatment',
+          description: `Compact, modular systems for site-level water treatment and reuse. Features space-efficient design, easy installation & operation, expandable for future capacity, and low footprint.`,
+          features: ['Space-efficient design', 'Easy installation & operation', 'Expandable for future capacity', 'Low footprint'],
+          applications: ['Remote communities', 'Resorts', 'Construction sites', 'Emergency response'],
+          tags: ['Modular', 'Compact', 'Rapid deployment']
+        },
+        // ---- Reclaim & Reuse ----
+        reuse: {
+          title: 'Water Reuse & Recycling',
+          icon: 'fa-solid fa-arrows-rotate',
+          subtitle: 'Closed-Loop Systems for Circular Water Management',
+          description: `Closed-loop systems that minimize freshwater dependency through advanced treatment and reuse. Includes reuse of treated water in process, cooling & utilities, circular water management strategy, resource optimization & sustainability, and intelligent monitoring & performance control.`,
+          features: ['Reuse treated water in process, cooling & utilities', 'Circular water management strategy', 'Resource optimization & sustainability', 'Intelligent monitoring & performance control'],
+          applications: ['Industrial', 'Municipal', 'Agriculture', 'Real estate'],
+          tags: ['IWRM', 'Resource recovery', 'Circular']
+        },
+        zld: {
+          title: 'Zero Liquid Discharge (ZLD) System',
+          icon: 'fa-solid fa-infinity',
+          subtitle: 'Complete Water Recovery with Zero Discharge',
+          description: `Multi-effect evaporators, ATFD, crystallizers, and salt recovery systems for complete water recovery. Achieves up to 95-98% water recovery with salt recovery & by-product utilization, supporting circular economy goals with end-to-end ZLD solutions.`,
+          features: ['Up to 95–98% water recovery', 'Salt recovery & by-product utilization', 'Support circular economy goals', 'End-to-end ZLD solutions'],
+          applications: ['Industries with stringent discharge norms', 'Mining', 'Power plants'],
+          tags: ['Salt recovery', 'Zero discharge', 'Circular']
+        },
+        rainwater: {
+          title: 'Rainwater Harvesting Systems',
+          icon: 'fa-solid fa-cloud-rain',
+          subtitle: 'Sustainable Collection, Storage, and Utilization',
+          description: `Sustainable collection, storage, and utilization of rainwater for various applications. Includes sustainable water collection, storage & distribution, integration with treatment systems, and reduced freshwater dependency.`,
+          features: ['Sustainable water collection', 'Storage & distribution', 'Integration with treatment systems', 'Reduced freshwater dependency'],
+          applications: ['Buildings', 'Campuses', 'Industrial facilities', 'Municipalities'],
+          tags: ['Rainwater', 'Harvesting', 'Sustainable']
+        },
+        'non-potable': {
+          title: 'Treated Water for Non-Potable Uses',
+          icon: 'fa-solid fa-tree',
+          subtitle: 'High-Quality Treated Water for Diverse Applications',
+          description: `High-quality treated water for cooling towers, process water, flushing, and irrigation. Includes cooling tower makeup, process water supply, flushing & sanitation, and landscape irrigation.`,
+          features: ['Cooling tower makeup', 'Process water supply', 'Flushing & sanitation', 'Landscape irrigation'],
+          applications: ['Industrial', 'Commercial', 'Institutional', 'Residential'],
+          tags: ['Reuse', 'Non-potable', 'Circular']
+        },
+        // ---- Smart Sustainability ----
+        'energy-efficient': {
+          title: 'Energy-Efficient Water Systems',
+          icon: 'fa-solid fa-bolt',
+          subtitle: 'Optimized Systems for Reduced Energy Consumption',
+          description: `Optimized systems that reduce energy consumption while maintaining high treatment performance. Features energy-efficient equipment, optimized hydraulic design, reduced resource consumption, and improved overall system performance.`,
+          features: ['Energy-efficient equipment', 'Optimized hydraulic design', 'Reduced resource consumption', 'Improved overall system performance'],
+          applications: ['All water and wastewater projects'],
+          tags: ['Energy efficiency', 'Low carbon', 'Sustainable']
+        },
+        circular: {
+          title: 'Circular Economy Integration',
+          icon: 'fa-solid fa-recycle',
+          subtitle: 'Adoption of Water Reuse, Waste Minimization, and Resource Recovery',
+          description: `Adoption of water reuse, waste minimization, resource recovery, and sustainable process strategies. Includes water reuse & recycling, waste minimization, resource recovery, and sustainable process strategies.`,
+          features: ['Water reuse & recycling', 'Waste minimization', 'Resource recovery', 'Sustainable process strategies'],
+          applications: ['Industrial', 'Municipal', 'Institutional'],
+          tags: ['Circular', 'Resource recovery', 'Sustainable']
+        },
+        esg: {
+          title: 'Green Certifications & ESG Compliance',
+          icon: 'fa-solid fa-leaf',
+          subtitle: 'Design and Operation Aligned with Sustainability Benchmarks',
+          description: `Design and operation aligned with regulatory requirements, sustainability benchmarks, and ESG objectives. Includes regulatory compliance, sustainability benchmarks, carbon reduction initiatives, and ESG alignment.`,
+          features: ['Regulatory compliance', 'Sustainability benchmarks', 'Carbon reduction initiatives', 'ESG alignment'],
+          applications: ['All projects requiring sustainability compliance'],
+          tags: ['ESG', 'Compliance', 'Green']
+        },
+        'low-chemical': {
+          title: 'Low Chemical Footprint Systems',
+          icon: 'fa-solid fa-flask',
+          subtitle: 'Systems Designed to Minimize Chemical Usage',
+          description: `Systems designed to minimize chemical usage while maintaining treatment effectiveness. Features reduced chemical consumption, green chemistry approaches, lower environmental impact, and cost-effective operation.`,
+          features: ['Reduced chemical consumption', 'Green chemistry approaches', 'Lower environmental impact', 'Cost-effective operation'],
+          applications: ['Water and wastewater treatment'],
+          tags: ['Low chemical', 'Green chemistry', 'Sustainable']
+        },
+        // ---- Intelligence ----
+        'digital-twin': {
+          title: 'Digital Twin Technology',
+          icon: 'fa-solid fa-cubes',
+          subtitle: 'Virtual Replica for Simulation and Optimization',
+          description: `Virtual replica of physical systems for simulation, optimization, and predictive maintenance. Includes virtual system simulation, performance optimization, predictive maintenance, and operational intelligence.`,
+          features: ['Virtual system simulation', 'Performance optimization', 'Predictive maintenance', 'Operational intelligence'],
+          applications: ['Complex water and wastewater systems'],
+          tags: ['Digital twin', 'Simulation', 'Optimization']
+        },
+        scada: {
+          title: 'SCADA & Automation',
+          icon: 'fa-solid fa-display',
+          subtitle: 'Integrated Control Platforms for Seamless Plant Operation',
+          description: `Integrated SCADA platforms and PLC-based control systems for seamless plant operation and process optimization. Features SCADA platforms, PLC-based control, intelligent automation architecture, and process optimization.`,
+          features: ['SCADA platforms', 'PLC-based control', 'Intelligent automation architecture', 'Process optimization'],
+          applications: ['All treatment plants'],
+          tags: ['SCADA', 'Automation', 'Control']
+        },
+        iot: {
+          title: 'IoT & Sensor Networks',
+          icon: 'fa-solid fa-wifi',
+          subtitle: 'Real-Time Visibility Through IoT-Enabled Sensors',
+          description: `IoT-enabled sensors, online analyzers, and centralized dashboards for real-time operational data. Features IoT-enabled sensors, online analyzers, centralized dashboards, and live operational data.`,
+          features: ['IoT-enabled sensors', 'Online analyzers', 'Centralized dashboards', 'Live operational data'],
+          applications: ['Remote monitoring', 'Smart cities', 'Industrial plants'],
+          tags: ['IoT', 'Sensors', 'Real-time']
+        },
+        'ai-ml': {
+          title: 'AI & ML Integration',
+          icon: 'fa-solid fa-brain',
+          subtitle: 'AI-Driven Predictive Maintenance and Fault Detection',
+          description: `AI-driven predictive maintenance, equipment health monitoring, fault detection, and lifecycle management. Includes predictive maintenance, equipment health monitoring, fault detection, and lifecycle management.`,
+          features: ['Predictive maintenance', 'Equipment health monitoring', 'Fault detection', 'Lifecycle management'],
+          applications: ['Critical infrastructure', 'Industrial plants'],
+          tags: ['AI', 'ML', 'Predictive']
+        },
+        analytics: {
+          title: 'Data Analytics & Compliance',
+          icon: 'fa-solid fa-chart-pie',
+          subtitle: 'Advanced Analytics for Operational Excellence',
+          description: `Advanced analytics, digital twin integration, and performance optimization tools for operational excellence. Features advanced analytics, digital twin integration, process simulation, and data-driven optimization.`,
+          features: ['Advanced analytics', 'Digital twin integration', 'Process simulation', 'Data-driven optimization'],
+          applications: ['All treatment systems'],
+          tags: ['Analytics', 'Compliance', 'Optimization']
+        },
+        // ---- Supplies ----
+        chemicals: {
+          title: 'Water Treatment Chemicals',
+          icon: 'fa-solid fa-flask',
+          subtitle: 'High-Quality Chemicals for Treatment Processes',
+          description: `High-quality coagulants, disinfectants, antiscalants, and specialty chemicals for treatment processes. Includes coagulants & flocculants, disinfectants & oxidants, antiscalants & corrosion inhibitors, and specialty chemicals.`,
+          features: ['Coagulants & flocculants', 'Disinfectants & oxidants', 'Antiscalants & corrosion inhibitors', 'Specialty chemicals'],
+          applications: ['All water and wastewater treatment'],
+          tags: ['Chemicals', 'Treatment', 'Quality']
+        },
+        membranes: {
+          title: 'Membranes',
+          icon: 'fa-solid fa-filter',
+          subtitle: 'Premium RO, UF, MBR, and Specialty Membranes',
+          description: `Premium RO, UF, MBR, and specialty membranes for high-performance separation. Includes RO membranes, UF membranes, MBR membranes, and specialty membranes.`,
+          features: ['RO membranes', 'UF membranes', 'MBR membranes', 'Specialty membranes'],
+          applications: ['Desalination', 'Water reuse', 'Industrial treatment'],
+          tags: ['Membranes', 'RO', 'UF', 'MBR']
+        },
+        filtration: {
+          title: 'Filtration Systems',
+          icon: 'fa-solid fa-water',
+          subtitle: 'Complete Filtration Solutions for Every Application',
+          description: `Complete filtration solutions including media filters, cartridge filters, and skid-mounted systems. Features media filtration, cartridge filtration, skid-mounted systems, and custom configurations.`,
+          features: ['Media filtration', 'Cartridge filtration', 'Skid-mounted systems', 'Custom configurations'],
+          applications: ['Pre-treatment', 'Polishing', 'Industrial applications'],
+          tags: ['Filtration', 'Media', 'Cartridge']
+        },
+        mechanical: {
+          title: 'Pumps, Blowers & Mechanical Components',
+          icon: 'fa-solid fa-gear',
+          subtitle: 'High-Performance Mechanical Equipment',
+          description: `High-performance pumps, blowers, and mechanical equipment for reliable plant operation. Includes centrifugal & positive displacement pumps, blowers & compressors, mechanical components, and custom assemblies.`,
+          features: ['Centrifugal & positive displacement pumps', 'Blowers & compressors', 'Mechanical components', 'Custom assemblies'],
+          applications: ['All treatment plants'],
+          tags: ['Pumps', 'Blowers', 'Mechanical']
+        },
+        monitoring: {
+          title: 'Monitoring, Control & Utility Systems',
+          icon: 'fa-solid fa-gauge-high',
+          subtitle: 'Comprehensive Monitoring and Control Systems',
+          description: `Comprehensive monitoring and control systems for optimal plant performance. Features process instrumentation, control systems, utility management, and compliance monitoring.`,
+          features: ['Process instrumentation', 'Control systems', 'Utility management', 'Compliance monitoring'],
+          applications: ['All treatment systems'],
+          tags: ['Monitoring', 'Control', 'Instrumentation']
+        }
+      };
+
+      // ----- Get solution from URL param -----
+      const urlParams = new URLSearchParams(window.location.search);
+      let currentSolution = urlParams.get('solution') || 'pure-water';
+      
+      // If the solution doesn't exist in our data, fallback to pure-water
+      if (!solutions[currentSolution]) {
+        currentSolution = 'pure-water';
+      }
+
+      // ----- DOM refs -----
+      const heroBanner = document.getElementById('hero-banner');
+      const heroBadge = document.getElementById('hero-badge');
+      const heroTitle = document.getElementById('hero-title');
+      const heroDesc = document.getElementById('hero-desc');
+      const mainContent = document.getElementById('main-content');
+      const overlay = document.getElementById('overlay');
+      const overlayBody = document.getElementById('overlay-body');
+      const overlayClose = document.getElementById('overlay-close');
+
+      // ----- Render solution content -----
+      function renderSolution(key) {
+        const sol = solutions[key];
+        if (!sol) return;
+
+        heroBanner.src = sol.banner || './Images/solution_banner.png';
+        heroBadge.textContent = sol.badge;
+        heroTitle.innerHTML = sol.title;
+        heroDesc.textContent = sol.desc;
+
+        let html = `
+          <div class="bg-white rounded-2xl border border-[var(--border)] p-6 md:p-8 shadow-sm mb-10">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 rounded-full bg-[var(--t100)] flex items-center justify-center text-[var(--t600)] flex-shrink-0 text-xl">
+                <i class="fa-solid fa-quote-left"></i>
+              </div>
+              <div>
+                <h2 class="font-display text-2xl text-[var(--ink)]">${sol.philosophy.heading}</h2>
+                <div class="text-sm text-[var(--ink3)] leading-relaxed mt-2 whitespace-pre-line">${sol.philosophy.content}</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-6">
+            <h3 class="font-display text-2xl text-[var(--ink)] text-center mb-8">Our Solutions</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              ${sol.modules.map(mod => `
+                <div class="sub-card" data-module="${mod.key}">
+                  <div class="icon-wrap"><i class="${mod.icon}"></i></div>
+                  <h4 class="font-display text-base font-semibold text-[var(--ink)]">${mod.label}</h4>
+                  <p class="text-xs text-[var(--ink4)] mt-1">${mod.desc}</p>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+
+        mainContent.innerHTML = html;
+
+        document.querySelectorAll('.sub-card').forEach(card => {
+          card.addEventListener('click', function() {
+            const moduleKey = this.dataset.module;
+            if (moduleKey && moduleDetails[moduleKey]) {
+              openOverlay(moduleKey);
+            }
+          });
+        });
+      }
+
+      // ----- Overlay with professional layout -----
+      function openOverlay(moduleKey) {
+        const data = moduleDetails[moduleKey];
+        if (!data) return;
+
+        const featureItems = data.features.map(f => `
+          <div class="feature-item">
+            <i class="fa-solid fa-check-circle"></i>
+            <span>${f}</span>
+          </div>
+        `).join('');
+
+        const appChips = data.applications.map(app => `
+          <span class="app-chip">${app}</span>
+        `).join('');
+
+        overlayBody.innerHTML = `
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 rounded-full bg-[var(--t100)] flex items-center justify-center text-[var(--t600)] text-xl flex-shrink-0">
+              <i class="${data.icon}"></i>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl text-[var(--ink)]">${data.title}</h3>
+              <p class="text-xs font-mono uppercase tracking-wider text-[var(--t500)] mt-0.5">${data.subtitle}</p>
+              <div class="flex flex-wrap gap-1.5 mt-2">
+                ${data.tags.map(t => `<span class="detail-tag">${t}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+
+          <div class="text-sm text-[var(--ink3)] leading-relaxed bg-[var(--mint2)] p-4 rounded-xl border border-[var(--border)] mb-5">
+            <p class="whitespace-pre-line">${data.description}</p>
+          </div>
+
+          <div class="mb-5">
+            <h4 class="font-display text-sm font-semibold text-[var(--ink)] uppercase tracking-wider mb-3 flex items-center gap-2">
+              <span class="w-1 h-4 rounded-full bg-[var(--t500)]"></span> Key Features
+            </h4>
+            <div class="feature-grid">
+              ${featureItems}
+            </div>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-[var(--border)]">
+            <h4 class="font-display text-sm font-semibold text-[var(--ink)] uppercase tracking-wider mb-2 flex items-center gap-2">
+              <span class="w-1 h-4 rounded-full bg-[var(--t500)]"></span> Applications
+            </h4>
+            <div class="flex flex-wrap gap-2">
+              ${appChips}
+            </div>
+          </div>
+
+          <div class="mt-5 pt-3 border-t border-[var(--border)] flex items-center justify-between">
+            <span class="text-[10px] font-mono uppercase tracking-widest text-[var(--ink4)]">SIEC Water</span>
+            <span class="text-[9px] font-mono text-[var(--ink4)]">Treat · Transform · Sustain</span>
+          </div>
+        `;
+
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeOverlay() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      // ----- Init -----
+      renderSolution(currentSolution);
+
+      overlayClose.addEventListener('click', closeOverlay);
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) closeOverlay();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeOverlay();
+      });
+
+    })();
+  </script>
+
+</body>
+</html>
