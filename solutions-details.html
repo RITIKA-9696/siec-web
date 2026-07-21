@@ -57,7 +57,7 @@
 
     .sub-card {
       background: #fff;
-      border: 1px solid var(--border);
+      border: 1px solid var(--t300);
       border-radius: 20px;
       padding: 1.5rem 1.2rem;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -226,7 +226,7 @@
   <section class="relative hero-full bg-[#F5F7F6]">
     <div class="max-w-[1700px] mx-auto px-2 w-full">
       <div class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[70vh] w-full">
-        <img id="hero-banner" src="./Images/solution_banner.png" alt="Solution" class="absolute inset-0 w-full h-full object-cover" />
+        <img id="hero-banner" src="./Images/solutions-details.png" alt="Solution" class="absolute inset-0 w-full h-full object-cover" />
         <div class="absolute inset-0 bg-gradient-to-br from-[#053F37]/80 via-[#0A2E2E]/60 to-[#0F8F78]/40"></div>
         <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-[#26AF93]/20 blur-3xl"></div>
         <div class="absolute -left-16 bottom-0 w-72 h-72 rounded-full bg-[#B7EBDE]/10 blur-3xl"></div>
@@ -288,7 +288,7 @@
           badge: 'Pure Water, Perfectly Engineered',
           title: 'Pure Water, <span class="text-[var(--t200)] font-light italic">Perfectly Engineered</span>',
           desc: 'Precision-driven water treatment solutions — from desalination to condensate polishing, engineered for performance, purity, and sustainability.',
-          banner: './Images/solution_banner.png',
+          banner: './Images/solutions-details.png',
           philosophy: {
             heading: 'Pure Water, Perfectly Engineered',
             content: `At SIEC Water, we engineer precision-driven water treatment solutions tailored to meet complex water quality challenges across industries. Our philosophy of "Pure Water, Perfectly Engineered" is more than a tagline—it reflects a systemic, performance-oriented approach grounded in science, technology, and sustainability.
@@ -311,7 +311,7 @@
           badge: 'Sewage Reinvented',
           title: 'Sewage <span class="text-[var(--t200)] font-light italic">Reinvented</span>',
           desc: 'Transforming sewage into a valuable resource through circular economy, advanced biological treatment, and resource recovery.',
-          banner: './Images/solution_banner.png',
+          banner: './Images/solutions-details.png',
           philosophy: {
             heading: 'Sewage Reinvented',
             content: `At SIEC Water, we don't just treat sewage, we transform it into a valuable resource. Our approach to "Sewage Reinvented" is built on the principles of circular economy, advanced biological treatment, and resource recovery. We design next-generation sewage treatment plants (STPs) that go beyond compliance—focusing on energy efficiency, nutrient recovery, water reuse, and minimized environmental footprint.
@@ -334,7 +334,7 @@
           badge: 'Effluent Treatment',
           title: 'Next-Gen Effluent <span class="text-[var(--t200)] font-light italic">&amp; Treatment Solutions</span>',
           desc: 'Comprehensive effluent treatment solutions for industrial wastewater management.',
-          banner: './Images/solution_banner.png',
+          banner: './Images/solutions-details.png',
           philosophy: {
             heading: 'Next-Gen Effluent & Treatment Solutions',
             content: `At SIEC Water, we design and deliver advanced effluent treatment solutions that tackle the most challenging industrial wastewater streams. Our next-generation systems combine biological, chemical, and physical treatment processes to achieve superior contaminant removal, resource recovery, and regulatory compliance.
@@ -357,7 +357,7 @@
           badge: 'Reclaim. Reuse. Restore.',
           title: 'Reclaim. <span class="text-[var(--t200)] font-light italic">Reuse.</span> Restore.',
           desc: 'Closing the loop in water management — converting waste streams into sustainable water resources.',
-          banner: './Images/solution_banner.png',
+          banner: './Images/solutions-details.png',
           philosophy: {
             heading: 'Reclaim. Reuse. Restore.',
             content: `At SIEC Water, we believe that every drop counts—and every drop can be reclaimed. Our "Reclaim. Reuse. Restore." philosophy centers on closing the loop in water management by converting waste streams into sustainable water resources. Through innovative integration of treatment, polishing, and recycling systems, we help clients minimize freshwater dependency and achieve water circularity.
@@ -380,7 +380,7 @@
           badge: 'Smart Sustainability in Every Drop',
           title: 'Smart Sustainability <span class="text-[var(--t200)] font-light italic">in Every Drop</span>',
           desc: 'Intelligent, adaptive water infrastructure — resilient, low-carbon, and cost-effective.',
-          banner: './Images/solution_banner.png',
+          banner: './Images/solutions-details.png',
           philosophy: {
             heading: 'Smart Sustainability in Every Drop',
             content: `At SIEC Water, sustainability is not a feature, it's a foundation. Our "Smart Sustainability in Every Drop" approach reimagines water infrastructure as an intelligent, adaptive ecosystem. We embed environmental stewardship into every solution we design, leveraging smart technologies and circular strategies to minimize waste, optimize resource use, and maximize impact.
@@ -403,7 +403,7 @@
           badge: 'Intelligence That Powers Water',
           title: 'Intelligence <span class="text-[var(--t200)] font-light italic">That Powers Water</span>',
           desc: 'SCADA, IoT, AI, and digital twins — transforming water systems into smart, self-optimizing assets.',
-          banner: './Images/solution_banner.png',
+          banner: './Images/solutions-details.png',
           philosophy: {
             heading: 'Intelligence That Powers Water',
             content: `At SIEC Water, we bring intelligence to the heart of water treatment. Our "Intelligence That Powers Water" philosophy integrates automation, data analytics, and digital control to transform traditional water systems into smart, self-optimizing assets.
@@ -426,7 +426,7 @@
           badge: 'Supplies That Power Purity',
           title: 'Supplies <span class="text-[var(--t200)] font-light italic">That Power Purity</span>',
           desc: 'High-quality chemicals, membranes, filtration media, and components — backed by technical support and logistics.',
-          banner: './Images/solution_banner.png',
+          banner: './Images/solutions-details.png',
           philosophy: {
             heading: 'Supplies That Power Purity',
             content: `At SIEC Water, we deliver more than just materials—we deliver performance. Our complete range of high-quality chemicals, membranes, filtration media, and auxiliary components ensures that every water and wastewater treatment plant operate at its peak.
@@ -748,13 +748,13 @@
         const sol = solutions[key];
         if (!sol) return;
 
-        heroBanner.src = sol.banner || './Images/solution_banner.png';
+        heroBanner.src = sol.banner || './Images/solutions-details.png';
         heroBadge.textContent = sol.badge;
         heroTitle.innerHTML = sol.title;
         heroDesc.textContent = sol.desc;
 
         let html = `
-          <div class="bg-white rounded-2xl border border-[var(--border)] p-6 md:p-8 shadow-sm mb-10">
+          <div class="bg-white rounded-2xl border border-[var(--t300)] p-6 md:p-8 shadow-sm mb-10">
             <div class="flex items-start gap-4">
               <div class="w-12 h-12 rounded-full bg-[var(--t100)] flex items-center justify-center text-[var(--t600)] flex-shrink-0 text-xl">
                 <i class="fa-solid fa-quote-left"></i>

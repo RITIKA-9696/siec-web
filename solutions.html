@@ -57,173 +57,203 @@
   }
   .font-serif-italic{ font-family:"Fraunces", Georgia, serif; font-style:italic; }
  
-  .services-section{
-    background: white;
+   /* ===== Premium Services Section ===== */
+  .services-section-v2{
+    background:#FAFAFA;
+    padding:70px 0 100px;
     position:relative;
-    overflow:hidden;
-    padding: 88px 0 100px;
   }
-  /* faint texture ring, signature element */
-  .services-section::before{
-    content:"";
-    position:absolute;
-    top:-220px; right:-220px;
-    width:560px; height:560px;
-    border-radius:50%;
-    border:1px solid rgba(217,164,65,0.14);
-  }
-  .services-section::after{
-    content:"";
-    position:absolute;
-    top:-140px; right:-140px;
-    width:560px; height:560px;
-    border-radius:50%;
-    border:1px solid rgba(217,164,65,0.10);
-  }
- 
-  .wrap{
-    max-width:1280px;
+  .services-section-v2 .wrap{
+    max-width:1200px;
     margin:0 auto;
     padding:0 40px;
-    position:relative;
-    z-index:2;
   }
- 
-  /* CTA pill */
-  .cta-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:14px;
-    background: var(--t100);
-    border-radius:999px;
-    /* padding:2px; */
-    /* padding-right:2px; */
-    cursor:pointer;
-    transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s;
-  }
-  .cta-pill:hover{
-    transform: translateY(-3px);
-    box-shadow: 0 14px 30px rgba(0,0,0,0.18);
-  }
-  .cta-pill-icon{
-    width:44px; height:44px;
-    border-radius:50%;
-    background: var(--t200);
-    color: green;
-    display:flex; align-items:center; justify-content:center;
-    font-size:15px;
-    flex-shrink:0;
-    transition: background .3s;
-  }
-  .cta-pill:hover .cta-pill-icon{ background: var(--t300); }
-  .cta-pill-label{
-    font-weight:700;
-    font-size:14px;
-    letter-spacing:0.01em;
-    color: var(--forest-dark);
-    white-space:nowrap;
-    background:var(--t300);
-    padding:6px 12px;
-    border-radius:999px;
-  }
- 
-   /* Cards - REDUCED HEIGHT */
-  .card{
-    border-radius:28px;
-    padding:20px;  /* reduced from 24px */
-    height:380px;  /* reduced from 500px */
-    display:flex;
-    flex-direction:column;
-    position:relative;
-    transition: transform .45s cubic-bezier(.4,0,.2,1);
-    cursor: pointer;
-    text-decoration: none;
-  }
-  .card:hover{ transform: translateY(-8px); }
- 
-  .card-light{
-    background-color:rgb(230, 230, 230);
-    color: var(--t700);
-    border:1px solid rgb(189, 189, 189);
-  }
-  .card-sage{
-    background: var(--sage);
-    color:var(--ink4);
-    border:1px solid var(--t300);
-  }
- 
-  .card-title{
-    font-weight:800;
-    font-size:22px;  /* reduced from 28px */
-    line-height:1.15;
-    letter-spacing:-0.01em;
-    margin-bottom:6px;  /* reduced from 10px */
-  }
-  .card-light .card-title{ color: gray; }
- 
- 
-  .card-desc{
-    font-size:13px;  /* reduced from 14.5px */
-    line-height:1.5;
-    font-weight:500;
-    margin-bottom:12px;  /* reduced from 18px */
-    max-width: 92%;
-  }
-  .card-light .card-desc{ color:#6b7a75; }
-  .card-sage .card-desc{ color: gray; }
- 
-  .card-image-wrap{
-    position:relative;
-    flex:1;
-    border-radius:20px;
-    overflow:hidden;
-    min-height:0;
-  }
-  .card-image-wrap img{
-    width:100%; height:100%;
-    object-fit:cover;
+  .services-eyebrow{
     display:block;
-    transition: transform .6s cubic-bezier(.4,0,.2,1);
+    text-align:center;
+    font-family:"Poppins","Inter",system-ui,sans-serif;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--t600);
+    margin-bottom:16px;
   }
-  .card:hover .card-image-wrap img{ transform: scale(1.05); }
- 
-  .arrow-btn{
-    position:absolute;
-    right:14px; bottom:-14px;  /* adjusted position */
-    width:48px; height:48px;   /* reduced from 56px */
-    border-radius:50%;
-    display:flex; align-items:center; justify-content:center;
-    color:var(--t500);
-    background: var(--t700);
-    transition: transform .35s cubic-bezier(.4,0,.2,1);
-    font-size:16px;  /* reduced from 18px */
-    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
-    border:3px solid var(--cream);  /* reduced from 4px */
-    margin-bottom:12px;  /* reduced from 16px */
-  }
-  .card-sage .arrow-btn{ border-color: var(--sage); }
- 
-  .arrow-dark{ background:var(--t200); cursor:pointer; color:white; }
-  .arrow-mustard{ background: var(--t200); color: var(--forest-dark);  cursor:pointer; }
- 
-  @media (max-width: 1024px){
-    .cards-row{ grid-template-columns: repeat(2, 1fr) !important; }
-  }
-  @media (max-width: 680px){
-    .cards-row{ grid-template-columns: 1fr !important; }
-    .services-section{ padding: 64px 0 72px; }
-    .wrap{ padding: 0 24px; }
-    .heading-row{ flex-direction:column; align-items:flex-start !important; gap:28px; }
+  .services-heading-v2{
+    font-family:"Fraunces","Playfair Display",Georgia,serif;
+    font-weight:700;
+    font-size:clamp(32px,4vw,48px);
+    line-height:1.2;
+    text-align:center;
+    color:var(--t700);
+    max-width:760px;
+    margin:0 auto 96px;
+    letter-spacing:-0.01em;
   }
 
-  /* Card clickable wrapper */
-  .card-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
+  .service-cards-grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(280px, 360px));
+    justify-content:center;
+    gap:56px 32px;
   }
-  .card-link .card {
-    height: 100%;
+
+  /* ===== Card wrapper (holds line + floating icon + card) ===== */
+  .service-card-v2{
+    position:relative;
+    text-decoration:none;
+    color:inherit;
+    display:block;
+    padding-top:48px; /* space for line + half-overlapping icon */
+  }
+
+  .service-card-line{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 70px;
+    height: 6px;
+
+    background: var(--ink5);
+
+    clip-path: polygon(
+        5% 0%,
+        95% 0%,
+        100% 100%,
+        0% 100%
+    );
+
+    opacity: 0.8;
+}
+  .service-icon-float{
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 60px;
+    background:var(--sage);
+    /* Dustbin shape */
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        88% 100%,
+        12% 100%
+    );
+    border: 2px solid var(--t300);
+    box-shadow:inset 0 2px 4px rgba(17,42,35,0.08), 0 4px 12px rgba(17,42,35,0.06);
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: all .35s ease;
+}
+  .service-card-v2:hover .service-icon-float{
+    transform: translateX(-50%) translateY(-4px) scale(1.06);
+}
+
+  /* Circular outline sitting inside the square, holding the icon */
+  .service-icon-circle{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    border:1.4px solid var(--t500);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .service-icon-circle svg{
+    width:16px;
+    height:16px;
+    stroke:var(--t600);
+    fill:none;
+    stroke-width:1.6;
+  }
+
+  /* Main card body — floating icon overlaps its top by ~40-50% */
+  .service-card-body{
+    background: linear-gradient(145deg, #0A3B35 0%, #0F5E52 55%, #12806A 100%);
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(17,42,35,0.06),
+                0 2px 8px rgba(17,42,35,0.04);
+    padding: 56px 28px 32px;
+    height: 280px;          /* Fixed Height */
+    border: 1px solid var(--t200);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+
+    overflow: hidden;       /* Prevent content from increasing height */
+
+    transition: transform 350ms ease,
+                box-shadow 350ms ease;
+}
+  .service-card-v2:hover .service-card-body{
+    transform:translateY(-8px);
+    box-shadow:0 26px 48px rgba(17,42,35,0.14), 0 8px 16px rgba(17,42,35,0.08);
+  }
+
+  .service-title-v2{
+    font-family:"Fraunces","Playfair Display",Georgia,serif;
+    font-weight:700;
+    font-size:20px;
+    line-height:1.25;
+    color:var(--t100);
+    margin-bottom:12px;
+  }
+  .service-desc-v2{
+    font-family:"Poppins","Inter",system-ui,sans-serif;
+    font-size:13.5px;
+    line-height:1.6;
+    color:var(--t300);
+    max-width:230px;
+    margin-bottom:22px;
+  }
+
+  .service-cta-v2{
+    margin-top:auto;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:#cde7da;
+    box-shadow:0 8px 20px rgba(17,42,35,0.12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: transform 350ms ease, box-shadow 350ms ease, background 350ms ease;
+  }
+  .service-cta-v2 svg{
+    width:18px;
+    height:18px;
+    stroke:var(--t600);
+    stroke-width:2;
+    fill:none;
+    transition: transform 350ms ease;
+  }
+  .service-card-v2:hover .service-cta-v2{
+    background:var(--t200);
+    box-shadow:0 12px 26px rgba(15,143,120,0.28);
+  }
+  .service-card-v2:hover .service-cta-v2 svg{
+    stroke:var(--t500);
+    transform:translateX(3px);
+  }
+
+  @media (max-width:1024px){
+    .service-cards-grid{ grid-template-columns:repeat(2, minmax(280px,360px)); }
+  }
+  @media (max-width:680px){
+    .service-cards-grid{ grid-template-columns:1fr; justify-items:center; }
+    .services-section-v2{ padding:96px 0 72px; }
+    .services-section-v2 .wrap{ padding:0 24px; }
   }
     </style>
   </head>
@@ -278,113 +308,106 @@
     </section>
 
     <!-- ========== SERVICES SECTION ========== -->
-    <section class="services-section">
-      <div class="wrap">
-     
-        <!-- Heading row -->
-        <div class="heading-row" style="display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:56px;">
-          <div>
-            <h2 class="font-['Fraunces'] text-3xl md:text-4xl font-semibold text-[#112A23] mt-2">
-              Your Path <span class="text-[#26AF93] font-['Georgia'] italic">To Success</span>
-            </h2>
-          </div>
-     
-          <div class="cta-pill" onclick="window.location.href='./solutions.html'">
-            <span class="cta-pill-icon"><i class="fa-solid fa-up-right-and-down-left-from-center"></i></span>
-            <span class="cta-pill-label">View All Services</span>
+  <section class="services-section-v2">
+  <div class="wrap">
+    <span class="services-eyebrow">Our Solutions</span>
+    <h2 class="services-heading-v2">A wide range of waste disposal services</h2>
+
+    <div class="service-cards-grid">
+
+      <!-- Card 1 : Pure Water -->
+      <a href="./solutions-details.html?solution=pure-water" class="service-card-v2">
+        <div class="service-card-line"></div>
+        <div class="service-icon-float">
+          <div class="service-icon-circle">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2c4 5 7 8.5 7 12.5A7 7 0 1 1 5 14.5C5 10.5 8 7 12 2Z"/></svg>
           </div>
         </div>
-     
-        <!-- Cards -->
-        <div class="cards-row" style="display:grid; grid-template-columns:repeat(3,1fr); gap:32px;">
-     
-          <!-- Card 1 : Pure Water -->
-          <a href="./solutions-details.html?solution=pure-water" class="card-link">
-            <div class="card card-light">
-              <h3 class="card-title">Pure Water, <br/>Perfectly Engineered</h3>
-              <p class="card-desc">Design and Development of Water Treatment Systems</p>
-              <div class="card-image-wrap">
-                <img src="/Images/solutions1.png" alt="Pure Water" />
-                <div class="arrow-btn arrow-dark"><i class="fa-solid fa-arrow-right"></i></div>
-              </div>
-            </div>
-          </a>
-     
-          <!-- Card 2 : Wastewater -->
-          <a href="./solutions-details.html?solution=sewage-reinvented" class="card-link">
-            <div class="card card-sage">
-              <h3 class="card-title">Wastewater <br/>Reinvented</h3>
-              <p class="card-desc">Comprehensive Sewage Treatment Solutions</p>
-              <div class="card-image-wrap">
-                <img src="/Images/solutions2.png" alt="Wastewater Reinvented" />
-                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
-              </div>
-            </div>
-          </a>
-     
-          <!-- Card 3 : Next-Gen Effluent -->
-          <a href="./solutions-details.html?solution=effluent-treatment" class="card-link">
-            <div class="card card-sage">
-              <h3 class="card-title">Next-Gen Effluent <br/>&amp; Treatment Solutions</h3>
-              <p class="card-desc">Comprehensive Effluent Treatment Solutions</p>
-              <div class="card-image-wrap">
-                <img src="/Images/solutions3.png" alt="Effluent Treatment" />
-                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
-              </div>
-            </div>
-          </a>
-
-          <!-- Card 4 : Reclaim Reuse -->
-          <a href="./solutions-details.html?solution=reclaim-reuse" class="card-link">
-            <div class="card card-sage">
-              <h3 class="card-title">Reclaim Reuse <br/>&amp; Restore</h3>
-              <p class="card-desc">Water Recycling, ZLD & Resource Recovery</p>
-              <div class="card-image-wrap">
-                <img src="/Images/solutions4.png" alt="Reclaim Reuse" />
-                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
-              </div>
-            </div>
-          </a>
-
-          <!-- Card 5 : Smart Sustainability -->
-          <a href="./solutions-details.html?solution=smart-sustainability" class="card-link">
-            <div class="card card-sage">
-              <h3 class="card-title">Smart Sustainability in<br/> Every Drop</h3>
-              <p class="card-desc">Integrated Water Management & Sustainable Infrastructure</p>
-              <div class="card-image-wrap">
-                <img src="/Images/solutions5.png" alt="Smart Sustainability" />
-                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
-              </div>
-            </div>
-          </a>
-
-          <!-- Card 6 : Intelligence -->
-          <a href="./solutions-details.html?solution=intelligence" class="card-link">
-            <div class="card card-sage">
-              <h3 class="card-title">Intelligence <br/>That Powers Water</h3>
-              <p class="card-desc">Digitalization, Automation & Remote Monitoring</p>
-              <div class="card-image-wrap">
-                <img src="/Images/solutions6.png" alt="Intelligence That Powers Water" />
-                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
-              </div>
-            </div>
-          </a>
-
-          <!-- Card 7 : Supplies -->
-          <a href="./solutions-details.html?solution=supplies" class="card-link">
-            <div class="card card-sage">
-              <h3 class="card-title">Supplies <br/>That Power Purity</h3>
-              <p class="card-desc">Reliable Chemicals, Membranes & Spares for Every Drop</p>
-              <div class="card-image-wrap">
-                <img src="/Images/solutions7.png" alt="Supplies That Power Purity" />
-                <div class="arrow-btn arrow-mustard"><i class="fa-solid fa-arrow-right"></i></div>
-              </div>
-            </div>
-          </a>
-     
+        <div class="service-card-body">
+          <h3 class="service-title-v2">Pure Water, Perfectly Engineered</h3>
+          <p class="service-desc-v2">Design and development of water treatment systems built for reliability.</p>
+          <div class="service-cta-v2"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></div>
         </div>
-      </div>
-    </section>
+      </a>
+
+      <!-- Card 2 : Wastewater -->
+      <a href="./solutions-details.html?solution=sewage-reinvented" class="service-card-v2">
+        <div class="service-card-line"></div>
+        <div class="service-icon-float">
+          <div class="service-icon-circle">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 12a8 8 0 0 1 14-5M20 12a8 8 0 0 1-14 5M9 4l1 3-3-1M15 20l-1-3 3 1"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <h3 class="service-title-v2">Wastewater Reinvented</h3>
+          <p class="service-desc-v2">Comprehensive sewage treatment solutions for cleaner communities.</p>
+          <div class="service-cta-v2"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </a>
+
+      <!-- Card 3 : Effluent Treatment -->
+      <a href="./solutions-details.html?solution=effluent-treatment" class="service-card-v2">
+        <div class="service-card-line"></div>
+        <div class="service-icon-float">
+          <div class="service-icon-circle">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5h16l-6 8v6l-4 2v-8L4 5Z"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <h3 class="service-title-v2">Next-Gen Effluent &amp; Treatment</h3>
+          <p class="service-desc-v2">Comprehensive effluent treatment solutions engineered for compliance.</p>
+          <div class="service-cta-v2"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </a>
+
+      <!-- Card 4 : Reclaim Reuse -->
+      <a href="./solutions-details.html?solution=reclaim-reuse" class="service-card-v2">
+        <div class="service-card-line"></div>
+        <div class="service-icon-float">
+          <div class="service-icon-circle">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 2l4 4-4 4M21 6H8a5 5 0 0 0-5 5M7 22l-4-4 4-4M3 18h13a5 5 0 0 0 5-5"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <h3 class="service-title-v2">Reclaim, Reuse &amp; Restore</h3>
+          <p class="service-desc-v2">Water recycling, ZLD and resource recovery for lasting sustainability.</p>
+          <div class="service-cta-v2"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </a>
+
+      <!-- Card 5 : Smart Sustainability -->
+      <a href="./solutions-details.html?solution=smart-sustainability" class="service-card-v2">
+        <div class="service-card-line"></div>
+        <div class="service-icon-float">
+          <div class="service-icon-circle">
+            <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22c-4-2-7-6-7-11a7 7 0 0 1 14 0c0 5-3 9-7 11ZM9 12c1 2 3 3 3 3s2-1 3-3"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <h3 class="service-title-v2">Smart Sustainability in Every Drop</h3>
+          <p class="service-desc-v2">Integrated water management and sustainable infrastructure design.</p>
+          <div class="service-cta-v2"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </a>
+
+      <!-- Card 6 : Intelligence -->
+      <a href="./solutions-details.html?solution=intelligence" class="service-card-v2">
+        <div class="service-card-line"></div>
+        <div class="service-icon-float">
+          <div class="service-icon-circle">
+            <svg viewBox="0 0 24 24"><rect x="7" y="7" width="10" height="10" rx="1.5" stroke-linecap="round" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v3M12 19v3M2 12h3M19 12h3M4.5 4.5l2 2M17.5 17.5l2 2M4.5 19.5l2-2M17.5 6.5l2-2"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <h3 class="service-title-v2">Intelligence That Powers Water</h3>
+          <p class="service-desc-v2">Digitalization, automation and remote monitoring, made effortless.</p>
+          <div class="service-cta-v2"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
 
     <div id="footer"></div>
 
