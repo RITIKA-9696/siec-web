@@ -1,1043 +1,652 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="index.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shop | Skin &amp; Body Essentials</title>
 
-    <!-- Tailwind CDN -->
+ <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon.png" />
-
-    <!-- Apple devices -->
     <link rel="apple-touch-icon" href="./images/favicon.png" />
-
-    <!-- favicon sizes -->
     <link rel="shortcut icon" href="./images/favicon.png" />
 
-    <!-- Google Fonts - Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=DM+Serif+Text:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Poiret+One&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Zain:wght@200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Zain:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Zain:wght@200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet" />
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@100..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Zain:wght@200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet" />
-    <!-- General Sans (body font referenced by design tokens) -->
-    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" />
-
-    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-</head>
 
 <style>
-    /* ==========================================
-       🌿 Premium Fresh Aesthetic Theme
-       Mint • Teal • Sage • Warm Beige
-    ========================================== */
-    :root {
-        /* Backgrounds */
-        --mint: #F8FCFA;
-        --mint2: #F2F9F6;
-        --mint3: #EAF7F2;
-        --sage: #D8EEE5;
-        --foam: #F7FBF9;
-        --foam2: #FFFFFF;
+  :root{
+    --bg:#F6F3EC;
+    --card:#FFFFFF;
+    --ink:#2A2620;
+    --ink-soft:#8A8377;
+    --olive:#2F3B2C;
+    --olive-light:#E7EBE1;
+    --gold:#C99B3E;
+    --line:#ECE7DC;
+    --shadow: 0 4px 14px rgba(42,38,32,0.06);
+    --shadow-hover: 0 18px 34px rgba(42,38,32,0.14);
+  }
 
-        /* Primary brand (teal) */
-        --t100: #D8F6EE;
-        --t200: #B7EBDE;
-        --t300: #86DBC8;
-        --t400: #53C8AF;
-        --t500: #26AF93;
-        --t600: #0F8F78;
-        --t700: #0A7563;
+  *{ margin:0; padding:0; box-sizing:border-box; }
 
-        /* Secondary green */
-        --g100: #DDF3E7;
-        --g200: #BDE6CF;
-        --g300: #8DD4A8;
-        --g400: #5DBB84;
-        --g500: #359D62;
-        --g600: #237B4B;
+  body{
+    font-family: "General Sans", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
 
-        /* Neutrals / text */
-        --white: #FFFFFF;
-        --off: #F6F9F8;
-        --bone: #EEF6F2;
-        --ink: #112A23;
-        --ink2: #2A463D;
-        --ink3: #48675B;
-        --ink4: #6B897D;
-        --ink5: #93ADA3;
-        --ink6: #C9DBD4;
+  .page{
+    max-width:1080px;
+    margin:0 auto;
+    padding:56px 24px 100px;
+  }
 
-        /* Additional premium colors */
-        --sand: #F6F3EC;
-        --sand-dark: #ECE7DC;
-        --teal-dark: #053F37;
-        --teal-deep: #0A2E2E;
-        --teal-mid: #125252;
+  .page-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:40px;
+  }
+  .page-eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--olive);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .page-eyebrow::before{
+    content:"";
+    width:16px; height:1px;
+    background:var(--gold);
+  }
+  .page-head h1{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:500;
+    font-size:clamp(30px, 4vw, 42px);
+    letter-spacing:-0.01em;
+  }
+  .page-head h1 em{
+    font-style:italic;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .page-sub{
+    color:var(--ink-soft);
+    font-size:14px;
+    max-width:280px;
+    line-height:1.6;
+  }
 
-        /* Semantic */
-        --success: #2D9462;
-        --warning: #D89B2C;
-        --danger: #D85C5C;
-        --info: #218F8F;
+  /* ===== Grid ===== */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:22px 20px;
+  }
+  @media (max-width:900px){
+    .grid{ grid-template-columns:repeat(2, 1fr); }
+  }
+  @media (max-width:560px){
+    .grid{ grid-template-columns:1fr; }
+    .page{ padding:40px 18px 72px; }
+  }
 
-        /* Borders */
-        --border: #DCEBE4;
-        --border-light: #EAF4EF;
-        --border-dark: #C5DDD4;
+  /* ===== Card ===== */
+  .card{
+    display:flex;
+    flex-direction:column;
+    cursor:pointer;
+    text-decoration: none;
+  }
 
-        /* Shadows */
-        --shadow-color: rgba(10, 46, 46, .08);
-        --shadow-soft: 0 10px 30px rgba(10, 46, 46, 0.06);
-        --shadow-card: 0 12px 40px rgba(10, 46, 46, 0.08);
-        --shadow-float: 0 20px 60px rgba(10, 46, 46, 0.1);
+  .media{
+    position:relative;
+    border-radius:16px;
+    overflow:hidden;
+    aspect-ratio:1 / 0.92;
+    box-shadow:var(--shadow);
+    transition: box-shadow 320ms ease, transform 320ms ease;
+  }
+  .card:hover .media{
+    box-shadow:var(--shadow-hover);
+    transform:translateY(-3px);
+  }
 
-        /* Gradients */
-        --gradient-primary: linear-gradient(135deg, #26AF93 0%, #0F8F78 100%);
-        --gradient-soft: linear-gradient(180deg, #F8FCFA 0%, #EEF8F3 100%);
-        --gradient-card: linear-gradient(180deg, #FFFFFF 0%, #F7FBF9 100%);
-        --gradient-dark: linear-gradient(135deg, #0A2E2E 0%, #125252 50%, #218F8F 100%);
-        --gradient-hero: linear-gradient(135deg, #F8FCFA 0%, #EAF7F2 50%, #D8F6EE 100%);
+  .media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
 
-        --radius-sm: 6px;
-        --radius-md: 12px;
-        --radius-lg: 16px;
-        --radius-xl: 18px;
+  .media-art{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .media-art i{
+    font-size:34px;
+    opacity:0.55;
+  }
+  .media-art::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(120% 90% at 75% 15%, rgba(255,255,255,0.35), transparent 60%),
+      radial-gradient(90% 70% at 15% 90%, rgba(0,0,0,0.06), transparent 60%);
+    pointer-events:none;
+  }
+
+  /* discount badge */
+  .badge{
+    position:absolute;
+    top:12px; left:12px;
+    background:var(--olive);
+    color:#fff;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    padding:5px 10px;
+    border-radius:999px;
+    z-index:2;
+  }
+
+  /* hover action icons */
+  .actions{
+    position:absolute;
+    top:12px; right:12px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    z-index:2;
+  }
+  .actions button{
+    width:34px; height:34px;
+    border-radius:50%;
+    border:none;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(4px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--ink);
+    font-size:13px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.12);
+    cursor:pointer;
+    opacity:0;
+    transform:translateX(10px);
+    transition: opacity 280ms ease, transform 280ms ease, background 220ms ease, color 220ms ease;
+  }
+  .card:hover .actions button{
+    opacity:1;
+    transform:translateX(0);
+  }
+  .actions button:nth-child(1){ transition-delay:0ms; }
+  .actions button:nth-child(2){ transition-delay:40ms; }
+  .actions button:nth-child(3){ transition-delay:80ms; }
+
+  .actions button:hover{
+    background:var(--olive);
+    color:#fff;
+  }
+  .actions button.wish.active{
+    background:#C1543E;
+    color:#fff;
+  }
+
+  /* body */
+  .info{
+    padding:14px 2px 0;
+  }
+  .meta-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:5px;
+  }
+  .category{
+    font-size:11.5px;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+  .rating{
+    display:flex;
+    align-items:center;
+    gap:4px;
+    font-size:12.5px;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .rating i{
+    color:var(--gold);
+    font-size:11px;
+  }
+
+  .name{
+    font-size:14.5px;
+    font-weight:600;
+    color:var(--ink);
+    margin-bottom:6px;
+    line-height:1.3;
+  }
+
+  .price-row{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+  }
+  .price{
+    font-size:14.5px;
+    font-weight:700;
+    color:var(--olive);
+  }
+  .price-old{
+    font-size:12.5px;
+    color:var(--ink-soft);
+    text-decoration:line-through;
+  }
+
+  /* Hero section adjustments */
+  .hero-container {
+    max-width: 1880px;
+    margin: 0 auto;
+    padding: 8px 24px;
+  }
+
+  @media (max-width: 768px) {
+    .hero-container {
+      padding: 8px 16px;
     }
-
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: 'General Sans', sans-serif;
-        background: var(--mint);
-        color: var(--ink);
-        overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-    }
-
-    .font-display {
-        font-family: 'Fraunces', Georgia, serif;
-    }
-
-    .font-mono {
-        font-family: 'Azeret Mono', monospace;
-    }
-
-    /* ===== Scrollbar ===== */
-    ::-webkit-scrollbar {
-        width: 4px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: var(--mint);
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: var(--t300);
-        border-radius: 4px;
-    }
-
-    /* ===========================================================
-       INDUSTRIAL HERO — scoped styles (prefixed ih-*)
-       Only Tailwind-can't-do behaviour lives here: grid reflow,
-       gauge ring, glass card, marquee, keyframes.
-    =========================================================== */
-
-    @media (prefers-reduced-motion: reduce) {
-        .ih-root * {
-            animation-duration: 0.001ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.001ms !important;
-        }
-    }
-
-    @keyframes ih-float {
-
-        0%,
-        100% {
-            transform: translateY(0px);
-        }
-
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    @keyframes ih-spin-slow {
-        from {
-            transform: rotate(0deg);
-        }
-
-        to {
-            transform: rotate(360deg);
-        }
-    }
-
-    @keyframes ih-fade-up {
-        from {
-            opacity: 0;
-            transform: translateY(22px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes ih-scale-in {
-        from {
-            opacity: 0;
-            transform: scale(0.94);
-        }
-
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    .ih-fade-up {
-        opacity: 0;
-        animation: ih-fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-
-    .ih-delay-1 {
-        animation-delay: .12s;
-    }
-
-    .ih-delay-2 {
-        animation-delay: .24s;
-    }
-
-    .ih-delay-3 {
-        animation-delay: .36s;
-    }
-
-    /* ---- Layout reflow: grid-template-areas per breakpoint ---- */
-    .ih-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-areas:
-            "visual"
-            "copy"
-            "actions";
-        gap: 40px;
-        align-items: center;
-    }
-
-    .ih-area-copy {
-        grid-area: copy;
-    }
-
-    .ih-area-visual {
-        grid-area: visual;
-    }
-
-    .ih-area-actions {
-        grid-area: actions;
-    }
-
-    @media (min-width: 640px) {
-        .ih-grid {
-            grid-template-areas:
-                "copy"
-                "visual"
-                "actions";
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .ih-grid {
-            grid-template-columns: 45% 55%;
-            grid-template-areas:
-                "copy visual"
-                "actions visual";
-            gap: 24px;
-            row-gap: 8px;
-        }
-    }
-
-    /* ---- Circular composition ---- */
-    .ih-visual-stage {
-        position: relative;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 420px;
-    }
-
-    .ih-ring {
-        position: absolute;
-        border-radius: 50%;
-        border: 1px solid var(--border-dark);
-        pointer-events: none;
-    }
-
-    .ih-ring-dashed {
-        border-style: dashed;
-        border-color: var(--t300);
-        opacity: .55;
-    }
-
-    .ih-ring-1 {
-        width: 320px;
-        height: 320px;
-    }
-
-    .ih-ring-2 {
-        width: 400px;
-        height: 400px;
-    }
-
-    .ih-ring-3 {
-        width: 480px;
-        height: 480px;
-    }
-
-    /* gauge / tick ring — the signature engineered detail */
-    .ih-gauge {
-        position: absolute;
-        width: 420px;
-        height: 420px;
-        animation: ih-spin-slow 60s linear infinite;
-    }
-
-    .ih-orb {
-        width: 340px;
-        height: 340px;
-        border-radius: 50%;
-        background: var(--gradient-soft);
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .6), var(--shadow-float);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        z-index: 2;
-        animation: ih-float 6s ease-in-out infinite;
-    }
-
-    .ih-product-img {
-        width: 250px;
-        height: 250px;
-        object-fit: cover;
-        border-radius: 24px;
-        box-shadow: 0 24px 60px rgba(10, 46, 46, .18);
-        transition: opacity .35s cubic-bezier(.4, 0, .2, 1), transform .35s cubic-bezier(.4, 0, .2, 1);
-    }
-
-    .ih-product-img.ih-swap-out {
-        opacity: 0;
-        transform: scale(.9);
-    }
-
-    /* floating spec card (glass) */
-    .ih-spec-card {
-        position: absolute;
-        left: -6%;
-        bottom: 10%;
-        z-index: 3;
-        background: rgba(255, 255, 255, .78);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border: 1px solid rgba(255, 255, 255, .7);
-        box-shadow: var(--shadow-float);
-        transition: opacity .4s ease, transform .4s ease;
-    }
-
-    .ih-spec-card.ih-swap-out {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    /* small floating cert badges */
-    .ih-badge {
-        position: absolute;
-        z-index: 3;
-        background: var(--white);
-        box-shadow: var(--shadow-card);
-        animation: ih-float 5s ease-in-out infinite;
-    }
-
-    .ih-badge-2 {
-        animation-delay: 1.4s;
-    }
-
-    /* ---- Trust row ---- */
-    .ih-trust-item+.ih-trust-item {
-        border-left: 1px solid var(--border);
-        padding-left: 16px;
-        margin-left: 16px;
-    }
-
-    /* ---- Buttons ---- */
-    .ih-btn-primary {
-        background: var(--gradient-primary);
-        color: var(--white);
-        box-shadow: 0 10px 26px rgba(15, 143, 120, .28);
-    }
-
-    .ih-btn-primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 14px 34px rgba(15, 143, 120, .36);
-    }
-
-    .ih-btn-secondary {
-        background: var(--white);
-        color: var(--ink3);
-        border: 1px solid var(--border);
-    }
-
-    .ih-btn-secondary:hover {
-        border-color: var(--t500);
-        color: var(--t600);
-        transform: translateY(-2px);
-    }
-
-    /* ---- Product carousel ---- */
-    .ih-carousel-track {
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-    }
-
-    .ih-carousel-track::-webkit-scrollbar {
-        display: none;
-    }
-
-    .ih-card {
-        background: var(--gradient-card);
-        border: 1px solid var(--border-light);
-        box-shadow: var(--shadow-soft);
-        transition: transform .4s cubic-bezier(.4, 0, .2, 1), box-shadow .4s cubic-bezier(.4, 0, .2, 1), border-color .3s ease;
-        cursor: pointer;
-    }
-
-    .ih-card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-card);
-    }
-
-    .ih-card.ih-active {
-        border-color: var(--t500);
-        box-shadow: 0 0 0 2px var(--t500), var(--shadow-float);
-        transform: scale(1.035);
-    }
-
-    .ih-card .ih-thumb img {
-        transition: transform .5s ease;
-    }
-
-    .ih-card:hover .ih-thumb img {
-        transform: scale(1.06);
-    }
-
-    .ih-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--ink6);
-        transition: all .3s ease;
-        cursor: pointer;
-    }
-
-    .ih-dot.ih-active {
-        background: var(--t500);
-        width: 20px;
-        border-radius: 3px;
-    }
-
-    /* focus visibility for accessibility */
-    .ih-root a:focus-visible,
-    .ih-root button:focus-visible,
-    .ih-root [tabindex]:focus-visible {
-        outline: 2px solid var(--t500);
-        outline-offset: 3px;
-        border-radius: 4px;
-    }
-
-    /* ---- Responsive tuning ---- */
-    @media (max-width: 1023px) {
-        .ih-visual-stage {
-            min-height: 380px;
-        }
-
-        .ih-gauge {
-            width: 340px;
-            height: 340px;
-        }
-
-        .ih-ring-1 {
-            width: 260px;
-            height: 260px;
-        }
-
-        .ih-ring-2 {
-            width: 320px;
-            height: 320px;
-        }
-
-        .ih-ring-3 {
-            width: 380px;
-            height: 380px;
-        }
-
-        .ih-orb {
-            width: 270px;
-            height: 270px;
-        }
-
-        .ih-product-img {
-            width: 200px;
-            height: 200px;
-        }
-    }
-
-    @media (max-width: 639px) {
-        .ih-visual-stage {
-            min-height: 300px;
-        }
-
-        .ih-gauge {
-            width: 250px;
-            height: 250px;
-        }
-
-        .ih-ring-1 {
-            width: 190px;
-            height: 190px;
-        }
-
-        .ih-ring-2 {
-            width: 230px;
-            height: 230px;
-        }
-
-        .ih-ring-3 {
-            width: 270px;
-            height: 270px;
-        }
-
-        .ih-orb {
-            width: 200px;
-            height: 200px;
-        }
-
-        .ih-product-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 18px;
-        }
-
-        .ih-spec-card {
-            left: 50%;
-            bottom: -6%;
-            transform: translateX(-50%);
-        }
-
-        .ih-badge {
-            display: none;
-        }
-    }
+  }
 </style>
-
-
+</head>
 <body>
-    <!---------------- HEADER ----------------------------------->
     <div id="header"></div>
 
-    <!-- ==========================================
-       INDUSTRIAL HERO SECTION
-    ========================================== -->
-    <section class="ih-root relative w-full py-16 lg:py-0 lg:min-h-[90vh] flex items-center overflow-hidden"
-        style="background: var(--gradient-hero);" id="heroSection" aria-label="Featured industrial products">
+    <!-- ===== HERO SECTION ===== -->
+<section class="relative w-full overflow-hidden" style="background: var(--bg);">
+  <div class="hero-container">
+    <div class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[90vh] md:min-h-[100vh]">
+      <!-- Banner Image -->
+      <img 
+        src="./Images/contact_us_banner.png.jfif" 
+        alt="Skin & Body Essentials Collection" 
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#2A2620]/85 via-[#2A2620]/60 to-transparent"></div>
 
-        <div class="max-w-[1440px] w-full mx-auto px-6 sm:px-10 lg:px-16 ih-grid">
-
-            <!-- ================= COPY ================= -->
-            <div class="ih-area-copy ih-fade-up">
-                <p class="font-mono text-xs tracking-[0.18em] uppercase mb-4" style="color: var(--t600);"
-                    id="productCategory">// Power Transmission</p>
-
-                <h1 class="font-display font-semibold leading-[1.08] text-[clamp(2rem,4.2vw,3.4rem)]"
-                    style="color: var(--ink);" id="productName">
-                    Precision Gearbox<br />Assembly Systems
-                </h1>
-
-                <p class="mt-5 max-w-[440px] text-[15px] leading-relaxed" style="color: var(--ink4);"
-                    id="productDesc">
-                    Engineered helical and worm gearboxes built for continuous heavy-duty torque
-                    transfer, minimal backlash, and long-life performance on the shop floor.
-                </p>
-
-                <div class="mt-6 flex items-center flex-wrap gap-y-2" id="trustRow">
-                    <div class="ih-trust-item flex items-center gap-2 font-mono text-[11px]"
-                        style="color: var(--ink4); border-left: none; margin-left: 0; padding-left: 0;">
-                        <i class="fa-solid fa-industry" style="color: var(--t500);"></i> 15+ Yrs Experience
-                    </div>
-                    <div class="ih-trust-item flex items-center gap-2 font-mono text-[11px]" style="color: var(--ink4);">
-                        <i class="fa-solid fa-certificate" style="color: var(--t500);"></i> ISO 9001:2015
-                    </div>
-                    <div class="ih-trust-item flex items-center gap-2 font-mono text-[11px]" style="color: var(--ink4);">
-                        <i class="fa-solid fa-truck-fast" style="color: var(--t500);"></i> 500+ Installations
-                    </div>
-                </div>
+      <!-- Soft Highlight -->
+      <div class="absolute inset-0 rounded-[12px] border border-white/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_0_80px_rgba(255,255,255,0.04)]"></div>
+          
+      <!-- Text Content -->
+      <div class="absolute inset-0 flex items-center px-6 md:px-10 lg:px-14">
+        <div class="max-w-lg text-white">
+          <!-- Eyebrow -->
+          <div class="inline-flex items-center gap-3 mb-4">
+            <span class="w-8 h-px bg-[#C99B3E]"></span>
+            <span class="text-[11px] font-['Azeret_Mono'] tracking-[0.25em] uppercase text-[#C99B3E] font-medium">
+              New Arrivals
+            </span>
+          </div>
+          
+          <!-- Heading -->
+          <h1 class="font-['Fraunces'] text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] tracking-tight">
+            Clean Beauty, 
+            <span class="italic text-[#C99B3E] font-light">Conscious Choice</span>
+          </h1>
+          
+          <!-- Description -->
+          <p class="mt-4 text-sm md:text-base text-white/80 max-w-sm leading-relaxed font-['Quicksand']">
+            Discover our curated collection of skin and body essentials — crafted with clean ingredients and sustainable packaging.
+          </p>
+          
+          <!-- CTA Buttons -->
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#shop-grid" 
+              class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#C99B3E] text-white text-sm font-medium hover:bg-[#B88A35] transition-all duration-300 hover:scale-105 shadow-[0_8px_25px_rgba(201,155,62,0.3)] hover:shadow-[0_12px_35px_rgba(201,155,62,0.4)]">
+              <span>Shop Now</span>
+              <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+            </a>
+            
+            <a href="#featured" 
+              class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-all duration-300 hover:scale-105">
+              <span>Explore</span>
+              <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+            </a>
+          </div>
+          
+          <!-- Trust Badges -->
+          <div class="mt-6 flex flex-wrap items-center gap-5">
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-leaf text-[#C99B3E] text-sm"></i>
+              <span class="text-xs text-white/70 font-['Quicksand'] font-medium">Plant-Based</span>
             </div>
-
-            <!-- ================= ACTIONS ================= -->
-            <div class="ih-area-actions ih-fade-up ih-delay-2 mt-2 lg:mt-6">
-                <div class="flex items-center gap-3 flex-wrap">
-                    <button class="ih-btn-primary font-medium text-sm px-7 py-3 rounded-md inline-flex items-center gap-2 transition-all duration-300"
-                        id="quoteBtn">
-                        Request a Quote
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </button>
-                    <button class="ih-btn-secondary font-medium text-sm px-7 py-3 rounded-md transition-all duration-300"
-                        id="specBtn">
-                        View Specification
-                    </button>
-                </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-recycle text-[#C99B3E] text-sm"></i>
+              <span class="text-xs text-white/70 font-['Quicksand'] font-medium">Sustainable</span>
             </div>
-
-            <!-- ================= VISUAL ================= -->
-            <div class="ih-area-visual ih-fade-up ih-delay-1">
-                <div class="ih-visual-stage" role="group" aria-label="Featured product visual">
-
-                    <!-- gauge / tick ring (signature element) -->
-                    <svg class="ih-gauge" viewBox="0 0 420 420" aria-hidden="true" focusable="false">
-                        <g stroke="#0F8F78" stroke-opacity="0.35" stroke-width="2">
-                            <!-- 24 tick marks -->
-                            <g id="ihTicks"></g>
-                        </g>
-                        <circle cx="210" cy="210" r="205" fill="none" stroke="#26AF93" stroke-opacity="0.18" />
-                    </svg>
-
-                    <div class="ih-ring ih-ring-3"></div>
-                    <div class="ih-ring ih-ring-2 ih-ring-dashed"></div>
-                    <div class="ih-ring ih-ring-1"></div>
-
-                    <!-- central orb + product -->
-                    <div class="ih-orb" id="orbBg">
-                        <img id="mainProductImg"
-                            src="https://images.unsplash.com/photo-1581092160607-ee22731c9c8f?w=500&h=500&fit=crop"
-                            alt="Precision Gearbox Assembly" class="ih-product-img" />
-                    </div>
-
-                    <!-- floating spec card -->
-                    <div class="ih-spec-card rounded-2xl px-5 py-4 flex items-center gap-3 max-w-[230px]">
-                        <div class="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                            style="background: var(--gradient-primary);">
-                            <i class="fa-solid fa-gauge-high text-white text-sm"></i>
-                        </div>
-                        <div>
-                            <p class="font-display font-semibold text-sm" style="color: var(--ink);" id="specTitle">
-                                Torque Rating 4500 Nm</p>
-                            <p class="font-mono text-[10px] mt-0.5" style="color: var(--ink4);" id="specSub">Model
-                                GB-4500</p>
-                        </div>
-                    </div>
-
-                    <!-- floating cert badges -->
-                    <div class="ih-badge rounded-full w-14 h-14 flex flex-col items-center justify-center"
-                        style="top: 4%; right: 8%;" aria-hidden="true">
-                        <i class="fa-solid fa-shield-halved text-xs" style="color: var(--t500);"></i>
-                        <span class="font-mono text-[8px] mt-0.5" style="color: var(--ink4);">ISO</span>
-                    </div>
-                    <div class="ih-badge ih-badge-2 rounded-full w-12 h-12 flex items-center justify-center"
-                        style="bottom: 6%; left: 2%;" aria-hidden="true">
-                        <i class="fa-solid fa-check" style="color: var(--t600);"></i>
-                    </div>
-
-                </div>
+            <div class="flex items-center gap-2">
+              <i class="fa-solid fa-flask text-[#C99B3E] text-sm"></i>
+              <span class="text-xs text-white/70 font-['Quicksand'] font-medium">Cruelty-Free</span>
             </div>
-
+          </div>
         </div>
-    </section>
+      </div>
+      
+      <!-- Decorative Element - Bottom Right Pattern -->
+      <div class="absolute bottom-0 right-0 opacity-10 pointer-events-none">
+        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="50" stroke="white" stroke-width="1" opacity="0.3"/>
+          <circle cx="60" cy="60" r="30" stroke="white" stroke-width="1" opacity="0.3"/>
+          <circle cx="60" cy="60" r="10" fill="white" opacity="0.3"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- ==========================================
-       PRODUCT SHOWCASE / CAROUSEL SECTION
-    ========================================== -->
-    <section class="ih-root py-10 px-6 sm:px-10 lg:px-16 max-w-[1440px] mx-auto" aria-label="Product range">
+  <div class="page">
+    <div class="page-head">
+      <div>
+        <span class="page-eyebrow">Curated Edit</span>
+        <h1>Skin &amp; Body <em>Essentials</em></h1>
+      </div>
+      <p class="page-sub">Clean formulas, considered packaging, and honest pricing on every drop.</p>
+    </div>
 
-        <div class="flex items-end justify-between mb-6 flex-wrap gap-3">
-            <div>
-                <h2 class="font-display text-xl md:text-2xl font-semibold" style="color: var(--ink);">
-                    Our <span class="font-light" style="color: var(--ink4);">Product Range</span>
-                </h2>
-                <p class="font-mono text-[11px] mt-1" style="color: var(--ink4);">Select a product to preview it
-                    above</p>
-            </div>
-            <button class="font-mono text-[11px] uppercase tracking-wide flex items-center gap-2 transition-colors"
-                style="color: var(--t600);" id="toggleAutoScroll" aria-pressed="true">
-                <i class="fa-solid fa-pause text-[10px]"></i>
-                <span id="autoScrollLabel">Auto-Play On</span>
-            </button>
+    <div class="grid" id="shop-grid">
+
+      <!-- 1 -->
+      <a href="#" class="card">
+        <div class="media">
+          <img src="./Images/product-serum.jpg" alt="SilkSculpt Serum" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="media-art" style="background:linear-gradient(160deg,#E9D9B8 0%,#C9A96E 60%,#8C6B3F 100%);display:none;">
+            <i class="fa-solid fa-pump-soap" style="color:#3C2A16;"></i>
+          </div>
+          <span class="badge">50% off</span>
+          <div class="actions">
+            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
+            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
         </div>
+        <div class="info">
+          <div class="meta-row">
+            <span class="category">Skin Care</span>
+            <span class="rating"><i class="fa-solid fa-star"></i>4.9</span>
+          </div>
+          <div class="name">SilkSculpt Serum</div>
+          <div class="price-row">
+            <span class="price">₹2,999</span>
+            <span class="price-old">₹5,999</span>
+          </div>
+        </div>
+      </a>
 
-        <div class="flex gap-4 overflow-x-auto ih-carousel-track pb-2" id="productCarousel"
-            role="listbox" aria-label="Industrial products"></div>
+      <!-- 2 -->
+      <a href="#" class="card">
+        <div class="media">
+          <img src="./Images/product-skin-serum.jpg" alt="SilkSkin Serum" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="media-art" style="background:linear-gradient(160deg,#EDE6D6 0%,#CBB98F 60%,#8FA37C 100%);display:none;">
+            <i class="fa-solid fa-flask" style="color:#3C4A2E;"></i>
+          </div>
+          <span class="badge">20% off</span>
+          <div class="actions">
+            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
+            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="info">
+          <div class="meta-row">
+            <span class="category">Skin Care</span>
+            <span class="rating"><i class="fa-solid fa-star"></i>4.8</span>
+          </div>
+          <div class="name">SilkSkin Serum</div>
+          <div class="price-row">
+            <span class="price">₹3,999</span>
+            <span class="price-old">₹4,999</span>
+          </div>
+        </div>
+      </a>
 
-        <div class="flex justify-center gap-1.5 mt-5" id="scrollIndicator"></div>
+      <!-- 3 -->
+      <a href="#" class="card">
+        <div class="media">
+          <img src="./Images/product-argan-oil.jpg" alt="Argan Glow" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="media-art" style="background:linear-gradient(160deg,#F1D9AE 0%,#D9A96A 60%,#6B4A2A 100%);display:none;">
+            <i class="fa-solid fa-droplet" style="color:#3C2410;"></i>
+          </div>
+          <span class="badge">30% off</span>
+          <div class="actions">
+            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
+            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="info">
+          <div class="meta-row">
+            <span class="category">Hair Care</span>
+            <span class="rating"><i class="fa-solid fa-star"></i>5.0</span>
+          </div>
+          <div class="name">Argan Glow</div>
+          <div class="price-row">
+            <span class="price">₹4,499</span>
+            <span class="price-old">₹6,499</span>
+          </div>
+        </div>
+      </a>
 
-    </section>
+      <!-- 4 -->
+      <a href="#" class="card">
+        <div class="media">
+          <img src="./Images/product-body-lotion.jpg" alt="Nephrolepis Exaltata" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="media-art" style="background:linear-gradient(160deg,#EDEAE2 0%,#D6D2C4 60%,#A9A290 100%);display:none;">
+            <i class="fa-solid fa-pump-medical" style="color:#4A473D;"></i>
+          </div>
+          <span class="badge">10% off</span>
+          <div class="actions">
+            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
+            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="info">
+          <div class="meta-row">
+            <span class="category">Body Care</span>
+            <span class="rating"><i class="fa-solid fa-star"></i>5.0</span>
+          </div>
+          <div class="name">Nephrolepis Exaltata</div>
+          <div class="price-row">
+            <span class="price">₹3,499</span>
+            <span class="price-old">₹3,899</span>
+          </div>
+        </div>
+      </a>
 
-    <!-- ==========================================
-       FOOTER
-    ========================================== -->
+      <!-- 5 -->
+      <a href="#" class="card">
+        <div class="media">
+          <img src="./Images/product-foundation.jpg" alt="Smooth Foundation" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="media-art" style="background:linear-gradient(160deg,#E6D6C4 0%,#C79E7A 60%,#7A5138 100%);display:none;">
+            <i class="fa-solid fa-fill-drip" style="color:#3C2410;"></i>
+          </div>
+          <span class="badge">50% off</span>
+          <div class="actions">
+            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
+            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="info">
+          <div class="meta-row">
+            <span class="category">Makeup</span>
+            <span class="rating"><i class="fa-solid fa-star"></i>5.0</span>
+          </div>
+          <div class="name">Smooth Foundation</div>
+          <div class="price-row">
+            <span class="price">₹1,699</span>
+            <span class="price-old">₹3,399</span>
+          </div>
+        </div>
+      </a>
 
-    <div id="footer"></div>
+      <!-- 6 -->
+      <a href="#" class="card">
+        <div class="media">
+          <img src="./Images/product-body-cream.jpg" alt="Smooth Body Cream" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="media-art" style="background:linear-gradient(160deg,#EFEAE0 0%,#D2C6A8 60%,#8C9A73 100%);display:none;">
+            <i class="fa-solid fa-spa" style="color:#3C4A2E;"></i>
+          </div>
+          <span class="badge">50% off</span>
+          <div class="actions">
+            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
+            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="info">
+          <div class="meta-row">
+            <span class="category">Body Care</span>
+            <span class="rating"><i class="fa-solid fa-star"></i>5.0</span>
+          </div>
+          <div class="name">Smooth Body Cream</div>
+          <div class="price-row">
+            <span class="price">₹2,499</span>
+            <span class="price-old">₹4,999</span>
+          </div>
+        </div>
+      </a>
 
-    <!-- Header & Footer JS -->
+      <!-- 7 -->
+      <a href="#" class="card">
+        <div class="media">
+          <img src="./Images/product-wellness.jpg" alt="AquaAura Wellness" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="media-art" style="background:linear-gradient(160deg,#F1EDE3 0%,#E0D3B8 60%,#B79A6E 100%);display:none;">
+            <i class="fa-solid fa-jar" style="color:#4A3A22;"></i>
+          </div>
+          <span class="badge">50% off</span>
+          <div class="actions">
+            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
+            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="info">
+          <div class="meta-row">
+            <span class="category">Body Care</span>
+            <span class="rating"><i class="fa-solid fa-star"></i>4.8</span>
+          </div>
+          <div class="name">AquaAura Wellness</div>
+          <div class="price-row">
+            <span class="price">₹2,499</span>
+            <span class="price-old">₹4,999</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 8 -->
+      <a href="#" class="card">
+        <div class="media">
+          <img src="./Images/product-velvet-rose.jpg" alt="Velvet Rose" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="media-art" style="background:linear-gradient(160deg,#F0E6DC 0%,#D6B79E 60%,#8C4A3E 100%);display:none;">
+            <i class="fa-solid fa-wand-magic-sparkles" style="color:#4A1E18;"></i>
+          </div>
+          <span class="badge">50% off</span>
+          <div class="actions">
+            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
+            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="info">
+          <div class="meta-row">
+            <span class="category">Makeup</span>
+            <span class="rating"><i class="fa-solid fa-star"></i>4.9</span>
+          </div>
+          <div class="name">Velvet Rose</div>
+          <div class="price-row">
+            <span class="price">₹899</span>
+            <span class="price-old">₹1,799</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- 9 -->
+      <a href="#" class="card">
+        <div class="media">
+          <img src="./Images/product-herbal.jpg" alt="Herbal Haven" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+          <div class="media-art" style="background:linear-gradient(160deg,#EDE9DC 0%,#CFC6AA 60%,#A9926B 100%);display:none;">
+            <i class="fa-solid fa-seedling" style="color:#3C4A2E;"></i>
+          </div>
+          <span class="badge">50% off</span>
+          <div class="actions">
+            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
+            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
+            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
+          </div>
+        </div>
+        <div class="info">
+          <div class="meta-row">
+            <span class="category">Body Care</span>
+            <span class="rating"><i class="fa-solid fa-star"></i>5.0</span>
+          </div>
+          <div class="name">Herbal Haven</div>
+          <div class="price-row">
+            <span class="price">₹899</span>
+            <span class="price-old">₹1,799</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
     <script src="../header/header.js"></script>
     <script src="../footer/footer.js"></script>
 
-    <!-- ==========================================
-       SCRIPTS
-    ========================================== -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
+  <script>
+    function toggleWish(e, btn){
+      e.preventDefault();
+      e.stopPropagation();
+      btn.classList.toggle('active');
+      const icon = btn.querySelector('i');
+      icon.classList.toggle('fa-regular');
+      icon.classList.toggle('fa-solid');
+    }
+  </script>
 
-            // ==========================================
-            // Draw gauge tick marks (signature ring)
-            // ==========================================
-            const ticksGroup = document.getElementById('ihTicks');
-            if (ticksGroup) {
-                const cx = 210, cy = 210, rOuter = 205, rInner = 192;
-                let ticksHtml = '';
-                for (let i = 0; i < 36; i++) {
-                    const angle = (i * 10) * (Math.PI / 180);
-                    const x1 = cx + rOuter * Math.cos(angle);
-                    const y1 = cy + rOuter * Math.sin(angle);
-                    const x2 = cx + rInner * Math.cos(angle);
-                    const y2 = cy + rInner * Math.sin(angle);
-                    ticksHtml += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" />`;
-                }
-                ticksGroup.innerHTML = ticksHtml;
-            }
-
-            // ==========================================
-            // PRODUCT DATA
-            // ==========================================
-            const products = [
-                {
-                    id: 1,
-                    category: '// Power Transmission',
-                    name: 'Precision Gearbox<br />Assembly Systems',
-                    shortName: 'Gear Box Assembly',
-                    description: 'Engineered helical and worm gearboxes built for continuous heavy-duty torque transfer, minimal backlash, and long-life performance on the shop floor.',
-                    model: 'GB-4500',
-                    spec: 'Torque Rating 4500 Nm',
-                    tag: 'Power Transmission',
-                    image: 'https://images.unsplash.com/photo-1581092160607-ee22731c9c8f?w=500&h=500&fit=crop',
-                    thumb: 'https://images.unsplash.com/photo-1581092160607-ee22731c9c8f?w=140&h=140&fit=crop'
-                },
-                {
-                    id: 2,
-                    category: '// Fluid Systems',
-                    name: 'Industrial Pump<br />&amp; Motor Sets',
-                    shortName: 'Pump & Motor Set',
-                    description: 'Matched pump-motor units engineered for consistent flow rates and long duty cycles across continuous industrial operation.',
-                    model: 'PM-2200',
-                    spec: 'Flow Rate 220 m³/hr',
-                    tag: 'Fluid Systems',
-                    image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=500&h=500&fit=crop',
-                    thumb: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=140&h=140&fit=crop'
-                },
-                {
-                    id: 3,
-                    category: '// Piping &amp; Fittings',
-                    name: 'Stainless Steel<br />Pipe Fittings',
-                    shortName: 'SS Pipe Fittings',
-                    description: 'Corrosion-resistant fittings machined to tight tolerances, delivering leak-free joints across demanding piping networks.',
-                    model: 'PF-316L',
-                    spec: 'Grade 316L Stainless',
-                    tag: 'Piping & Fittings',
-                    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&h=500&fit=crop',
-                    thumb: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=140&h=140&fit=crop'
-                },
-                {
-                    id: 4,
-                    category: '// Custom Fabrication',
-                    name: 'Structural<br />Fabrication Components',
-                    shortName: 'Fabrication Components',
-                    description: 'Precision-cut and welded structural components fabricated to your engineering drawings and site tolerances.',
-                    model: 'FC-100',
-                    spec: 'Tolerance ± 0.1 mm',
-                    tag: 'Fabrication',
-                    image: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=500&h=500&fit=crop',
-                    thumb: 'https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=140&h=140&fit=crop'
-                },
-                {
-                    id: 5,
-                    category: '// Process Equipment',
-                    name: 'Water Treatment<br />Equipment Systems',
-                    shortName: 'Water Treatment Equipment',
-                    description: 'Filtration and treatment systems engineered for consistent water quality compliance in industrial process lines.',
-                    model: 'WT-750',
-                    spec: 'Capacity 750 KLD',
-                    tag: 'Process Equipment',
-                    image: 'https://images.unsplash.com/photo-1581093458791-9d42e3c0c2f8?w=500&h=500&fit=crop',
-                    thumb: 'https://images.unsplash.com/photo-1581093458791-9d42e3c0c2f8?w=140&h=140&fit=crop'
-                },
-                {
-                    id: 6,
-                    category: '// Bespoke Engineering',
-                    name: 'Custom Industrial<br />Product Solutions',
-                    shortName: 'Custom Industrial Products',
-                    description: 'Fully custom industrial solutions designed, engineered, and fabricated to your exact operational specification.',
-                    model: 'CI-001',
-                    spec: 'Built To Specification',
-                    tag: 'Custom Engineering',
-                    image: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=500&h=500&fit=crop',
-                    thumb: 'https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=140&h=140&fit=crop'
-                }
-            ];
-
-            let currentIndex = 0;
-            let autoScrollInterval = null;
-            let isAutoScrolling = false;
-            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            // ==========================================
-            // RENDER CAROUSEL
-            // ==========================================
-            function renderProducts() {
-                const carousel = document.getElementById('productCarousel');
-                const indicator = document.getElementById('scrollIndicator');
-
-                carousel.innerHTML = '';
-                indicator.innerHTML = '';
-
-                products.forEach((product, index) => {
-                    const card = document.createElement('div');
-                    card.className = `ih-card relative rounded-2xl p-4 w-[180px] flex-shrink-0 ${index === 0 ? 'ih-active' : ''}`;
-                    card.dataset.index = index;
-                    card.setAttribute('role', 'option');
-                    card.setAttribute('tabindex', '0');
-                    card.setAttribute('aria-selected', index === 0 ? 'true' : 'false');
-                    card.setAttribute('aria-label', `${product.shortName}, ${product.tag}`);
-
-                    card.innerHTML = `
-                        <button class="ih-bookmark float-right transition-colors" aria-label="Save ${product.shortName} to quote list" style="color: var(--ink4);">
-                            <i class="fa-regular fa-bookmark"></i>
-                        </button>
-                        <div class="ih-thumb w-12 h-12 rounded-xl overflow-hidden" style="background: var(--t100);">
-                            <img src="${product.thumb}" alt="" loading="lazy" class="w-full h-full object-cover" />
-                        </div>
-                        <p class="font-display font-semibold text-sm mt-2.5" style="color: var(--ink);">${product.shortName}</p>
-                        <p class="font-mono text-[10px] mt-1" style="color: var(--ink4);">${product.tag}</p>
-                        <p class="font-mono text-[10px] mt-1.5 font-medium" style="color: var(--t600);">Model ${product.model}</p>
-                    `;
-
-                    card.addEventListener('click', () => selectProduct(index, true));
-                    card.addEventListener('keydown', (e) => {
-                        if (e.key === 'Enter' || e.key === ' ') {
-                            e.preventDefault();
-                            selectProduct(index, true);
-                        }
-                    });
-
-                    const bookmarkBtn = card.querySelector('.ih-bookmark');
-                    bookmarkBtn.addEventListener('click', function (e) {
-                        e.stopPropagation();
-                        const icon = this.querySelector('i');
-                        icon.classList.toggle('fa-regular');
-                        icon.classList.toggle('fa-solid');
-                        const saved = icon.classList.contains('fa-solid');
-                        this.style.color = saved ? 'var(--t500)' : 'var(--ink4)';
-                        showToast(saved ? `${product.shortName} saved to quote list` : `Removed from quote list`);
-                    });
-
-                    carousel.appendChild(card);
-
-                    const dot = document.createElement('span');
-                    dot.className = `ih-dot ${index === 0 ? 'ih-active' : ''}`;
-                    dot.dataset.index = index;
-                    dot.setAttribute('role', 'button');
-                    dot.setAttribute('tabindex', '0');
-                    dot.setAttribute('aria-label', `Go to ${product.shortName}`);
-                    dot.addEventListener('click', () => selectProduct(index, true));
-                    indicator.appendChild(dot);
-                });
-            }
-
-            // ==========================================
-            // SELECT PRODUCT — syncs the whole hero
-            // ==========================================
-            function selectProduct(index, userInitiated) {
-                if (index === currentIndex) return;
-                const product = products[index];
-                if (!product) return;
-
-                document.querySelectorAll('.ih-card').forEach((card, i) => {
-                    card.classList.toggle('ih-active', i === index);
-                    card.setAttribute('aria-selected', i === index ? 'true' : 'false');
-                });
-                document.querySelectorAll('.ih-dot').forEach((dot, i) => {
-                    dot.classList.toggle('ih-active', i === index);
-                });
-
-                const mainImg = document.getElementById('mainProductImg');
-                const specCard = document.querySelector('.ih-spec-card');
-                const swapDelay = prefersReducedMotion ? 0 : 320;
-
-                mainImg.classList.add('ih-swap-out');
-                specCard.classList.add('ih-swap-out');
-
-                setTimeout(() => {
-                    mainImg.src = product.image;
-                    mainImg.alt = product.shortName;
-                    document.getElementById('productCategory').textContent = product.category.replace(/&amp;/g, '&');
-                    document.getElementById('productName').innerHTML = product.name;
-                    document.getElementById('productDesc').textContent = product.description;
-                    document.getElementById('specTitle').textContent = product.spec;
-                    document.getElementById('specSub').textContent = `Model ${product.model}`;
-
-                    mainImg.classList.remove('ih-swap-out');
-                    specCard.classList.remove('ih-swap-out');
-                }, swapDelay);
-
-                currentIndex = index;
-
-                if (userInitiated) {
-                    scrollToCard(index);
-                }
-            }
-
-            // ==========================================
-            // KEEP ACTIVE CARD CENTERED
-            // ==========================================
-            function scrollToCard(index) {
-                const carousel = document.getElementById('productCarousel');
-                const cards = carousel.querySelectorAll('.ih-card');
-                if (cards[index]) {
-                    cards[index].scrollIntoView({
-                        behavior: prefersReducedMotion ? 'auto' : 'smooth',
-                        inline: 'center',
-                        block: 'nearest'
-                    });
-                }
-            }
-
-            // ==========================================
-            // AUTO-SLIDE (infinite loop, pause on hover)
-            // ==========================================
-            function startAutoScroll() {
-                if (autoScrollInterval) clearInterval(autoScrollInterval);
-                isAutoScrolling = true;
-                document.getElementById('toggleAutoScroll').setAttribute('aria-pressed', 'true');
-                document.querySelector('#toggleAutoScroll i').className = 'fa-solid fa-pause text-[10px]';
-                document.getElementById('autoScrollLabel').textContent = 'Auto-Play On';
-                autoScrollInterval = setInterval(() => {
-                    const nextIndex = (currentIndex + 1) % products.length;
-                    selectProduct(nextIndex, true);
-                }, 4200);
-            }
-
-            function stopAutoScroll() {
-                if (autoScrollInterval) {
-                    clearInterval(autoScrollInterval);
-                    autoScrollInterval = null;
-                }
-                isAutoScrolling = false;
-                document.getElementById('toggleAutoScroll').setAttribute('aria-pressed', 'false');
-                document.querySelector('#toggleAutoScroll i').className = 'fa-solid fa-play text-[10px]';
-                document.getElementById('autoScrollLabel').textContent = 'Auto-Play Off';
-            }
-
-            function toggleAutoScroll() {
-                isAutoScrolling ? stopAutoScroll() : startAutoScroll();
-            }
-
-            // ==========================================
-            // TOAST
-            // ==========================================
-            function showToast(message) {
-                const existing = document.querySelector('.ih-toast');
-                if (existing) existing.remove();
-
-                const toast = document.createElement('div');
-                toast.className = 'ih-toast fixed bottom-6 left-1/2 -translate-x-1/2 text-white px-5 py-2.5 rounded-xl shadow-2xl z-50 text-xs font-medium transition-all duration-500 opacity-0 translate-y-4';
-                toast.style.background = 'var(--teal-deep)';
-                toast.setAttribute('role', 'status');
-                toast.textContent = message;
-                document.body.appendChild(toast);
-
-                requestAnimationFrame(() => {
-                    toast.classList.add('opacity-100', 'translate-y-0');
-                });
-
-                setTimeout(() => {
-                    toast.classList.remove('opacity-100', 'translate-y-0');
-                    toast.classList.add('opacity-0', 'translate-y-4');
-                    setTimeout(() => toast.remove(), 500);
-                }, 2200);
-            }
-
-            // ==========================================
-            // CTA HANDLERS
-            // ==========================================
-            document.getElementById('quoteBtn').addEventListener('click', function () {
-                const product = products[currentIndex];
-                const originalHtml = this.innerHTML;
-                this.innerHTML = '<i class="fa-solid fa-check text-xs"></i> Request Sent';
-                setTimeout(() => { this.innerHTML = originalHtml; }, 2000);
-                showToast(`Quote request sent for ${product.shortName}`);
-            });
-
-            document.getElementById('specBtn').addEventListener('click', function () {
-                const product = products[currentIndex];
-                showToast(`Opening specification sheet for ${product.shortName}`);
-            });
-
-            document.getElementById('toggleAutoScroll').addEventListener('click', toggleAutoScroll);
-
-            // ==========================================
-            // INIT
-            // ==========================================
-            renderProducts();
-
-            if (!prefersReducedMotion) {
-                setTimeout(startAutoScroll, 2000);
-            }
-
-            const carouselEl = document.getElementById('productCarousel');
-            carouselEl.addEventListener('mouseenter', stopAutoScroll);
-            carouselEl.addEventListener('mouseleave', () => { if (!prefersReducedMotion) startAutoScroll(); });
-            carouselEl.addEventListener('focusin', stopAutoScroll);
-            carouselEl.addEventListener('touchstart', stopAutoScroll, { passive: true });
-
-            console.log('⚙️ Industrial hero showcase loaded.');
-        });
-    </script>
 </body>
-
 </html>

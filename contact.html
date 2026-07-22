@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us | SIEC</title>
-  <link rel="stylesheet" href="index.css" />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -77,23 +76,44 @@
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
     @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     .animate-fade-up {
@@ -115,11 +135,21 @@
       animation: float 6s ease-in-out infinite;
     }
 
-    .delay-1 { animation-delay: 0.1s; }
-    .delay-2 { animation-delay: 0.2s; }
-    .delay-3 { animation-delay: 0.3s; }
-    .delay-4 { animation-delay: 0.4s; }
-    .delay-5 { animation-delay: 0.5s; }
+    .delay-1 {
+      animation-delay: 0.1s;
+    }
+    .delay-2 {
+      animation-delay: 0.2s;
+    }
+    .delay-3 {
+      animation-delay: 0.3s;
+    }
+    .delay-4 {
+      animation-delay: 0.4s;
+    }
+    .delay-5 {
+      animation-delay: 0.5s;
+    }
 
     .glass {
       background: rgba(255, 255, 255, 0.6);
@@ -135,9 +165,76 @@
       border: 1px solid rgba(38, 175, 147, 0.1);
     }
 
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--mint); }
-    ::-webkit-scrollbar-thumb { background: var(--t300); border-radius: 8px; }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--mint);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--t300);
+      border-radius: 8px;
+    }
+
+    /* marquee */
+    .marquee-strip {
+      width: 100%;
+      overflow: hidden;
+      background: #112a23;
+      padding: 18px 0;
+      border-top: 1px solid rgba(38, 175, 147, 0.15);
+      border-bottom: 1px solid rgba(38, 175, 147, 0.15);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 50px;
+      width: max-content;
+      animation: marqueeScroll 22s linear infinite;
+    }
+    .marquee-track .mi {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Azeret Mono', monospace;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      color: #b7ebde;
+      white-space: nowrap;
+      font-weight: 400;
+    }
+    .marquee-track .mi-dot {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #26af93;
+    }
+    @keyframes marqueeScroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Reduced height for hero form */
+    .hero-form-compact .form-row-compact {
+      gap: 0.75rem;
+    }
+    .hero-form-compact input,
+    .hero-form-compact select,
+    .hero-form-compact textarea {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      font-size: 0.8rem;
+    }
+    .hero-form-compact textarea {
+      min-height: 4rem;
+    }
+    .hero-form-compact .btn-compact {
+      padding: 0.5rem 1.5rem;
+    }
   </style>
 </head>
 
@@ -145,49 +242,40 @@
   <!---------------- HEADER ----------------------------------->
   <div id="header"></div>
 
-  <!-- ===== ASYMMETRIC HERO ===== -->
+  <!-- ===== ASYMMETRIC HERO (with form + stats) ===== -->
   <section class="relative mt-10 py-2 bg-[#F5F7F6]">
     <div class="max-w-[1700px] mx-auto px-2">
       <!-- Premium Banner -->
       <div
-        class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[60vh]"
-      >
+        class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[60vh]">
         <!-- Background Image -->
-        <img
-          src="./Images/about.jfif"
-          alt="Get in touch with SIEC"
-          class="absolute inset-0 w-full h-full object-cover"
-        />
+        <img src="./Images/contact_us_banner.png.jfif" alt="Get in touch with SIEC"
+          class="absolute inset-0 w-full h-full object-cover" />
 
         <!-- Overlay -->
-        <div
-          class="absolute inset-0 bg-gradient-to-br from-[#053F37]/80 via-[#0A2E2E]/60 to-transparent"
-        ></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-[#053F37]/80 via-[#0A2E2E]/60 to-transparent">
+        </div>
 
         <!-- Soft Highlight -->
         <div
-          class="absolute inset-0 rounded-[12px] border border-white/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_0_80px_rgba(255,255,255,0.04)]"
-        ></div>
+          class="absolute inset-0 rounded-[12px] border border-white/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_0_80px_rgba(255,255,255,0.04)]">
+        </div>
 
         <!-- Content -->
         <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 py-14">
-          <div class="grid lg:grid-cols-5 gap-12 items-center min-h-[72vh]">
+          <div class="grid lg:grid-cols-5 gap-10 items-start min-h-[72vh]">
             <!-- ================= LEFT CONTENT ================= -->
-            <div class="lg:col-span-3">
+            <div class="lg:col-span-2">
               <div
-                class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6"
-              >
+                class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6">
                 <span class="w-2 h-2 bg-[var(--t200)] rounded-full animate-pulse"></span>
-                <span
-                  class="text-xs font-['Azeret_Mono'] uppercase tracking-widest text-white font-medium"
-                >
+                <span class="text-xs font-['Azeret_Mono'] uppercase tracking-widest text-white font-medium">
                   Get In Touch
                 </span>
               </div>
 
               <h1
-                class="font-['Fraunces'] text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] tracking-tighter"
-              >
+                class="font-['Fraunces'] text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] tracking-tighter">
                 Let's Start a<br />
                 <span class="text-[var(--t200)] font-light font-['Georgia'] italic">Conversation</span>
               </h1>
@@ -199,19 +287,14 @@
 
               <div class="flex flex-wrap gap-4 mt-8">
                 <!-- Primary Button -->
-                <a
-                  href="#contact-form"
-                  class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#26AF93] text-white font-medium shadow-[0_10px_30px_rgba(38,175,147,0.35)] transition-all duration-300 hover:bg-[#1f957d] hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(38,175,147,0.45)]"
-                >
+                <a href="#contact-form"
+                  class="group inline-flex items-center gap-3 px-7 py-2 rounded-full bg-[#26AF93] text-white font-medium shadow-[0_10px_30px_rgba(38,175,147,0.35)] transition-all duration-300 hover:bg-[#1f957d] hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(38,175,147,0.45)]">
                   <span>Send Message</span>
                   <i class="fa-solid fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
                 </a>
-
                 <!-- Secondary Button -->
-                <a
-                  href="tel:+912012345678"
-                  class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white font-medium transition-all duration-300 hover:bg-white hover:text-[#053F37] hover:border-white hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(255,255,255,0.15)]"
-                >
+                <a href="tel:+912012345678"
+                  class="group inline-flex items-center gap-3 px-7 py-2 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white font-medium transition-all duration-300 hover:bg-white hover:text-[#053F37] hover:border-white hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(255,255,255,0.15)]">
                   <span>Call Us</span>
                   <i class="fa-solid fa-phone text-sm transition-transform duration-300 group-hover:rotate-12"></i>
                 </a>
@@ -219,33 +302,86 @@
             </div>
 
             <!-- ================= RIGHT STATS ================= -->
-            <div class="lg:col-span-2 flex justify-end">
-              <div
-                class="w-full max-w-md bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[24px] p-7 shadow-[0_15px_40px_rgba(0,0,0,0.18)]"
-              >
-                <div class="mb-6">
-                  <p class="text-white/60 uppercase tracking-[0.25em] text-xs">Contact Info</p>
-                  <h3 class="font-['Fraunces'] text-3xl text-white mt-2">Reach Out</h3>
+            <div class="lg:col-span-3 flex justify-end">
+              <!-- ===== CONTACT FORM (compact height) ===== -->
+              <div id="contact-form" class="hero-form-compact mt-0 max-w-2xl bg-white/10 backdrop-blur-xl rounded-3xl p-6 md:p-7 border border-green-300 shadow-[0_10px_40px_rgba(0,0,0,0.12)]">
+                <div class="flex items-center gap-3 mb-3">
+                  <div class="h-px w-8 bg-[#26AF93]"></div>
+                  <span class="text-[10px] font-['Azeret_Mono'] text-white tracking-[0.2em] uppercase font-medium">Send a Message</span>
                 </div>
+                <h2 class="font-['Fraunces'] text-xl md:text-2xl text-white font-semibold leading-tight">
+                  Tell Us About Your
+                  <span class="text-[#b7ebde] font-['Georgia'] italic">Project</span>
+                </h2>
+                <p class="mt-1 text-white/70 text-xs leading-relaxed">
+                  Share a few details and the right team member will follow up with you directly.
+                </p>
 
-                <div class="space-y-5">
-                  <div class="border-l-2 border-[#26AF93] pl-4">
-                    <p class="text-white/60 text-xs uppercase tracking-wider mb-1">Office</p>
-                    <p class="text-white text-sm leading-relaxed">Office 401, Sanskriti Arcade, Kaspate Wasti, Wakad, <br> Pune, Maharashtra, India - 411057</p>
+                <form id="contactForm" class="mt-4 space-y-4" novalidate>
+                  <div class="grid sm:grid-cols-2 gap-3 form-row-compact">
+                    <div>
+                      <label for="fullName" class="block text-[10px] font-['Quicksand'] font-semibold text-white/80 mb-1">
+                        Full Name <span class="text-red-300">*</span>
+                      </label>
+                      <input type="text" id="fullName" name="fullName" required
+                        class="w-full px-3 py-2 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm text-white text-sm placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#26AF93]/40 focus:border-[#26AF93] transition-all"
+                        placeholder="Your name" />
+                    </div>
+                    <div>
+                      <label for="email" class="block text-[10px] font-['Quicksand'] font-semibold text-white/80 mb-1">
+                        Email <span class="text-red-300">*</span>
+                      </label>
+                      <input type="email" id="email" name="email" required
+                        class="w-full px-3 py-2 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm text-white text-sm placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#26AF93]/40 focus:border-[#26AF93] transition-all"
+                        placeholder="you@company.com" />
+                    </div>
                   </div>
-                  <div class="border-l-2 border-[#26AF93] pl-4">
-                    <p class="text-white/60 text-xs uppercase tracking-wider mb-1">Phone</p>
-                    <p class="text-white text-sm">+91 80099 24800</p>
+
+                  <div class="grid sm:grid-cols-2 gap-3 form-row-compact">
+                    <div>
+                      <label for="phone" class="block text-[10px] font-['Quicksand'] font-semibold text-white/80 mb-1">
+                        Phone
+                      </label>
+                      <input type="tel" id="phone" name="phone"
+                        class="w-full px-3 py-2 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm text-white text-sm placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#26AF93]/40 focus:border-[#26AF93] transition-all"
+                        placeholder="+91 00000 00000" />
+                    </div>
+                    <div>
+                      <label for="service" class="block text-[10px] font-['Quicksand'] font-semibold text-white/80 mb-1">
+                        Service of Interest
+                      </label>
+                      <select id="service" name="service"
+                        class="w-full px-3 py-2 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#26AF93]/40 focus:border-[#26AF93] transition-all">
+                        <option value="" class="text-[#112a23]">Select a service</option>
+                        <option value="environmental" class="text-[#112a23]">Environmental Management Services</option>
+                        <option value="water" class="text-[#112a23]">Smart Water Management Services</option>
+                        <option value="infrastructure" class="text-[#112a23]">Utility Infrastructure Design</option>
+                        <option value="audit" class="text-[#112a23]">Audit, O&amp;M &amp; Project Management</option>
+                        <option value="other" class="text-[#112a23]">Other</option>
+                      </select>
+                    </div>
                   </div>
-                  <div class="border-l-2 border-[#26AF93] pl-4">
-                    <p class="text-white/60 text-xs uppercase tracking-wider mb-1">Email</p>
-                    <p class="text-white text-sm">marketing@sienvconsult.com</p>
+
+                  <div>
+                    <label for="message" class="block text-[10px] font-['Quicksand'] font-semibold text-white/80 mb-1">
+                      Message <span class="text-red-300">*</span>
+                    </label>
+                    <textarea id="message" name="message" rows="2" required
+                      class="w-full px-3 py-2 rounded-xl border border-white/20 bg-white/10 backdrop-blur-sm text-white text-sm placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#26AF93]/40 focus:border-[#26AF93] transition-all resize-none"
+                      placeholder="Tell us a bit about your project or query..."></textarea>
                   </div>
-                  <!-- <div class="border-l-2 border-[#26AF93] pl-4">
-                    <p class="text-white/60 text-xs uppercase tracking-wider mb-1">Hours</p>
-                    <p class="text-white text-sm">Mon – Sat, 9:30 AM – 6:30 PM</p>
-                  </div> -->
-                </div>
+
+                  <div id="formStatus" class="hidden text-sm rounded-xl px-4 py-3"></div>
+
+                  <button type="submit"
+                    class="group btn-compact inline-flex items-center gap-3 px-5 py-2 rounded-full bg-[#26AF93] text-white font-['Quicksand'] font-semibold shadow-[0_8px_25px_rgba(38,175,147,0.35)] hover:shadow-[0_15px_35px_rgba(38,175,147,0.45)] hover:-translate-y-0.5 transition-all duration-300">
+                    <span class="text-[14px]">Send Message</span>
+                    <span
+                      class="flex items-center justify-center w-7 h-7 rounded-full bg-white/20 transition-all duration-300 group-hover:translate-x-1">
+                      <span class="material-icons text-[18px] text-white">arrow_forward</span>
+                    </span>
+                  </button>
+                </form>
               </div>
             </div>
           </div>
@@ -254,40 +390,28 @@
     </div>
   </section>
 
-  <!-- ===== CONTACT INFO CARDS (Compact Highlighted Style) ===== -->
+  <!-- ===== CONTACT INFO CARDS (Compact Highlighted) ===== -->
   <section class="relative py-12 overflow-hidden bg-[var(--mint)]">
-    <!-- Slanting Lines Texture -->
-    <div
-      class="absolute inset-0 opacity-80 pointer-events-none"
-      style="
-        background: linear-gradient(135deg, transparent 0%, transparent 48%, rgba(38,175,147,0.06) 50%, transparent 52%, transparent 100%);
-        background-size: 60px 60px;
-      "
-    ></div>
-
+    <div class="absolute inset-0 opacity-80 pointer-events-none"
+      style="background: linear-gradient(135deg, transparent 0%, transparent 48%, rgba(38,175,147,0.06) 50%, transparent 52%, transparent 100%); background-size: 60px 60px;">
+    </div>
     <div class="max-w-7xl mx-auto px-4 md:px-10 relative z-10">
       <div class="text-center max-w-2xl mx-auto mb-8">
-        <span
-          class="text-[10px] font-['Azeret_Mono'] text-[#26AF93] tracking-[0.2em] uppercase font-medium"
-          >CONNECT WITH US</span
-        >
-        <h2
-          class="font-['Fraunces'] text-3xl md:text-4xl font-semibold text-[#112A23] mt-2"
-        >
+        <span class="text-[10px] font-['Azeret_Mono'] text-[#26AF93] tracking-[0.2em] uppercase font-medium">CONNECT WITH US</span>
+        <h2 class="font-['Fraunces'] text-3xl md:text-4xl font-semibold text-[#112A23] mt-2">
           How to <span class="text-[#26AF93] font-['Georgia'] italic">Reach</span> Us
         </h2>
       </div>
-
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Card 1 -->
         <div
-          class="group relative bg-white rounded-2xl p-5 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1"
-        >
+          class="group relative bg-white rounded-2xl p-2 border border-green-500 hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1">
           <div
-            class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"
-          ></div>
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all">
+          </div>
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl bg-[#D8F6EE] flex items-center justify-center group-hover:bg-[#26AF93] transition-colors duration-300">
+            <div
+              class="w-10 h-10 rounded-xl bg-[#D8F6EE] flex items-center justify-center group-hover:bg-[#26AF93] transition-colors duration-300">
               <i class="fa-solid fa-location-dot text-[#0F8F78] group-hover:text-white transition-colors duration-300"></i>
             </div>
             <h4 class="font-['Fraunces'] font-semibold text-[#112A23]">Office</h4>
@@ -296,16 +420,15 @@
             Office 401, Sanskriti Arcade, Kaspate Wasti, Wakad, <br>Pune, Maharashtra, India - 411057
           </p>
         </div>
-
         <!-- Card 2 -->
         <div
-          class="group relative bg-white rounded-2xl p-5 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1"
-        >
+          class="group relative bg-white rounded-2xl p-2 border border-green-500 hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1">
           <div
-            class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"
-          ></div>
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all">
+          </div>
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl bg-[#D8F6EE] flex items-center justify-center group-hover:bg-[#26AF93] transition-colors duration-300">
+            <div
+              class="w-10 h-10 rounded-xl bg-[#D8F6EE] flex items-center justify-center group-hover:bg-[#26AF93] transition-colors duration-300">
               <i class="fa-solid fa-phone text-[#0F8F78] group-hover:text-white transition-colors duration-300"></i>
             </div>
             <h4 class="font-['Fraunces'] font-semibold text-[#112A23]">Phone</h4>
@@ -315,16 +438,15 @@
             <span class="text-xs text-[#6B897D]">Mon – Sat, 9:30 AM – 6:30 PM</span>
           </p>
         </div>
-
         <!-- Card 3 -->
         <div
-          class="group relative bg-white rounded-2xl p-5 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1"
-        >
+          class="group relative bg-white rounded-2xl p-2 border border-green-500 hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1">
           <div
-            class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"
-          ></div>
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all">
+          </div>
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl bg-[#D8F6EE] flex items-center justify-center group-hover:bg-[#26AF93] transition-colors duration-300">
+            <div
+              class="w-10 h-10 rounded-xl bg-[#D8F6EE] flex items-center justify-center group-hover:bg-[#26AF93] transition-colors duration-300">
               <i class="fa-solid fa-envelope text-[#0F8F78] group-hover:text-white transition-colors duration-300"></i>
             </div>
             <h4 class="font-['Fraunces'] font-semibold text-[#112A23]">Email</h4>
@@ -334,16 +456,15 @@
             <span class="text-xs text-[#6B897D]">We reply within 24 hours</span>
           </p>
         </div>
-
         <!-- Card 4 -->
         <div
-          class="group relative bg-white rounded-2xl p-5 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1"
-        >
+          class="group relative bg-white rounded-2xl p-2 border border-green-500 hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1">
           <div
-            class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"
-          ></div>
+            class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all">
+          </div>
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl bg-[#D8F6EE] flex items-center justify-center group-hover:bg-[#26AF93] transition-colors duration-300">
+            <div
+              class="w-10 h-10 rounded-xl bg-[#D8F6EE] flex items-center justify-center group-hover:bg-[#26AF93] transition-colors duration-300">
               <i class="fa-solid fa-clock text-[#0F8F78] group-hover:text-white transition-colors duration-300"></i>
             </div>
             <h4 class="font-['Fraunces'] font-semibold text-[#112A23]">Working Hours</h4>
@@ -353,150 +474,6 @@
             <span class="text-xs text-[#6B897D]">9:30 AM – 6:30 PM IST</span>
           </p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FORM + MAP SECTION ===== -->
-  <section id="contact-form" class="relative py-12 overflow-hidden bg-[#F8FCFA]">
-    <!-- Background Image -->
-    <div class="absolute inset-0 pointer-events-none">
-      <img
-        src="./Images/background.png"
-        alt="Background"
-        class="w-full h-full object-cover opacity-[0.50]"
-      />
-    </div>
-
-    <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-10">
-      <div class="grid lg:grid-cols-12 gap-8 items-start">
-
-        <!-- Left: Form -->
-        <div class="lg:col-span-7">
-          <div class="bg-white rounded-3xl border border-[#EAF4EF] hover:border-[#26AF93]/30 transition-all duration-300 shadow-sm hover:shadow-[0_4px_20px_rgba(38,175,147,0.06)] p-8 md:p-10">
-            <div class="flex items-center gap-3 mb-2">
-              <div class="h-px w-8 bg-[#26AF93]"></div>
-              <span class="text-[10px] font-['Azeret_Mono'] text-[#26AF93] tracking-[0.2em] uppercase font-medium">Send a Message</span>
-            </div>
-            
-            <h2 class="font-['Fraunces'] text-3xl md:text-4xl font-semibold text-[#112A23] leading-tight">
-              Tell Us About Your
-              <span class="text-[#26AF93] font-['Georgia'] italic">Project</span>
-            </h2>
-            
-            <p class="mt-3 text-[#48675B] text-sm leading-relaxed">
-              Share a few details and the right team member will follow up with you directly.
-            </p>
-
-            <form id="contactForm" class="mt-8 space-y-5" novalidate>
-              <div class="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label for="fullName" class="block text-xs font-['Quicksand'] font-semibold text-[#112A23] mb-2">
-                    Full Name <span class="text-red-500">*</span>
-                  </label>
-                  <input type="text" id="fullName" name="fullName" required
-                    class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] bg-white text-[#112A23] text-sm placeholder:text-[#93ADA3] focus:outline-none focus:ring-2 focus:ring-[#26AF93]/20 focus:border-[#26AF93] transition-all"
-                    placeholder="Your name" />
-                </div>
-                <div>
-                  <label for="email" class="block text-xs font-['Quicksand'] font-semibold text-[#112A23] mb-2">
-                    Email <span class="text-red-500">*</span>
-                  </label>
-                  <input type="email" id="email" name="email" required
-                    class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] bg-white text-[#112A23] text-sm placeholder:text-[#93ADA3] focus:outline-none focus:ring-2 focus:ring-[#26AF93]/20 focus:border-[#26AF93] transition-all"
-                    placeholder="you@company.com" />
-                </div>
-              </div>
-
-              <div class="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <label for="phone" class="block text-xs font-['Quicksand'] font-semibold text-[#112A23] mb-2">
-                    Phone
-                  </label>
-                  <input type="tel" id="phone" name="phone"
-                    class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] bg-white text-[#112A23] text-sm placeholder:text-[#93ADA3] focus:outline-none focus:ring-2 focus:ring-[#26AF93]/20 focus:border-[#26AF93] transition-all"
-                    placeholder="+91 00000 00000" />
-                </div>
-                <div>
-                  <label for="service" class="block text-xs font-['Quicksand'] font-semibold text-[#112A23] mb-2">
-                    Service of Interest
-                  </label>
-                  <select id="service" name="service"
-                    class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] bg-white text-[#112A23] text-sm focus:outline-none focus:ring-2 focus:ring-[#26AF93]/20 focus:border-[#26AF93] transition-all">
-                    <option value="">Select a service</option>
-                    <option value="environmental">Environmental Management Services</option>
-                    <option value="water">Smart Water Management Services</option>
-                    <option value="infrastructure">Utility Infrastructure Design</option>
-                    <option value="audit">Audit, O&amp;M &amp; Project Management</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label for="message" class="block text-xs font-['Quicksand'] font-semibold text-[#112A23] mb-2">
-                  Message <span class="text-red-500">*</span>
-                </label>
-                <textarea id="message" name="message" rows="5" required
-                  class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] bg-white text-[#112A23] text-sm placeholder:text-[#93ADA3] focus:outline-none focus:ring-2 focus:ring-[#26AF93]/20 focus:border-[#26AF93] transition-all resize-none"
-                  placeholder="Tell us a bit about your project or query..."></textarea>
-              </div>
-
-              <div id="formStatus" class="hidden text-sm rounded-xl px-4 py-3"></div>
-
-              <button type="submit"
-                class="group inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#26AF93] to-[#0F8F78] text-white font-['Quicksand'] font-semibold shadow-[0_8px_25px_rgba(38,175,147,0.25)] hover:shadow-[0_15px_35px_rgba(38,175,147,0.35)] hover:-translate-y-0.5 transition-all duration-300">
-                <span class="text-[15px]">Send Message</span>
-                <span
-                  class="flex items-center justify-center w-8 h-8 rounded-full bg-white/20 transition-all duration-300 group-hover:translate-x-1">
-                  <span class="material-icons text-[18px] text-white">arrow_forward</span>
-                </span>
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <!-- Right: Map + Office Card -->
-<div class="lg:col-span-5 space-y-5">
-  <div class="rounded-3xl overflow-hidden border border-[#EAF4EF] shadow-sm hover:shadow-[0_4px_20px_rgba(38,175,147,0.06)] transition-all duration-300 aspect-[4/3]">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.123456789!2d73.7718793!3d18.5928397!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b900743dfc7f%3A0x28f56e5176fab4dd!2sSanskriti%20Arcade%2C%20Kaspate%20Wasti%2C%20Wakad%2C%20Pimpri-Chinchwad%2C%20Maharashtra%20411057!5e0!3m2!1sen!2sin!4v1700000000000"
-      class="w-full h-full border-0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-      title="SIEC office location - Sanskriti Arcade, Wakad, Pune">
-    </iframe>
-  </div>
-
-  <div class="bg-white rounded-3xl p-6 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.06)]">
-    <div class="flex items-center gap-3 mb-1">
-      <div class="h-px w-6 bg-[#26AF93]"></div>
-      <span class="text-[10px] font-['Azeret_Mono'] text-[#26AF93] tracking-[0.2em] uppercase font-medium">Visit Us</span>
-    </div>
-    <h3 class="font-['Fraunces'] text-2xl text-[#112A23] mt-2">SIEC Head Office</h3>
-    <div class="w-14 h-1 rounded-full bg-gradient-to-r from-[#26AF93] to-[#86DBC8] mt-2 mb-5"></div>
-
-    <ul class="space-y-3 text-sm text-[#48675B]">
-      <li class="flex items-start gap-3">
-        <div class="w-8 h-8 rounded-lg bg-[#D8F6EE] flex items-center justify-center flex-shrink-0 mt-0.5">
-          <i class="fa-solid fa-location-dot text-[#0F8F78] text-xs"></i>
-        </div>
-        <span>Office 401, Sanskriti Arcade, Kaspate Wasti, Wakad, Pune, Maharashtra, India - 411057</span>
-      </li>
-      <li class="flex items-start gap-3">
-        <div class="w-8 h-8 rounded-lg bg-[#D8F6EE] flex items-center justify-center flex-shrink-0">
-          <i class="fa-solid fa-phone text-[#0F8F78] text-xs"></i>
-        </div>
-        <span>+91 80099 24800</span>
-      </li>
-      <li class="flex items-start gap-3">
-        <div class="w-8 h-8 rounded-lg bg-[#D8F6EE] flex items-center justify-center flex-shrink-0">
-          <i class="fa-solid fa-envelope text-[#0F8F78] text-xs"></i>
-        </div>
-        <span>marketing@sienvconsult.com</span>
-      </li>
-    </ul>
-  </div>
-</div>
-
       </div>
     </div>
   </section>
@@ -522,111 +499,102 @@
   <!-- ===== FAQ SECTION ===== -->
   <section id="faq" class="relative py-12 overflow-hidden bg-[#F8FCFA]">
     <div class="absolute inset-0 bg-gradient-to-b from-[#F8FCFA] via-[#F2F9F6] to-[#EAF7F2] pointer-events-none"></div>
-    <div class="absolute inset-0 opacity-[0.30] pointer-events-none" style="
-    background-image: radial-gradient(#26AF93 1px, transparent 1px);
-    background-size: 24px 24px;
-  ">
+    <div class="absolute inset-0 opacity-[0.30] pointer-events-none"
+      style="background-image: radial-gradient(#26AF93 1px, transparent 1px); background-size: 24px 24px;">
     </div>
     <div class="relative max-w-7xl mx-auto px-4 md:px-10 z-10">
-
       <div class="text-center max-w-3xl mx-auto mb-10">
         <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-[#D8F6EE] border border-[#B7EBDE] mb-5">
           <span class="w-2 h-2 rounded-full bg-[#26AF93]"></span>
-          <span class="uppercase tracking-[0.3em] text-[11px] font-['Azeret_Mono'] text-[#0F8F78] font-medium">
-            FAQ
-          </span>
+          <span class="uppercase tracking-[0.3em] text-[11px] font-['Azeret_Mono'] text-[#0F8F78] font-medium">FAQ</span>
         </div>
         <h2 class="font-['Fraunces'] text-3xl md:text-4xl font-semibold text-[#0A7563] leading-tight">
           Common <span class="text-[#26AF93] italic font-['Georgia']">Questions</span>
         </h2>
       </div>
-
       <div class="grid lg:grid-cols-12 gap-8">
         <!-- Left Sidebar -->
         <div class="lg:col-span-3 space-y-6">
-          <div class="group relative bg-white rounded-3xl p-7 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.06)] sticky top-24">
-            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"></div>
-            <span class="text-[10px] tracking-[0.25em] uppercase font-['Azeret_Mono'] text-[#26AF93]">
-              Still Have Questions?
-            </span>
+          <div
+            class="group relative bg-white rounded-3xl p-7 border border-green-500 hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.06)] sticky top-24">
+            <div
+              class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all">
+            </div>
+            <span class="text-[10px] tracking-[0.25em] uppercase font-['Azeret_Mono'] text-[#26AF93]">Still Have Questions?</span>
             <h3 class="mt-3 text-2xl font-['Fraunces'] text-[#112A23] leading-tight">
               We're <span class="text-[#26AF93] font-['Fraunces'] italic">Here</span> to Help
             </h3>
             <div class="w-14 h-1 rounded-full bg-gradient-to-r from-[#26AF93] to-[#86DBC8] mt-2"></div>
-            <p class="mt-4 text-sm leading-7 text-[#48675B]">
-              Can't find what you're looking for? Reach out directly and our team
-              will get back to you.
-            </p>
+            <p class="mt-4 text-sm leading-7 text-[#48675B]">Can't find what you're looking for? Reach out directly and our team will get back to you.</p>
             <div class="mt-5 pt-5 border-t border-[#EAF4EF]">
               <a href="mailto:info@siec.example.com"
                 class="inline-flex items-center gap-2 text-sm font-['Quicksand'] font-semibold text-[#26AF93] hover:gap-3 transition-all duration-300">
-                Email Us
-                <i class="fa-solid fa-arrow-right text-xs"></i>
+                Email Us <i class="fa-solid fa-arrow-right text-xs"></i>
               </a>
             </div>
           </div>
         </div>
-
         <!-- FAQ Accordion -->
         <div class="lg:col-span-9 space-y-4">
           <details
             class="group relative bg-white rounded-2xl border border-[#EAF4EF] p-6 hover:border-[#26AF93] transition-all duration-300 open:shadow-[0_4px_20px_rgba(38,175,147,0.06)]">
-            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 rounded-r-full bg-[#26AF93] opacity-20 group-hover:opacity-40 transition-all"></div>
+            <div
+              class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 rounded-r-full bg-[#26AF93] opacity-20 group-hover:opacity-40 transition-all">
+            </div>
             <summary class="flex items-center justify-between cursor-pointer list-none pl-2">
               <h4 class="font-['Fraunces'] text-lg text-[#112A23]">What industries does SIEC work with?</h4>
-              <div class="w-8 h-8 rounded-full bg-[#D8F6EE] flex items-center justify-center flex-shrink-0 group-open:bg-[#26AF93] transition-colors duration-300">
-                <i class="fa-solid fa-plus text-[#26AF93] text-xs transition-all duration-300 group-open:text-white group-open:rotate-45"></i>
+              <div
+                class="w-8 h-8 rounded-full bg-[#D8F6EE] flex items-center justify-center flex-shrink-0 group-open:bg-[#26AF93] transition-colors duration-300">
+                <i
+                  class="fa-solid fa-plus text-[#26AF93] text-xs transition-all duration-300 group-open:text-white group-open:rotate-45"></i>
               </div>
             </summary>
-            <p class="mt-3 text-sm leading-7 text-[#48675B] pl-2">
-              We work with manufacturing, pharma, textiles, food processing, chemical
-              industries, municipalities, real estate developers, and power utilities.
-            </p>
+            <p class="mt-3 text-sm leading-7 text-[#48675B] pl-2">We work with manufacturing, pharma, textiles, food processing, chemical industries, municipalities, real estate developers, and power utilities.</p>
           </details>
-
           <details
             class="group relative bg-white rounded-2xl border border-[#EAF4EF] p-6 hover:border-[#26AF93] transition-all duration-300 open:shadow-[0_4px_20px_rgba(38,175,147,0.06)]">
-            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 rounded-r-full bg-[#26AF93] opacity-20 group-hover:opacity-40 transition-all"></div>
+            <div
+              class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 rounded-r-full bg-[#26AF93] opacity-20 group-hover:opacity-40 transition-all">
+            </div>
             <summary class="flex items-center justify-between cursor-pointer list-none pl-2">
               <h4 class="font-['Fraunces'] text-lg text-[#112A23]">How soon can I expect a response?</h4>
-              <div class="w-8 h-8 rounded-full bg-[#D8F6EE] flex items-center justify-center flex-shrink-0 group-open:bg-[#26AF93] transition-colors duration-300">
-                <i class="fa-solid fa-plus text-[#26AF93] text-xs transition-all duration-300 group-open:text-white group-open:rotate-45"></i>
+              <div
+                class="w-8 h-8 rounded-full bg-[#D8F6EE] flex items-center justify-center flex-shrink-0 group-open:bg-[#26AF93] transition-colors duration-300">
+                <i
+                  class="fa-solid fa-plus text-[#26AF93] text-xs transition-all duration-300 group-open:text-white group-open:rotate-45"></i>
               </div>
             </summary>
-            <p class="mt-3 text-sm leading-7 text-[#48675B] pl-2">
-              Our team typically responds within one business day. For urgent
-              enquiries, calling our office directly is the fastest way to reach us.
-            </p>
+            <p class="mt-3 text-sm leading-7 text-[#48675B] pl-2">Our team typically responds within one business day. For urgent enquiries, calling our office directly is the fastest way to reach us.</p>
           </details>
-
           <details
             class="group relative bg-white rounded-2xl border border-[#EAF4EF] p-6 hover:border-[#26AF93] transition-all duration-300 open:shadow-[0_4px_20px_rgba(38,175,147,0.06)]">
-            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 rounded-r-full bg-[#26AF93] opacity-20 group-hover:opacity-40 transition-all"></div>
+            <div
+              class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 rounded-r-full bg-[#26AF93] opacity-20 group-hover:opacity-40 transition-all">
+            </div>
             <summary class="flex items-center justify-between cursor-pointer list-none pl-2">
               <h4 class="font-['Fraunces'] text-lg text-[#112A23]">Do you offer site visits before a proposal?</h4>
-              <div class="w-8 h-8 rounded-full bg-[#D8F6EE] flex items-center justify-center flex-shrink-0 group-open:bg-[#26AF93] transition-colors duration-300">
-                <i class="fa-solid fa-plus text-[#26AF93] text-xs transition-all duration-300 group-open:text-white group-open:rotate-45"></i>
+              <div
+                class="w-8 h-8 rounded-full bg-[#D8F6EE] flex items-center justify-center flex-shrink-0 group-open:bg-[#26AF93] transition-colors duration-300">
+                <i
+                  class="fa-solid fa-plus text-[#26AF93] text-xs transition-all duration-300 group-open:text-white group-open:rotate-45"></i>
               </div>
             </summary>
-            <p class="mt-3 text-sm leading-7 text-[#48675B] pl-2">
-              Yes. For most projects, we begin with a site assessment to understand
-              existing infrastructure before proposing a solution.
-            </p>
+            <p class="mt-3 text-sm leading-7 text-[#48675B] pl-2">Yes. For most projects, we begin with a site assessment to understand existing infrastructure before proposing a solution.</p>
           </details>
-
           <details
             class="group relative bg-white rounded-2xl border border-[#EAF4EF] p-6 hover:border-[#26AF93] transition-all duration-300 open:shadow-[0_4px_20px_rgba(38,175,147,0.06)]">
-            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 rounded-r-full bg-[#26AF93] opacity-20 group-hover:opacity-40 transition-all"></div>
+            <div
+              class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-10 rounded-r-full bg-[#26AF93] opacity-20 group-hover:opacity-40 transition-all">
+            </div>
             <summary class="flex items-center justify-between cursor-pointer list-none pl-2">
               <h4 class="font-['Fraunces'] text-lg text-[#112A23]">Can SIEC support O&amp;M after completion?</h4>
-              <div class="w-8 h-8 rounded-full bg-[#D8F6EE] flex items-center justify-center flex-shrink-0 group-open:bg-[#26AF93] transition-colors duration-300">
-                <i class="fa-solid fa-plus text-[#26AF93] text-xs transition-all duration-300 group-open:text-white group-open:rotate-45"></i>
+              <div
+                class="w-8 h-8 rounded-full bg-[#D8F6EE] flex items-center justify-center flex-shrink-0 group-open:bg-[#26AF93] transition-colors duration-300">
+                <i
+                  class="fa-solid fa-plus text-[#26AF93] text-xs transition-all duration-300 group-open:text-white group-open:rotate-45"></i>
               </div>
             </summary>
-            <p class="mt-3 text-sm leading-7 text-[#48675B] pl-2">
-              Yes, our Audit, O&amp;M &amp; Project Management Consultancy service covers
-              long-term operation and maintenance support after commissioning.
-            </p>
+            <p class="mt-3 text-sm leading-7 text-[#48675B] pl-2">Yes, our Audit, O&amp;M &amp; Project Management Consultancy service covers long-term operation and maintenance support after commissioning.</p>
           </details>
         </div>
       </div>
@@ -634,42 +602,37 @@
   </section>
 
   <!-- ===== CTA STRIP ===== -->
-  <section class="relative py-14 overflow-hidden text-white"
-    style="background: linear-gradient(145deg, #0A3B35 0%, #0F5E52 55%, #12806A 100%);">
-    <!-- Slanting Lines -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden">
-      <svg class="absolute w-full h-full opacity-[0.06]" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <defs>
-          <pattern id="slantPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-            <line x1="0" y1="20" x2="20" y2="0" stroke="#86DBC8" stroke-width="1.5" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#slantPattern)" />
-      </svg>
-    </div>
-    
-    <div class="relative max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-['Fraunces'] font-semibold leading-tight">
-        Ready to Start Your <span class="text-[#86DBC8] italic">Project</span>?
-      </h2>
-      <p class="mt-4 text-white/70 text-sm max-w-xl mx-auto leading-relaxed">
-        Whether it's a compliance audit or a full infrastructure build, our team is
-        ready to talk through your requirements.
-      </p>
-      <div class="pt-8">
-        <a href="mailto:info@siec.example.com"
-          class="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-[#26AF93] hover:border-[#26AF93] transition-all duration-500">
-          <span class="font-['Quicksand'] text-[15px] font-medium">Email Our Team</span>
-          <span
-            class="flex items-center justify-center w-8 h-8 rounded-full bg-white/15 transition-all duration-500 group-hover:bg-white">
-            <span class="material-icons text-[18px] text-white transition-all duration-500 group-hover:text-[#0F8F78]">
-              arrow_forward
-            </span>
+<section class="relative py-14 overflow-hidden text-white"
+  style="background: linear-gradient(145deg, #0A3B35 0%, #0F5E52 55%, #12806A 100%);">
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <svg class="absolute w-full h-full opacity-[0.06]" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <pattern id="slantPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="20" x2="20" y2="0" stroke="#86DBC8" stroke-width="1.5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#slantPattern)" />
+    </svg>
+  </div>
+  <div class="relative max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-4xl font-['Fraunces'] font-semibold leading-tight">
+      Ready to Start Your <span class="text-[#86DBC8] italic">Project</span>?
+    </h2>
+    <p class="mt-4 text-white/70 text-sm max-w-xl mx-auto leading-relaxed">Whether it's a compliance audit or a full infrastructure build, our team is ready to talk through your requirements.</p>
+    <div class="pt-8">
+      <a href="tel:+918009924800"
+        class="group inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-[#26AF93] hover:border-[#26AF93] transition-all duration-500">
+        <span class="font-['Quicksand'] text-[15px] font-medium">Call Our Team</span>
+        <span
+          class="flex items-center justify-center w-8 h-8 rounded-full bg-white/15 transition-all duration-500 group-hover:bg-white">
+          <span class="material-icons text-[18px] text-white transition-all duration-500 group-hover:text-[#0F8F78]">
+            call
           </span>
-        </a>
-      </div>
+        </span>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- FOOTER -->
   <div id="footer"></div>
@@ -681,12 +644,12 @@
 
   <!-- Contact Form Handling -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       var form = document.getElementById('contactForm');
       var status = document.getElementById('formStatus');
       if (!form) return;
 
-      form.addEventListener('submit', function (e) {
+      form.addEventListener('submit', function(e) {
         e.preventDefault();
 
         if (!form.checkValidity()) {
@@ -694,12 +657,11 @@
           return;
         }
 
-        // TODO: replace with an actual API call / email service integration.
         status.textContent = "Thanks — your message has been received. We'll be in touch shortly.";
-        status.className = "text-sm rounded-xl px-4 py-3 bg-[#D8F6EE] text-[#0F8F78] font-['Quicksand'] font-semibold block";
+        status.className =
+          "text-sm rounded-xl px-4 py-3 bg-[#D8F6EE] text-[#0F8F78] font-['Quicksand'] font-semibold block";
         form.reset();
-        
-        // Hide status after 5 seconds
+
         setTimeout(() => {
           status.className = "hidden";
         }, 5000);
