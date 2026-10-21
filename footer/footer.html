@@ -7,41 +7,38 @@
     <!-- BACKGROUND EFFECTS -->
     <div class="absolute inset-0 pointer-events-none">
         <div class="absolute inset-0 bg-gradient-to-b from-[#0A2E2E] via-[#053F37] to-[#0A2E2E]"></div>
-        <div class="absolute top-[-150px] left-[-100px] w-[400px] h-[400px] bg-[#26AF93]/10 blur-[150px] rounded-full">
-        </div>
-        <div
-            class="absolute bottom-[-150px] right-[-100px] w-[400px] h-[400px] bg-[#0F8F78]/10 blur-[150px] rounded-full">
-        </div>
+        <div class="absolute top-[-150px] left-[-100px] w-[240px] sm:w-[320px] md:w-[400px] h-[240px] sm:h-[320px] md:h-[400px] bg-[#26AF93]/10 blur-[120px] sm:blur-[150px] rounded-full"></div>
+        <div class="absolute bottom-[-150px] right-[-100px] w-[240px] sm:w-[320px] md:w-[400px] h-[240px] sm:h-[320px] md:h-[400px] bg-[#0F8F78]/10 blur-[120px] sm:blur-[150px] rounded-full"></div>
         <div class="absolute inset-0 opacity-[0.03]"
             style="background-image: radial-gradient(#86DBC8 1px, transparent 5px); background-size: 24px 24px;"></div>
     </div>
 
     <!-- MAIN CONTENT -->
-    <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 py-10">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-8 sm:py-10">
 
-        <!-- TOP SECTION: Brand + Quick Links + Services + Social + Contact -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-10">
+        <!-- TOP SECTION -->
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10">
 
-            <!-- BRAND -->
-            <div class="col-span-2 md:col-span-1">
+            <!-- BRAND (full width on mobile/tablet, 1 col on desktop) -->
+            <div class="col-span-2 md:col-span-3 lg:col-span-1">
                 <a href="/index.html" class="inline-block">
-                    <img src="/Images/logo.jpeg" alt="SIEC Logo" class="h-10 md:h-12 object-contain brightness-110"
+                    <img src="/Images/logo.jpeg" alt="SIEC Logo"
+                        class="h-9 sm:h-10 md:h-12 w-auto object-contain brightness-110"
                         onerror="this.style.display='none'" />
                 </a>
-                <p class="mt-3 text-[#93ADA3] text-xs leading-relaxed max-w-[200px]">
+                <p class="mt-3 text-[#93ADA3] text-xs leading-relaxed max-w-[280px]">
                     Sustainable Integrated Environmental Consultants — delivering innovative environmental solutions for
                     a greener future.
                 </p>
                 <div class="mt-3 flex items-center gap-2">
                     <span class="w-1.5 h-1.5 rounded-full bg-[#53C8AF]"></span>
-                    <span class="text-[9px] font-['Azeret_Mono'] text-[#86DBC8] tracking-wider">SUSTAINABLE •
-                        INNOVATIVE</span>
+                    <span class="text-[9px] font-['Azeret_Mono'] text-[#86DBC8] tracking-wider">SUSTAINABLE • INNOVATIVE</span>
                 </div>
             </div>
 
             <!-- QUICK LINKS -->
             <div>
-                <h4 class="text-white text-[10px] font-['Azeret_Mono'] font-semibold uppercase tracking-[0.15rem] mb-4">
+                <h4 class="text-white text-[10px] font-['Azeret_Mono'] font-semibold uppercase tracking-[0.15rem] mb-3 sm:mb-4">
                     Quick Links
                 </h4>
                 <ul class="space-y-2 text-xs">
@@ -75,107 +72,100 @@
 
             <!-- SERVICES -->
             <div>
-                <h4 class="text-white text-[10px] font-['Azeret_Mono'] font-semibold uppercase tracking-[0.15rem] mb-4">
+                <h4 class="text-white text-[10px] font-['Azeret_Mono'] font-semibold uppercase tracking-[0.15rem] mb-3 sm:mb-4">
                     Services
                 </h4>
                 <ul class="space-y-2 text-xs">
                     <li><a href="services/environmental.html"
-                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 flex items-center gap-2 group">
-                            <span class="w-0 h-0.5 bg-[#53C8AF] group-hover:w-3 transition-all duration-300"></span>
-                            Environmental Management
+                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 flex items-start gap-2 group">
+                            <span class="w-0 h-0.5 bg-[#53C8AF] group-hover:w-3 transition-all duration-300 mt-2 flex-shrink-0"></span>
+                            <span>Environmental Management</span>
                         </a></li>
                     <li><a href="services/water.html"
-                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 flex items-center gap-2 group">
-                            <span class="w-0 h-0.5 bg-[#53C8AF] group-hover:w-3 transition-all duration-300"></span>
-                            Smart Water Management
+                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 flex items-start gap-2 group">
+                            <span class="w-0 h-0.5 bg-[#53C8AF] group-hover:w-3 transition-all duration-300 mt-2 flex-shrink-0"></span>
+                            <span>Smart Water Management</span>
                         </a></li>
                     <li><a href="services/infrastructure.html"
-                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 flex items-center gap-2 group">
-                            <span class="w-0 h-0.5 bg-[#53C8AF] group-hover:w-3 transition-all duration-300"></span>
-                            Utility Infrastructure
+                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 flex items-start gap-2 group">
+                            <span class="w-0 h-0.5 bg-[#53C8AF] group-hover:w-3 transition-all duration-300 mt-2 flex-shrink-0"></span>
+                            <span>Utility Infrastructure</span>
                         </a></li>
                     <li><a href="services/audit.html"
-                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 flex items-center gap-2 group">
-                            <span class="w-0 h-0.5 bg-[#53C8AF] group-hover:w-3 transition-all duration-300"></span>
-                            Audit & O&M
+                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 flex items-start gap-2 group">
+                            <span class="w-0 h-0.5 bg-[#53C8AF] group-hover:w-3 transition-all duration-300 mt-2 flex-shrink-0"></span>
+                            <span>Audit &amp; O&amp;M</span>
                         </a></li>
                     <li><a href="services/compliance.html"
-                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 flex items-center gap-2 group">
-                            <span class="w-0 h-0.5 bg-[#53C8AF] group-hover:w-3 transition-all duration-300"></span>
-                            Monitoring & Compliance
+                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 flex items-start gap-2 group">
+                            <span class="w-0 h-0.5 bg-[#53C8AF] group-hover:w-3 transition-all duration-300 mt-2 flex-shrink-0"></span>
+                            <span>Monitoring &amp; Compliance</span>
                         </a></li>
                 </ul>
             </div>
 
             <!-- SOCIAL -->
             <div>
-                <h4 class="text-white text-[10px] font-['Azeret_Mono'] font-semibold uppercase tracking-[0.15rem] mb-4">
+                <h4 class="text-white text-[10px] font-['Azeret_Mono'] font-semibold uppercase tracking-[0.15rem] mb-3 sm:mb-4">
                     Connect With Us
                 </h4>
-                <div class="flex flex-wrap gap-2.5">
+                <div class="flex flex-wrap gap-2 sm:gap-2.5">
                     <a href="#" target="_blank"
                         class="w-9 h-9 rounded-full bg-[#26AF93]/10 border border-[#26AF93]/20 flex items-center justify-center hover:bg-[#26AF93] hover:border-[#26AF93] transition-all duration-300 group"
                         aria-label="LinkedIn">
-                        <i
-                            class="fa-brands fa-linkedin-in text-sm text-[#86DBC8] group-hover:text-white transition-colors duration-300"></i>
+                        <i class="fa-brands fa-linkedin-in text-sm text-[#86DBC8] group-hover:text-white transition-colors duration-300"></i>
                     </a>
                     <a href="#" target="_blank"
                         class="w-9 h-9 rounded-full bg-[#26AF93]/10 border border-[#26AF93]/20 flex items-center justify-center hover:bg-[#26AF93] hover:border-[#26AF93] transition-all duration-300 group"
                         aria-label="YouTube">
-                        <i
-                            class="fa-brands fa-youtube text-sm text-[#86DBC8] group-hover:text-white transition-colors duration-300"></i>
+                        <i class="fa-brands fa-youtube text-sm text-[#86DBC8] group-hover:text-white transition-colors duration-300"></i>
                     </a>
                     <a href="#" target="_blank"
                         class="w-9 h-9 rounded-full bg-[#26AF93]/10 border border-[#26AF93]/20 flex items-center justify-center hover:bg-[#26AF93] hover:border-[#26AF93] transition-all duration-300 group"
                         aria-label="Twitter/X">
-                        <i
-                            class="fa-brands fa-x-twitter text-sm text-[#86DBC8] group-hover:text-white transition-colors duration-300"></i>
+                        <i class="fa-brands fa-x-twitter text-sm text-[#86DBC8] group-hover:text-white transition-colors duration-300"></i>
                     </a>
                     <a href="#" target="_blank"
                         class="w-9 h-9 rounded-full bg-[#26AF93]/10 border border-[#26AF93]/20 flex items-center justify-center hover:bg-[#26AF93] hover:border-[#26AF93] transition-all duration-300 group"
                         aria-label="Facebook">
-                        <i
-                            class="fa-brands fa-facebook-f text-sm text-[#86DBC8] group-hover:text-white transition-colors duration-300"></i>
+                        <i class="fa-brands fa-facebook-f text-sm text-[#86DBC8] group-hover:text-white transition-colors duration-300"></i>
                     </a>
-
                 </div>
                 <p class="mt-3 text-[#6B897D] text-[9px] font-['Azeret_Mono'] tracking-wider">
                     Follow us for updates
                 </p>
             </div>
 
-            <!-- CONTACT -->
-            <div>
-                <h4 class="text-white text-[10px] font-['Azeret_Mono'] font-semibold uppercase tracking-[0.15rem] mb-4">
+            <!-- CONTACT (full width on mobile) -->
+            <div class="col-span-2 sm:col-span-2 md:col-span-3 lg:col-span-1">
+                <h4 class="text-white text-[10px] font-['Azeret_Mono'] font-semibold uppercase tracking-[0.15rem] mb-3 sm:mb-4">
                     Get In Touch
                 </h4>
                 <ul class="space-y-3 text-xs">
                     <li class="flex items-start gap-3">
-                        <div
-                            class="w-8 h-8 rounded-full bg-[#26AF93]/10 border border-[#26AF93]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div class="w-8 h-8 rounded-full bg-[#26AF93]/10 border border-[#26AF93]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                             <i class="fa-solid fa-envelope text-[#53C8AF] text-[10px]"></i>
                         </div>
                         <a href="mailto:marketing@sienvconsult.com"
-                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 break-all">
+                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 break-all leading-6">
                             marketing@sienvconsult.com
                         </a>
                     </li>
                     <li class="flex items-start gap-3">
-                        <div
-                            class="w-8 h-8 rounded-full bg-[#26AF93]/10 border border-[#26AF93]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div class="w-8 h-8 rounded-full bg-[#26AF93]/10 border border-[#26AF93]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                             <i class="fa-solid fa-phone text-[#53C8AF] text-[10px]"></i>
                         </div>
-                        <a href="tel:+918009924800" class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300">
+                        <a href="tel:+918009924800"
+                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 leading-6">
                             +91 80099 24800
                         </a>
                     </li>
                     <li class="flex items-start gap-3">
-                        <div
-                            class="w-8 h-8 rounded-full bg-[#26AF93]/10 border border-[#26AF93]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <div class="w-8 h-8 rounded-full bg-[#26AF93]/10 border border-[#26AF93]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                             <i class="fa-solid fa-location-dot text-[#53C8AF] text-[10px]"></i>
                         </div>
                         <a href="#" target="_blank"
-                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 text-[10px]">
+                            class="text-[#93ADA3] hover:text-[#53C8AF] transition duration-300 text-[10px] leading-5">
                             Office No. 401, 4th Floor, Sanskriti Arcade, Survey No. 228/5, Kaspate Wasti, Wakad, Pune, Maharashtra
                         </a>
                     </li>
@@ -184,37 +174,25 @@
 
         </div>
 
-        <!-- MIDDLE SECTION: Newsletter / CTA -->
-        <!-- <div class="mt-8 pt-6 border-t border-[#26AF93]/10">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                    <span class="text-[#53C8AF] text-xl">✦</span>
-                    <p class="text-[#93ADA3] text-xs font-['Azeret_Mono'] tracking-wider">
-                        Let's create a sustainable future together
-                    </p>
-                </div>
-
-            </div>
-        </div> -->
-
         <!-- BOTTOM BAR -->
-        <div
-            class="relative mt-6 pt-4 border-t border-[#26AF93]/10 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p class="text-[#6B897D] text-[10px] font-['Azeret_Mono'] tracking-wider">
+        <div class="relative mt-6 sm:mt-8 pt-4 sm:pt-5 border-t border-[#26AF93]/10 flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 text-center md:text-left">
+
+            <p class="text-[#6B897D] text-[10px] font-['Azeret_Mono'] tracking-wider order-1 md:order-1">
                 © <span id="year">2026</span> <span class="text-[#86DBC8]">SIEC</span>. All rights reserved.
             </p>
 
             <!-- Footer Links -->
-            <div class="flex items-center gap-4 text-[10px] text-[#6B897D] font-['Azeret_Mono']">
-                <a href="#" class="hover:text-[#53C8AF] transition duration-300">Privacy Policy</a>
+            <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[10px] text-[#6B897D] font-['Azeret_Mono'] order-2 md:order-2">
+                <a href="#" class="hover:text-[#53C8AF] transition duration-300 whitespace-nowrap">Privacy Policy</a>
                 <span class="w-px h-3 bg-[#26AF93]/20"></span>
-                <a href="#" class="hover:text-[#53C8AF] transition duration-300">Terms of Service</a>
+                <a href="#" class="hover:text-[#53C8AF] transition duration-300 whitespace-nowrap">Terms of Service</a>
                 <span class="w-px h-3 bg-[#26AF93]/20"></span>
-                <a href="#" class="hover:text-[#53C8AF] transition duration-300">Sitemap</a>
+                <a href="#" class="hover:text-[#53C8AF] transition duration-300 whitespace-nowrap">Sitemap</a>
             </div>
 
-            <p class="text-[#6B897D] text-[10px] font-['Azeret_Mono'] tracking-wider">
-                <span class="text-[#53C8AF]">✦</span> Developed by <a href="#" target="_blank"
+            <p class="text-[#6B897D] text-[10px] font-['Azeret_Mono'] tracking-wider order-3 md:order-3">
+                <span class="text-[#53C8AF]">✦</span> Developed by
+                <a href="#" target="_blank"
                     class="text-[#86DBC8] hover:text-[#53C8AF] transition duration-300">Kunash Media</a>
             </p>
         </div>
