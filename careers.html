@@ -26,7 +26,6 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
       rel="stylesheet" />
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 
@@ -52,11 +51,7 @@
         --border-light: #eaf4ef;
       }
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
 
       body {
         font-family: "General Sans", sans-serif;
@@ -65,56 +60,31 @@
         overflow-x: hidden;
       }
 
-      .font-display {
-        font-family: "Fraunces", Georgia, serif;
-      }
-
-      .font-mono {
-        font-family: "Azeret Mono", monospace;
-      }
-
-      .font-body {
-        font-family: "Zain", sans-serif;
-      }
+      .font-display { font-family: "Fraunces", Georgia, serif; }
+      .font-mono { font-family: "Azeret Mono", monospace; }
+      .font-body { font-family: "Zain", sans-serif; }
 
       @keyframes fadeUp {
         from { opacity: 0; transform: translateY(30px); }
         to { opacity: 1; transform: translateY(0); }
       }
-
       @keyframes fadeIn {
         from { opacity: 0; }
         to { opacity: 1; }
       }
-
       @keyframes scaleIn {
         from { opacity: 0; transform: scale(0.95); }
         to { opacity: 1; transform: scale(1); }
       }
-
       @keyframes float {
         0%, 100% { transform: translateY(0px); }
         50% { transform: translateY(-10px); }
       }
 
-      .animate-fade-up {
-        opacity: 0;
-        animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      }
-
-      .animate-fade-in {
-        opacity: 0;
-        animation: fadeIn 1s ease forwards;
-      }
-
-      .animate-scale-in {
-        opacity: 0;
-        animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      }
-
-      .animate-float {
-        animation: float 6s ease-in-out infinite;
-      }
+      .animate-fade-up { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+      .animate-fade-in { opacity: 0; animation: fadeIn 1s ease forwards; }
+      .animate-scale-in { opacity: 0; animation: scaleIn 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+      .animate-float { animation: float 6s ease-in-out infinite; }
 
       .delay-1 { animation-delay: 0.1s; }
       .delay-2 { animation-delay: 0.2s; }
@@ -126,19 +96,31 @@
       ::-webkit-scrollbar-track { background: var(--mint); }
       ::-webkit-scrollbar-thumb { background: var(--t300); border-radius: 8px; }
 
-      /* Form overlay scrollbar */
-      #applicationOverlay .overflow-y-auto::-webkit-scrollbar { width: 6px; }
-      #applicationOverlay .overflow-y-auto::-webkit-scrollbar-track {
+      .overlay-scroll::-webkit-scrollbar { width: 6px; }
+      .overlay-scroll::-webkit-scrollbar-track {
         background: #F2F9F6;
         border-radius: 0 20px 20px 0;
       }
-      #applicationOverlay .overflow-y-auto::-webkit-scrollbar-thumb {
+      .overlay-scroll::-webkit-scrollbar-thumb {
         background: #26AF93;
         border-radius: 20px;
       }
 
-      #applicationOverlay, #successOverlay {
+      #jobDetailOverlay, #applicationOverlay, #successOverlay {
         animation: fadeIn 0.3s ease-out;
+      }
+
+      .skills-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: #D8F6EE;
+        border: 1px solid #B7EBDE;
+        color: #0F8F78;
+        padding: 2px 10px;
+        border-radius: 20px;
+        font-size: 10px;
+        font-weight: 500;
       }
     </style>
   </head>
@@ -146,49 +128,36 @@
   <body>
     <div id="header"></div>
 
-    <!-- ===== ASYMMETRIC HERO ===== -->
+    <!-- ===== HERO ===== -->
     <section class="relative mt-10 py-2 bg-[#F5F7F6]">
       <div class="max-w-[1700px] mx-auto px-2">
-        <!-- Premium Banner -->
         <div
-          class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[60vh]"
-        >
-          <!-- Background Image -->
+          class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[60vh]">
           <img
             src="./Images/banner.jfif"
             alt="Careers at SIEC"
             class="absolute inset-0 w-full h-full object-cover"
           />
-
-          <!-- Overlay -->
           <div
             class="absolute inset-0 bg-gradient-to-br from-[#053F37]/80 via-[#0A2E2E]/60 to-transparent"
           ></div>
-
-          <!-- Soft Highlight -->
           <div
             class="absolute inset-0 rounded-[12px] border border-white/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_0_80px_rgba(255,255,255,0.04)]"
           ></div>
 
-          <!-- Content -->
           <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 py-14">
             <div class="grid lg:grid-cols-5 gap-12 items-center min-h-[72vh]">
-              <!-- ================= LEFT CONTENT ================= -->
               <div class="lg:col-span-3">
                 <div
-                  class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6"
-                >
+                  class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6">
                   <span class="w-2 h-2 bg-[var(--t200)] rounded-full animate-pulse"></span>
-                  <span
-                    class="text-xs font-['Azeret_Mono'] uppercase tracking-widest text-white font-medium"
-                  >
+                  <span class="text-xs font-['Azeret_Mono'] uppercase tracking-widest text-white font-medium">
                     Join Our Team
                   </span>
                 </div>
 
                 <h1
-                  class="font-['Fraunces'] text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] tracking-tighter"
-                >
+                  class="font-['Fraunces'] text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] tracking-tighter">
                   Build Your Career<br />
                   With <span class="text-[var(--t200)] font-light font-['Georgia'] italic">Purpose</span>
                 </h1>
@@ -200,43 +169,32 @@
                 </p>
 
                 <div class="flex flex-wrap gap-4 mt-8">
-                  <!-- Primary Button -->
-                  <a
-                    href="#openings"
-                    class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#26AF93] text-white font-medium shadow-[0_10px_30px_rgba(38,175,147,0.35)] transition-all duration-300 hover:bg-[#1f957d] hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(38,175,147,0.45)]"
-                  >
+                  <a href="#openings"
+                    class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#26AF93] text-white font-medium shadow-[0_10px_30px_rgba(38,175,147,0.35)] transition-all duration-300 hover:bg-[#1f957d] hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(38,175,147,0.45)]">
                     <span>View Openings</span>
                     <i class="fa-solid fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
                   </a>
-
-                  <!-- Secondary Button -->
-                  <a
-                    href="#why"
-                    class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white font-medium transition-all duration-300 hover:bg-white hover:text-[#053F37] hover:border-white hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(255,255,255,0.15)]"
-                  >
+                  <a href="#why"
+                    class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white font-medium transition-all duration-300 hover:bg-white hover:text-[#053F37] hover:border-white hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(255,255,255,0.15)]">
                     <span>Why Join Us</span>
                     <i class="fa-solid fa-heart text-sm transition-transform duration-300 group-hover:scale-110"></i>
                   </a>
                 </div>
               </div>
 
-              <!-- ================= RIGHT STATS ================= -->
               <div class="lg:col-span-2 flex justify-end">
-                <div
-                  class="w-full max-w-md bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[24px] p-7 shadow-[0_15px_40px_rgba(0,0,0,0.18)]"
-                >
+                <div class="w-full max-w-md bg-white/10 backdrop-blur-2xl border border-white/20 rounded-[24px] p-7 shadow-[0_15px_40px_rgba(0,0,0,0.18)]">
                   <div class="mb-6">
                     <p class="text-white/60 uppercase tracking-[0.25em] text-xs">Why SIEC</p>
                     <h3 class="font-['Fraunces'] text-3xl text-white mt-2">Numbers that Matter</h3>
                   </div>
-
                   <div class="grid grid-cols-2 gap-5">
                     <div class="border-l-2 border-[#26AF93] pl-4">
-                      <h4 class="font-['Fraunces'] text-4xl text-white">50+</h4>
+                      <h4 class="font-['Fraunces'] text-4xl text-white">52+</h4>
                       <p class="text-white/70 text-sm mt-1 leading-relaxed">Team Members</p>
                     </div>
                     <div class="border-l-2 border-[#26AF93] pl-4">
-                      <h4 class="font-['Fraunces'] text-4xl text-white">15+</h4>
+                      <h4 class="font-['Fraunces'] text-4xl text-white" id="statOpenings">0</h4>
                       <p class="text-white/70 text-sm mt-1 leading-relaxed">Open Positions</p>
                     </div>
                     <div class="border-l-2 border-[#26AF93] pl-4">
@@ -256,43 +214,27 @@
       </div>
     </section>
 
-    <!-- ===== WHY JOIN US (Values Style) ===== -->
+    <!-- ===== WHY JOIN US ===== -->
     <section id="why" class="relative py-12 overflow-hidden bg-[var(--mint)]">
-      <!-- Slanting Lines Texture -->
       <div
         class="absolute inset-0 opacity-80 pointer-events-none"
-        style="
-          background: linear-gradient(135deg, transparent 0%, transparent 48%, rgba(38,175,147,0.06) 50%, transparent 52%, transparent 100%);
-          background-size: 60px 60px;
-        "
+        style="background: linear-gradient(135deg, transparent 0%, transparent 48%, rgba(38,175,147,0.06) 50%, transparent 52%, transparent 100%); background-size: 60px 60px;"
       ></div>
 
       <div class="max-w-7xl mx-auto px-4 md:px-10 relative z-10">
         <div class="text-center max-w-2xl mx-auto mb-8">
-          <span
-            class="text-[10px] font-['Azeret_Mono'] text-[#26AF93] tracking-[0.2em] uppercase font-medium"
-            >WHY SIEC</span
-          >
-          <h2
-            class="font-['Fraunces'] text-3xl md:text-4xl font-semibold text-[#112A23] mt-2"
-          >
+          <span class="text-[10px] font-['Azeret_Mono'] text-[#26AF93] tracking-[0.2em] uppercase font-medium">WHY SIEC</span>
+          <h2 class="font-['Fraunces'] text-3xl md:text-4xl font-semibold text-[#112A23] mt-2">
             Why Work <span class="text-[#26AF93] font-['Georgia'] italic">With Us</span>
           </h2>
         </div>
 
         <div class="grid md:grid-cols-3 gap-6">
-          <!-- Value 1 -->
-          <div
-            class="group relative bg-white rounded-2xl p-6 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1"
-          >
-            <div
-              class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"
-            ></div>
+          <div class="group relative bg-white rounded-2xl p-6 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1">
+            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"></div>
             <div class="flex items-center gap-3 mb-4">
               <i class="fa-solid fa-seedling text-[#26AF93] text-xl"></i>
-              <h4 class="font-['Fraunces'] font-semibold text-[#112A23]">
-                Meaningful Impact
-              </h4>
+              <h4 class="font-['Fraunces'] font-semibold text-[#112A23]">Meaningful Impact</h4>
             </div>
             <p class="text-[#48675B] text-sm leading-relaxed">
               Work on projects that directly contribute to environmental sustainability
@@ -300,18 +242,11 @@
             </p>
           </div>
 
-          <!-- Value 2 -->
-          <div
-            class="group relative bg-white rounded-2xl p-6 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1"
-          >
-            <div
-              class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"
-            ></div>
+          <div class="group relative bg-white rounded-2xl p-6 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1">
+            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"></div>
             <div class="flex items-center gap-3 mb-4">
               <i class="fa-solid fa-chart-line text-[#26AF93] text-xl"></i>
-              <h4 class="font-['Fraunces'] font-semibold text-[#112A23]">
-                Growth & Learning
-              </h4>
+              <h4 class="font-['Fraunces'] font-semibold text-[#112A23]">Growth & Learning</h4>
             </div>
             <p class="text-[#48675B] text-sm leading-relaxed">
               Continuous learning opportunities, mentorship programs, and clear
@@ -319,18 +254,11 @@
             </p>
           </div>
 
-          <!-- Value 3 -->
-          <div
-            class="group relative bg-white rounded-2xl p-6 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1"
-          >
-            <div
-              class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"
-            ></div>
+          <div class="group relative bg-white rounded-2xl p-6 border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1">
+            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"></div>
             <div class="flex items-center gap-3 mb-4">
               <i class="fa-solid fa-heart text-[#26AF93] text-xl"></i>
-              <h4 class="font-['Fraunces'] font-semibold text-[#112A23]">
-                Great Culture
-              </h4>
+              <h4 class="font-['Fraunces'] font-semibold text-[#112A23]">Great Culture</h4>
             </div>
             <p class="text-[#48675B] text-sm leading-relaxed">
               Inclusive, collaborative environment with flexible work arrangements
@@ -341,26 +269,16 @@
       </div>
     </section>
 
-    <!-- ===== JOB OPENINGS (Compact Cards) ===== -->
+    <!-- ===== JOB OPENINGS ===== -->
     <section id="openings" class="relative py-12 overflow-hidden bg-[#F8FCFA]">
-      <!-- Background Image -->
       <div class="absolute inset-0 pointer-events-none">
-        <img
-          src="./Images/background.png"
-          alt="Background"
-          class="w-full h-full object-cover opacity-[0.50]"
-        />
+        <img src="./Images/background.png" alt="Background" class="w-full h-full object-cover opacity-[0.50]" />
       </div>
 
       <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-10">
         <div class="text-center max-w-2xl mx-auto mb-8">
-          <span
-            class="text-[10px] font-['Azeret_Mono'] text-[#26AF93] tracking-[0.2em] uppercase font-medium"
-            >OPEN POSITIONS</span
-          >
-          <h2
-            class="font-['Fraunces'] text-3xl md:text-4xl font-semibold text-[#112A23] mt-2"
-          >
+          <span class="text-[10px] font-['Azeret_Mono'] text-[#26AF93] tracking-[0.2em] uppercase font-medium">OPEN POSITIONS</span>
+          <h2 class="font-['Fraunces'] text-3xl md:text-4xl font-semibold text-[#112A23] mt-2">
             Current <span class="text-[#26AF93] font-['Georgia'] italic">Openings</span>
           </h2>
           <p class="mt-3 text-[#48675B] text-sm max-w-xl mx-auto">
@@ -368,55 +286,87 @@
           </p>
         </div>
 
-        <!-- Job Cards Grid - Compact Style -->
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4" id="jobsContainer">
           <!-- Job cards will be populated by JavaScript -->
         </div>
 
-        <!-- No openings message -->
         <div id="noOpenings" class="hidden text-center py-16">
           <div class="text-6xl mb-4">🔍</div>
           <h3 class="text-2xl font-['Fraunces'] font-semibold text-[#112A23] mb-2">No Open Positions</h3>
-          <p class="text-[#48675B] text-sm">We don't have any open positions at the moment. Please check back later or send us your resume for future opportunities.</p>
+          <p class="text-[#48675B] text-sm">We don't have any open positions at the moment. Please check back later or send us your resume on WhatsApp.</p>
         </div>
       </div>
     </section>
 
+    <!-- ===== JOB DETAIL OVERLAY ===== -->
+    <div id="jobDetailOverlay" class="fixed inset-0 z-[100] hidden items-center justify-center">
+      <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="detailOverlayBackdrop"></div>
+
+      <div class="relative bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto mx-4 shadow-2xl z-10 overlay-scroll">
+        <button id="closeDetail" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#F2F9F6] hover:bg-[#D8F6EE] flex items-center justify-center transition-colors duration-300 z-20">
+          <span class="material-icons text-[#112A23]">close</span>
+        </button>
+
+        <div class="bg-gradient-to-r from-[#0F8F78] to-[#26AF93] p-8 rounded-t-3xl">
+          <span class="inline-block px-3 py-1 bg-white/20 rounded-full text-white text-xs font-['Azeret_Mono'] tracking-wider uppercase" id="detailDepartment">Department</span>
+          <h3 class="text-2xl font-['Fraunces'] font-semibold text-white mt-3" id="detailTitle">Job Title</h3>
+          <div class="flex flex-wrap gap-4 mt-3 text-white/90 text-sm">
+            <span class="flex items-center gap-2"><i class="fa-solid fa-location-dot"></i><span id="detailLocation">Location</span></span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-briefcase"></i><span id="detailType">Employment Type</span></span>
+            <span class="flex items-center gap-2"><i class="fa-solid fa-clock"></i><span id="detailExperience">Experience</span></span>
+          </div>
+        </div>
+
+        <div class="p-8">
+          <div class="mb-6">
+            <h4 class="text-sm font-['Azeret_Mono'] text-[#26AF93] tracking-wider uppercase font-semibold mb-3">Required Skills</h4>
+            <div id="detailSkills" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <div class="mb-8">
+            <h4 class="text-sm font-['Azeret_Mono'] text-[#26AF93] tracking-wider uppercase font-semibold mb-2">Job Description</h4>
+            <p class="text-[#48675B] text-sm leading-relaxed whitespace-pre-line" id="detailDescription">Job description goes here.</p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-[#EAF4EF]">
+            <button id="applyNowBtn" class="w-full px-6 py-3 bg-gradient-to-r from-[#26AF93] to-[#0F8F78] text-white font-['Quicksand'] font-semibold rounded-2xl hover:shadow-lg hover:shadow-[#26AF93]/30 transition-all duration-300 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+              <i class="fa-solid fa-paper-plane"></i>
+              Apply Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ===== APPLICATION FORM OVERLAY ===== -->
     <div id="applicationOverlay" class="fixed inset-0 z-[100] hidden items-center justify-center">
-      <!-- Backdrop -->
       <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" id="overlayBackdrop"></div>
-      
-      <!-- Form Container -->
-      <div class="relative bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto mx-4 shadow-2xl z-10">
-        <!-- Close Button -->
+
+      <div class="relative bg-white rounded-3xl w-full max-w-2xl max-h-[90vh] overflow-y-auto mx-4 shadow-2xl z-10 overlay-scroll">
         <button id="closeForm" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-[#F2F9F6] hover:bg-[#D8F6EE] flex items-center justify-center transition-colors duration-300 z-20">
           <span class="material-icons text-[#112A23]">close</span>
         </button>
 
-        <!-- Form Header -->
         <div class="bg-gradient-to-r from-[#0F8F78] to-[#26AF93] p-8 rounded-t-3xl">
           <h3 class="text-2xl font-['Fraunces'] font-semibold text-white mb-1">Apply for Position</h3>
           <p class="text-white/80 text-sm" id="formJobTitle">Fill in your details below</p>
         </div>
 
-        <!-- Form Body -->
-        <form id="applicationForm" class="p-8 space-y-5" enctype="multipart/form-data">
+        <form id="applicationForm" class="p-8 space-y-5">
           <input type="hidden" id="jobId" name="jobId" />
-          <input type="hidden" id="jobTitle" name="jobTitle" />
+          <input type="hidden" id="jobTitleHidden" name="jobTitle" />
 
-          <!-- Personal Information -->
           <div class="grid md:grid-cols-2 gap-5">
             <div>
               <label class="block text-sm font-medium text-[#112A23] mb-2 font-['Quicksand']">Full Name <span class="text-red-500">*</span></label>
-              <input type="text" name="fullName" required 
-                class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm" 
+              <input type="text" name="fullName" required
+                class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm"
                 placeholder="John Doe" />
             </div>
             <div>
               <label class="block text-sm font-medium text-[#112A23] mb-2 font-['Quicksand']">Email Address <span class="text-red-500">*</span></label>
-              <input type="email" name="email" required 
-                class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm" 
+              <input type="email" name="email" required
+                class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm"
                 placeholder="john@example.com" />
             </div>
           </div>
@@ -424,23 +374,22 @@
           <div class="grid md:grid-cols-2 gap-5">
             <div>
               <label class="block text-sm font-medium text-[#112A23] mb-2 font-['Quicksand']">Phone Number <span class="text-red-500">*</span></label>
-              <input type="tel" name="phone" required 
-                class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm" 
+              <input type="tel" name="phone" required
+                class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm"
                 placeholder="+91 98765 43210" />
             </div>
             <div>
               <label class="block text-sm font-medium text-[#112A23] mb-2 font-['Quicksand']">Location <span class="text-red-500">*</span></label>
-              <input type="text" name="location" required 
-                class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm" 
+              <input type="text" name="location" required
+                class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm"
                 placeholder="City, State" />
             </div>
           </div>
 
-          <!-- Experience & Education -->
           <div class="grid md:grid-cols-2 gap-5">
             <div>
               <label class="block text-sm font-medium text-[#112A23] mb-2 font-['Quicksand']">Total Experience</label>
-              <select name="experience" 
+              <select name="experience"
                 class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm bg-white">
                 <option value="">Select Experience</option>
                 <option value="0-1">0-1 Years</option>
@@ -453,7 +402,7 @@
             </div>
             <div>
               <label class="block text-sm font-medium text-[#112A23] mb-2 font-['Quicksand']">Highest Qualification</label>
-              <select name="qualification" 
+              <select name="qualification"
                 class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm bg-white">
                 <option value="">Select Qualification</option>
                 <option value="diploma">Diploma</option>
@@ -465,43 +414,37 @@
             </div>
           </div>
 
-          <!-- Skills -->
           <div>
             <label class="block text-sm font-medium text-[#112A23] mb-2 font-['Quicksand']">Key Skills</label>
-            <textarea name="skills" rows="2" 
-              class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm resize-none" 
+            <textarea name="skills" rows="2"
+              class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm resize-none"
               placeholder="e.g., AutoCAD, Water Treatment, Project Management..."></textarea>
           </div>
 
-          <!-- Cover Letter -->
           <div>
             <label class="block text-sm font-medium text-[#112A23] mb-2 font-['Quicksand']">Cover Letter</label>
-            <textarea name="coverLetter" rows="3" 
-              class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm resize-none" 
+            <textarea name="coverLetter" rows="3"
+              class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm resize-none"
               placeholder="Tell us why you're interested in this position..."></textarea>
           </div>
 
-          <!-- Resume Upload -->
-          <div>
-            <label class="block text-sm font-medium text-[#112A23] mb-2 font-['Quicksand']">Upload Resume <span class="text-red-500">*</span></label>
-            <div class="relative">
-              <input type="file" name="resume" accept=".pdf,.doc,.docx" required 
-                class="w-full px-4 py-3 rounded-xl border border-[#DCEBE4] focus:border-[#26AF93] focus:ring-2 focus:ring-[#26AF93]/20 outline-none transition-all duration-300 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-sm file:font-semibold file:bg-[#D8F6EE] file:text-[#0F8F78] hover:file:bg-[#B7EBDE]" />
-            </div>
-            <p class="text-xs text-[#7A978D] mt-1">Accepted formats: PDF, DOC, DOCX (Max 5MB)</p>
+          <div class="bg-[#F2F9F6] border border-[#DCEBE4] rounded-xl p-4">
+            <p class="text-xs text-[#48675B] flex items-start gap-2">
+              <i class="fa-solid fa-circle-info text-[#26AF93] mt-0.5"></i>
+              <span><strong>Resume:</strong> After clicking Submit, WhatsApp will open with your details pre-filled. Please <strong>attach your resume (PDF/DOCX)</strong> inside WhatsApp before sending.</span>
+            </p>
           </div>
 
-          <!-- Submit Button -->
           <div class="flex items-center gap-4 pt-4">
-            <button type="submit" 
-              class="flex-1 px-8 py-2 bg-gradient-to-r from-[#26AF93] to-[#0F8F78] text-white font-['Quicksand'] font-semibold rounded-2xl hover:shadow-lg hover:shadow-[#26AF93]/30 transition-all duration-300 hover:scale-[1.02] active:scale-95">
+            <button type="submit"
+              class="flex-1 px-8 py-3 bg-gradient-to-r from-[#26AF93] to-[#0F8F78] text-white font-['Quicksand'] font-semibold rounded-2xl hover:shadow-lg hover:shadow-[#26AF93]/30 transition-all duration-300 hover:scale-[1.02] active:scale-95">
               <span class="flex items-center justify-center gap-2">
-                Submit Application
-                <i class="fa-solid fa-paper-plane"></i>
+                Submit & Open WhatsApp
+                <i class="fa-brands fa-whatsapp"></i>
               </span>
             </button>
-            <button type="button" id="cancelForm" 
-              class="px-6 py-2 border border-[#DCEBE4] text-[#5C776C] font-['Quicksand'] font-medium rounded-2xl hover:bg-[#F2F9F6] transition-all duration-300">
+            <button type="button" id="cancelForm"
+              class="px-6 py-3 border border-[#DCEBE4] text-[#5C776C] font-['Quicksand'] font-medium rounded-2xl hover:bg-[#F2F9F6] transition-all duration-300">
               Cancel
             </button>
           </div>
@@ -514,10 +457,10 @@
       <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
       <div class="relative bg-white rounded-3xl p-8 md:p-12 max-w-md mx-4 text-center shadow-2xl z-10">
         <div class="w-20 h-20 rounded-full bg-[#D8F6EE] flex items-center justify-center mx-auto mb-6">
-          <i class="fa-solid fa-check text-3xl text-[#26AF93]"></i>
+          <i class="fa-brands fa-whatsapp text-3xl text-[#26AF93]"></i>
         </div>
-        <h3 class="text-2xl font-['Fraunces'] font-semibold text-[#112A23] mb-2">Application Submitted!</h3>
-        <p class="text-[#48675B] text-sm mb-6">Thank you for your interest. We'll review your application and get back to you soon.</p>
+        <h3 class="text-2xl font-['Fraunces'] font-semibold text-[#112A23] mb-2">WhatsApp Opened!</h3>
+        <p class="text-[#48675B] text-sm mb-6">Your application details are pre-filled in WhatsApp. Please attach your resume there and press <strong>Send</strong>.</p>
         <button id="closeSuccess" class="px-8 py-3 bg-[#26AF93] text-white font-['Quicksand'] font-semibold rounded-2xl hover:bg-[#0F8F78] transition-all duration-300">
           Got it!
         </button>
@@ -530,135 +473,201 @@
     <script src="../footer/footer.js"></script>
 
     <script>
-      // ===== JOB OPENINGS DATA =====
+      // ==========================================================
+      // STATIC JOB OPENINGS — Edit this array to add/remove jobs
+      // ==========================================================
+      const WHATSAPP_NUMBER = '918009924800'; // +91 80099 24800
+
       const jobOpenings = [
         {
           id: 1,
-          title: "Senior Environmental Engineer",
-          department: "Environmental Services",
-          location: "Mumbai, India",
-          type: "Full-time",
-          experience: "5-8 Years",
-          description: "Lead environmental impact assessments and develop sustainable solutions for industrial clients.",
-          requirements: ["B.Tech/M.Tech in Environmental Engineering", "EIA studies experience", "Regulatory compliance"]
+          title: 'Environmental Engineer',
+          department: 'Engineering',
+          location: 'Pune, Maharashtra',
+          employmentType: 'Full-time',
+          experienceRequired: '2-4 Years',
+          numberOfOpenings: 2,
+          requiredSkills: 'AutoCAD, WTP Design, STP Design, EIA, Compliance',
+          rolesResponsibilities:
+            'Design and develop water treatment plants (WTP), sewage treatment plants (STP), and effluent treatment plants (ETP).\nConduct site assessments, prepare feasibility reports, and coordinate with client teams during project execution.\nEnsure compliance with environmental regulations and prepare regulatory submissions.'
         },
         {
           id: 2,
-          title: "Water Treatment Specialist",
-          department: "Smart Water Management",
-          location: "Pune, India",
-          type: "Full-time",
-          experience: "3-5 Years",
-          description: "Design and optimize water treatment systems including STP, ETP, and ZLD plants.",
-          requirements: ["Chemical/Environmental Engineering", "MBR/MBBR hands-on experience", "Process design expertise"]
+          title: 'Project Manager – Water Infrastructure',
+          department: 'Project Management',
+          location: 'Pune, Maharashtra',
+          employmentType: 'Full-time',
+          experienceRequired: '5-8 Years',
+          numberOfOpenings: 1,
+          requiredSkills: 'Project Planning, Primavera, Client Management, Budgeting, Commissioning',
+          rolesResponsibilities:
+            'Lead end-to-end project delivery from concept to commissioning.\nManage schedules, budgets, contractors, and vendor relationships.\nReport project progress to senior management and coordinate with cross-functional teams.'
         },
         {
           id: 3,
-          title: "Project Manager - Infrastructure",
-          department: "Infrastructure Design",
-          location: "Bangalore, India",
-          type: "Full-time",
-          experience: "8-12 Years",
-          description: "Manage large-scale sustainable infrastructure projects from conception to completion.",
-          requirements: ["B.Tech in Civil Engineering", "PMP certification preferred", "10+ years experience"]
+          title: 'Sustainability Consultant',
+          department: 'ESG & Consulting',
+          location: 'Remote / Pune',
+          employmentType: 'Full-time',
+          experienceRequired: '1-3 Years',
+          numberOfOpenings: 1,
+          requiredSkills: 'ESG Reporting, GRI, BRSR, Data Analysis, MS Excel',
+          rolesResponsibilities:
+            'Prepare ESG and sustainability reports aligned with GRI and BRSR frameworks.\nAssist clients with sustainability audits, compliance reviews, and environmental data analysis.\nContribute to proposals and sustainability strategy documents.'
         },
         {
           id: 4,
-          title: "Sustainability Consultant",
-          department: "ESG & Sustainability",
-          location: "Delhi, India",
-          type: "Full-time",
-          experience: "3-5 Years",
-          description: "Help clients develop and implement sustainability strategies and ESG frameworks.",
-          requirements: ["Environmental Science background", "ESG reporting experience", "Strong analytical skills"]
+          title: 'Junior Draftsman / Design Engineer',
+          department: 'Engineering',
+          location: 'Pune, Maharashtra',
+          employmentType: 'Full-time',
+          experienceRequired: '0-2 Years',
+          numberOfOpenings: 2,
+          requiredSkills: 'AutoCAD, Revit, MS Office, P&ID Diagrams',
+          rolesResponsibilities:
+            'Prepare technical drawings for water and wastewater systems.\nCoordinate with senior engineers to update P&IDs, layouts, and as-built drawings.\nMaintain drawing archives and support documentation.'
         },
         {
           id: 5,
-          title: "SCADA & IoT Engineer",
-          department: "Smart Water Management",
-          location: "Mumbai, India",
-          type: "Full-time",
-          experience: "3-5 Years",
-          description: "Develop and maintain SCADA systems and IoT solutions for water management projects.",
-          requirements: ["B.Tech in Electronics/Instrumentation", "PLC/SCADA programming", "IoT platform experience"]
-        },
-        {
-          id: 6,
-          title: "Junior Environmental Analyst",
-          department: "Environmental Services",
-          location: "Pune, India",
-          type: "Full-time",
-          experience: "0-2 Years",
-          description: "Assist in environmental data collection, analysis, and reporting for various projects.",
-          requirements: ["B.Sc/M.Sc in Environmental Science", "Analytical skills", "Field work preferred"]
+          title: 'O&M Engineer – Water Systems',
+          department: 'Operations & Maintenance',
+          location: 'Multiple Locations',
+          employmentType: 'Full-time',
+          experienceRequired: '3-5 Years',
+          numberOfOpenings: 3,
+          requiredSkills: 'Plant Operations, Troubleshooting, SCADA, Preventive Maintenance',
+          rolesResponsibilities:
+            'Operate and maintain STP/ETP/WTP plants efficiently.\nConduct preventive maintenance, log plant parameters, and troubleshoot issues.\nTrain client operators and ensure smooth daily operations.'
         }
       ];
 
-      // ===== POPULATE JOB CARDS (Compact Style) =====
+      // ===== STATE =====
+      let currentJobId = null;
+
+      // ===== RENDER JOB CARDS =====
       function populateJobCards(jobs) {
         const container = document.getElementById('jobsContainer');
-        const noOpenings = document.getElementById('noOpenings');
-        
+
         if (!jobs || jobs.length === 0) {
           container.innerHTML = '';
-          noOpenings.classList.remove('hidden');
+          document.getElementById('noOpenings').classList.remove('hidden');
           return;
         }
-        
-        noOpenings.classList.add('hidden');
-        container.innerHTML = jobs.map(job => `
-          <div class="group relative bg-white rounded-2xl border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1 overflow-hidden">
-            <!-- Left accent bar -->
-            <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"></div>
-            
-            <div class="p-5 flex flex-col h-full">
-              <!-- Header -->
-              <div class="flex items-center justify-between mb-3">
-                <span class="text-[10px] font-['Azeret_Mono'] tracking-widest text-[#26AF93] uppercase bg-[#D8F6EE] px-3 py-1 rounded-full">
-                  ${job.department}
-                </span>
-                <span class="text-xs font-['Quicksand'] font-semibold text-[#7A978D]">${job.type}</span>
+
+        document.getElementById('noOpenings').classList.add('hidden');
+
+        container.innerHTML = jobs.map(job => {
+          let skills = [];
+          if (job.requiredSkills) {
+            skills = job.requiredSkills.split(',').filter(s => s.trim());
+          }
+          const skillsPreview = skills.slice(0, 3)
+            .map(s => `<span class="skills-tag">${escapeHtml(s.trim())}</span>`)
+            .join(' ');
+
+          return `
+            <div onclick="openJobDetail(${job.id})"
+              class="group relative bg-white rounded-2xl border border-[#EAF4EF] hover:border-[#26AF93] transition-all duration-300 hover:shadow-[0_4px_20px_rgba(38,175,147,0.08)] hover:-translate-y-1 overflow-hidden cursor-pointer">
+              <div class="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-12 rounded-r-full bg-[#26AF93] opacity-30 group-hover:opacity-100 group-hover:h-16 transition-all"></div>
+
+              <div class="p-5 flex flex-col h-full">
+                <div class="flex items-center justify-between mb-3">
+                  <span class="text-[10px] font-['Azeret_Mono'] tracking-widest text-[#26AF93] uppercase bg-[#D8F6EE] px-3 py-1 rounded-full">
+                    ${escapeHtml(job.department || 'General')}
+                  </span>
+                  <span class="text-xs font-['Quicksand'] font-semibold text-[#7A978D]">${escapeHtml(job.employmentType || 'Full-time')}</span>
+                </div>
+
+                <h3 class="font-['Fraunces'] text-lg font-semibold text-[#112A23] mb-2 group-hover:text-[#0F8F78] transition-colors">
+                  ${escapeHtml(job.title)}
+                </h3>
+
+                <p class="text-sm text-[#48675B] mb-3 leading-relaxed flex-1">
+                  ${escapeHtml((job.rolesResponsibilities || '').substring(0, 100))}${(job.rolesResponsibilities || '').length > 100 ? '...' : ''}
+                </p>
+
+                ${skillsPreview ? `<div class="flex flex-wrap gap-1.5 mb-3">${skillsPreview}</div>` : ''}
+
+                <div class="flex flex-wrap gap-3 mb-4 text-xs text-[#6B897D]">
+                  <span class="flex items-center gap-1.5">
+                    <i class="fa-solid fa-location-dot text-[#26AF93] text-[11px]"></i> ${escapeHtml(job.location || 'Not specified')}
+                  </span>
+                  <span class="flex items-center gap-1.5">
+                    <i class="fa-solid fa-briefcase text-[#26AF93] text-[11px]"></i> ${escapeHtml(job.experienceRequired || 'Not specified')}
+                  </span>
+                  <span class="flex items-center gap-1.5">
+                    <i class="fa-solid fa-users text-[#26AF93] text-[11px]"></i> ${job.numberOfOpenings || 1} opening${job.numberOfOpenings > 1 ? 's' : ''}
+                  </span>
+                </div>
+
+                <button onclick="event.stopPropagation(); openJobDetail(${job.id})"
+                  class="w-full py-2.5 bg-gradient-to-r from-[#26AF93] to-[#0F8F78] text-white font-['Quicksand'] font-semibold text-sm rounded-xl hover:shadow-lg hover:shadow-[#26AF93]/30 transition-all duration-300 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+                  View Details
+                  <i class="fa-solid fa-arrow-right text-xs"></i>
+                </button>
               </div>
-
-              <!-- Title -->
-              <h3 class="font-['Fraunces'] text-lg font-semibold text-[#112A23] mb-2 group-hover:text-[#0F8F78] transition-colors">
-                ${job.title}
-              </h3>
-
-              <!-- Description -->
-              <p class="text-sm text-[#48675B] mb-3 leading-relaxed flex-1">
-                ${job.description}
-              </p>
-
-              <!-- Details -->
-              <div class="flex flex-wrap gap-3 mb-4 text-xs text-[#6B897D]">
-                <span class="flex items-center gap-1.5">
-                  <i class="fa-solid fa-location-dot text-[#26AF93] text-[11px]"></i> ${job.location}
-                </span>
-                <span class="flex items-center gap-1.5">
-                  <i class="fa-solid fa-briefcase text-[#26AF93] text-[11px]"></i> ${job.experience}
-                </span>
-              </div>
-
-              <!-- Apply Button -->
-              <button onclick="openApplicationForm(${job.id})" 
-                class="w-full py-2.5 bg-gradient-to-r from-[#26AF93] to-[#0F8F78] text-white font-['Quicksand'] font-semibold text-sm rounded-xl hover:shadow-lg hover:shadow-[#26AF93]/30 transition-all duration-300 hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
-                Apply Now
-                <i class="fa-solid fa-arrow-right text-xs"></i>
-              </button>
             </div>
-          </div>
-        `).join('');
+          `;
+        }).join('');
+
+        // Update stat
+        document.getElementById('statOpenings').textContent = jobs.length;
       }
 
-      // ===== APPLICATION FORM FUNCTIONS =====
+      // ===== OPEN JOB DETAIL =====
+      function openJobDetail(jobId) {
+        const job = jobOpenings.find(j => j.id === jobId);
+        if (!job) {
+          showToast('Job not found', 'error');
+          return;
+        }
+        currentJobId = jobId;
+
+        document.getElementById('detailDepartment').textContent = job.department || 'General';
+        document.getElementById('detailTitle').textContent = job.title;
+        document.getElementById('detailLocation').textContent = job.location || 'Not specified';
+        document.getElementById('detailType').textContent = job.employmentType || 'Full-time';
+        document.getElementById('detailExperience').textContent = job.experienceRequired || 'Not specified';
+        document.getElementById('detailDescription').textContent = job.rolesResponsibilities || 'No description available.';
+
+        const skillsContainer = document.getElementById('detailSkills');
+        let skills = [];
+        if (job.requiredSkills) {
+          skills = job.requiredSkills.split(',').filter(s => s.trim());
+        }
+        if (skills.length === 0) {
+          skillsContainer.innerHTML = '<span class="text-sm text-[#48675B]">No specific skills listed</span>';
+        } else {
+          skillsContainer.innerHTML = skills.map(skill => `
+            <span class="px-3 py-1.5 bg-[#D8F6EE] text-[#0F8F78] rounded-full text-xs font-['Quicksand'] font-medium border border-[#B7EBDE]">
+              ${escapeHtml(skill.trim())}
+            </span>
+          `).join('');
+        }
+
+        const overlay = document.getElementById('jobDetailOverlay');
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeJobDetail() {
+        const overlay = document.getElementById('jobDetailOverlay');
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      // ===== OPEN APPLICATION FORM =====
       function openApplicationForm(jobId) {
         const job = jobOpenings.find(j => j.id === jobId);
         if (!job) return;
 
         document.getElementById('jobId').value = job.id;
-        document.getElementById('jobTitle').value = job.title;
+        document.getElementById('jobTitleHidden').value = job.title;
         document.getElementById('formJobTitle').textContent = job.title;
+
+        closeJobDetail();
 
         const overlay = document.getElementById('applicationOverlay');
         overlay.classList.remove('hidden');
@@ -674,36 +683,51 @@
         document.getElementById('applicationForm').reset();
       }
 
-      // ===== EVENT LISTENERS =====
-      document.getElementById('closeForm').addEventListener('click', closeApplicationForm);
-      document.getElementById('cancelForm').addEventListener('click', closeApplicationForm);
-      
-      document.getElementById('overlayBackdrop').addEventListener('click', (e) => {
-        if (e.target === e.currentTarget) closeApplicationForm();
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          if (!document.getElementById('applicationOverlay').classList.contains('hidden')) {
-            closeApplicationForm();
-          }
-          if (!document.getElementById('successOverlay').classList.contains('hidden')) {
-            closeSuccessMessage();
-          }
+      // ===== SUBMIT APPLICATION → WHATSAPP =====
+      function submitApplication() {
+        const form = document.getElementById('applicationForm');
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
         }
-      });
 
-      // Form submission
-      document.getElementById('applicationForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData.entries());
-        console.log('Application submitted:', data);
+        const data = new FormData(form);
+        const jobTitle = data.get('jobTitle') || 'N/A';
+        const fullName = data.get('fullName') || '';
+        const email = data.get('email') || '';
+        const phone = data.get('phone') || '';
+        const location = data.get('location') || '';
+        const experience = data.get('experience') || 'Not specified';
+        const qualification = data.get('qualification') || 'Not specified';
+        const skills = data.get('skills') || 'Not specified';
+        const coverLetter = data.get('coverLetter') || '';
+
+        const lines = [
+          '*New Job Application – SIEC Careers*',
+          '',
+          '*Position:* ' + jobTitle,
+          '*Name:* ' + fullName,
+          '*Email:* ' + email,
+          '*Phone:* ' + phone,
+          '*Location:* ' + location,
+          '*Experience:* ' + experience,
+          '*Qualification:* ' + qualification,
+          '*Skills:* ' + skills,
+          coverLetter ? '\n*Cover Letter:*\n' + coverLetter : null,
+          '',
+          '_I will attach my resume in the next message._'
+        ].filter(Boolean);
+
+        const text = lines.join('\n');
+        const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
+
+        window.open(url, '_blank');
+
         closeApplicationForm();
         showSuccessMessage();
-      });
+      }
 
-      // Success message
+      // ===== SUCCESS =====
       function showSuccessMessage() {
         const overlay = document.getElementById('successOverlay');
         overlay.classList.remove('hidden');
@@ -718,7 +742,61 @@
         document.body.style.overflow = '';
       }
 
+      // ===== TOAST =====
+      function showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        const colors = {
+          success: 'bg-green-500',
+          error: 'bg-red-500',
+          info: 'bg-blue-500'
+        };
+        toast.className = `fixed bottom-6 right-6 z-[200] px-6 py-3 rounded-xl text-white font-['Quicksand'] text-sm shadow-lg ${colors[type] || colors.info} transform transition-all duration-300 translate-y-0 opacity-100`;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        setTimeout(() => {
+          toast.classList.add('opacity-0', 'translate-y-4');
+          setTimeout(() => toast.remove(), 300);
+        }, 3000);
+      }
+
+      // ===== UTILITY =====
+      function escapeHtml(str) {
+        if (!str) return '';
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      // ===== EVENT LISTENERS =====
+      document.getElementById('closeDetail').addEventListener('click', closeJobDetail);
+      document.getElementById('detailOverlayBackdrop').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) closeJobDetail();
+      });
+
+      document.getElementById('applyNowBtn').addEventListener('click', function () {
+        if (currentJobId) openApplicationForm(currentJobId);
+      });
+
+      document.getElementById('closeForm').addEventListener('click', closeApplicationForm);
+      document.getElementById('cancelForm').addEventListener('click', closeApplicationForm);
+      document.getElementById('overlayBackdrop').addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) closeApplicationForm();
+      });
+
       document.getElementById('closeSuccess').addEventListener('click', closeSuccessMessage);
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (!document.getElementById('jobDetailOverlay').classList.contains('hidden')) closeJobDetail();
+          if (!document.getElementById('applicationOverlay').classList.contains('hidden')) closeApplicationForm();
+          if (!document.getElementById('successOverlay').classList.contains('hidden')) closeSuccessMessage();
+        }
+      });
+
+      document.getElementById('applicationForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        submitApplication();
+      });
 
       // ===== INITIALIZE =====
       document.addEventListener('DOMContentLoaded', () => {

@@ -262,50 +262,60 @@
     <div id="header"></div>
 
     <!-- ========== HERO (full height) ========== -->
-    <section class="relative hero-full bg-[#F5F7F6]">
-      <div class="max-w-[1700px] mx-auto px-2 w-full">
-        <div
-          class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[75vh] w-full"
-        >
-          <!-- Banner Image -->
-          <img
-            src="./Images/solution_banner.png"
-            alt="SIEC Solutions"
-            class="absolute inset-0 w-full h-full object-cover"
-          />
-          <!-- Overlay gradient -->
-          <div class="absolute inset-0 bg-gradient-to-br from-[#053F37]/80 via-[#0A2E2E]/60 to-[#0F8F78]/40"></div>
+    <!-- ========== HERO (matches About Us height & width) ========== -->
+<section class="relative mt-10 py-2 bg-[#F5F7F6]">
+  <div class="max-w-[1700px] mx-auto px-2">
+    <div
+      class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[60vh]"
+    >
+      <!-- Banner Image -->
+      <img
+        src="./Images/solution_banner.png"
+        alt="SIEC Solutions"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
 
-          <!-- Ambient drops -->
-          <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-[#26AF93]/20 blur-3xl"></div>
-          <div class="absolute -left-16 bottom-0 w-72 h-72 rounded-full bg-[#B7EBDE]/10 blur-3xl"></div>
+      <!-- Overlay gradient -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#053F37]/80 via-[#0A2E2E]/60 to-[#0F8F78]/40"></div>
 
-          <div class="relative z-10 max-w-5xl mx-auto px-6 md:px-10 py-16 md:py-20 text-center flex flex-col justify-center min-h-[75vh]">
-            <div class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6 animate-fade-up mx-auto">
+      <!-- Ambient drops -->
+      <div class="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-[#26AF93]/20 blur-3xl"></div>
+      <div class="absolute -left-16 bottom-0 w-72 h-72 rounded-full bg-[#B7EBDE]/10 blur-3xl"></div>
+
+      <!-- Content — same container + min-h as About Us -->
+      <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 py-14">
+        <div class="grid lg:grid-cols-5 gap-12 items-center min-h-[72vh]">
+
+          <!-- LEFT / CENTERED TEXT BLOCK -->
+          <div class="lg:col-span-5 text-center">
+            <div class="inline-flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full mb-6">
               <span class="w-2 h-2 bg-[var(--t200)] rounded-full animate-pulse"></span>
               <span class="text-xs font-mono uppercase tracking-widest text-white font-medium">Our Solutions</span>
             </div>
 
-            <h1 class="font-display text-4xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.1] tracking-tighter animate-fade-up delay-1">
+            <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-[1.05] tracking-tighter">
               Engineering the
               <span class="text-[var(--t200)] font-light italic">Future</span>
               of Water
             </h1>
 
-            <p class="mt-6 text-white/85 text-lg max-w-2xl mx-auto leading-relaxed animate-fade-up delay-2">
+            <p class="mt-6 text-white/90 text-lg max-w-xl mx-auto leading-relaxed">
               Intelligent, sustainable and high-performance water &amp; wastewater infrastructure for
               industries, communities and smart cities.
             </p>
 
-            <div class="flex flex-wrap justify-center gap-3 mt-8 animate-fade-up delay-3">
+            <div class="flex flex-wrap justify-center gap-3 mt-8">
               <span class="px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-mono uppercase tracking-widest">Treat</span>
               <span class="px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-mono uppercase tracking-widest">Transform</span>
               <span class="px-5 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-mono uppercase tracking-widest">Sustain</span>
             </div>
           </div>
+
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <!-- ========== SERVICES SECTION ========== -->
   <section class="services-section-v2">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shop | Skin &amp; Body Essentials</title>
+<title>MBR &amp; MBBR Systems | Water Treatment Solutions</title>
 
  <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -101,179 +101,6 @@
     line-height:1.6;
   }
 
-  /* ===== Grid ===== */
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:22px 20px;
-  }
-  @media (max-width:900px){
-    .grid{ grid-template-columns:repeat(2, 1fr); }
-  }
-  @media (max-width:560px){
-    .grid{ grid-template-columns:1fr; }
-    .page{ padding:40px 18px 72px; }
-  }
-
-  /* ===== Card ===== */
-  .card{
-    display:flex;
-    flex-direction:column;
-    cursor:pointer;
-    text-decoration: none;
-  }
-
-  .media{
-    position:relative;
-    border-radius:16px;
-    overflow:hidden;
-    aspect-ratio:1 / 0.92;
-    box-shadow:var(--shadow);
-    transition: box-shadow 320ms ease, transform 320ms ease;
-  }
-  .card:hover .media{
-    box-shadow:var(--shadow-hover);
-    transform:translateY(-3px);
-  }
-
-  .media img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
-
-  .media-art{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .media-art i{
-    font-size:34px;
-    opacity:0.55;
-  }
-  .media-art::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-      radial-gradient(120% 90% at 75% 15%, rgba(255,255,255,0.35), transparent 60%),
-      radial-gradient(90% 70% at 15% 90%, rgba(0,0,0,0.06), transparent 60%);
-    pointer-events:none;
-  }
-
-  /* discount badge */
-  .badge{
-    position:absolute;
-    top:12px; left:12px;
-    background:var(--olive);
-    color:#fff;
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:0.02em;
-    padding:5px 10px;
-    border-radius:999px;
-    z-index:2;
-  }
-
-  /* hover action icons */
-  .actions{
-    position:absolute;
-    top:12px; right:12px;
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-    z-index:2;
-  }
-  .actions button{
-    width:34px; height:34px;
-    border-radius:50%;
-    border:none;
-    background:rgba(255,255,255,0.92);
-    backdrop-filter:blur(4px);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:var(--ink);
-    font-size:13px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.12);
-    cursor:pointer;
-    opacity:0;
-    transform:translateX(10px);
-    transition: opacity 280ms ease, transform 280ms ease, background 220ms ease, color 220ms ease;
-  }
-  .card:hover .actions button{
-    opacity:1;
-    transform:translateX(0);
-  }
-  .actions button:nth-child(1){ transition-delay:0ms; }
-  .actions button:nth-child(2){ transition-delay:40ms; }
-  .actions button:nth-child(3){ transition-delay:80ms; }
-
-  .actions button:hover{
-    background:var(--olive);
-    color:#fff;
-  }
-  .actions button.wish.active{
-    background:#C1543E;
-    color:#fff;
-  }
-
-  /* body */
-  .info{
-    padding:14px 2px 0;
-  }
-  .meta-row{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:5px;
-  }
-  .category{
-    font-size:11.5px;
-    color:var(--ink-soft);
-    text-transform:uppercase;
-    letter-spacing:0.04em;
-  }
-  .rating{
-    display:flex;
-    align-items:center;
-    gap:4px;
-    font-size:12.5px;
-    font-weight:500;
-    color:var(--ink);
-  }
-  .rating i{
-    color:var(--gold);
-    font-size:11px;
-  }
-
-  .name{
-    font-size:14.5px;
-    font-weight:600;
-    color:var(--ink);
-    margin-bottom:6px;
-    line-height:1.3;
-  }
-
-  .price-row{
-    display:flex;
-    align-items:baseline;
-    gap:8px;
-  }
-  .price{
-    font-size:14.5px;
-    font-weight:700;
-    color:var(--olive);
-  }
-  .price-old{
-    font-size:12.5px;
-    color:var(--ink-soft);
-    text-decoration:line-through;
-  }
-
   /* Hero section adjustments */
   .hero-container {
     max-width: 1880px;
@@ -286,348 +113,366 @@
       padding: 8px 16px;
     }
   }
+
+  /* ===== Custom Styles for MBR & MBBR Product Card ===== */
+  .mbr-card {
+    display: flex;
+    flex-direction: row; /* Image Left, Info Right */
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: box-shadow 320ms ease, transform 320ms ease;
+    border: 1px solid var(--line);
+    width: 100%;
+  }
+  .mbr-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-3px);
+  }
+
+  /* Left Side: Image */
+  .mbr-card .mbr-media {
+    flex: 1; /* Takes 1 part of the width */
+    min-height: 500px;
+    background: #eef2f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    border-right: 1px solid var(--line);
+  }
+  .mbr-card .mbr-media img {
+    width: 100%;
+    height: auto;
+    max-height: 550px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  /* Right Side: Info */
+  .mbr-card .mbr-info {
+    flex: 1.5; /* Takes 1.5 parts of the width */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .mbr-card .mbr-info h2 {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .mbr-card .mbr-info .mbr-badge {
+    display: inline-block;
+    background: var(--olive-light);
+    color: var(--olive);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    width: fit-content;
+  }
+  .mbr-card .mbr-info p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 600px;
+  }
+
+  /* Table Styles */
+  .mbr-table-wrapper {
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin-bottom: 28px;
+  }
+  .mbr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .mbr-table thead {
+    background: var(--olive);
+    color: #fff;
+  }
+  .mbr-table th {
+    padding: 14px 16px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  .mbr-table th.text-center { text-align: center; }
+  .mbr-table th.text-right { text-align: right; }
+  .mbr-table tbody tr {
+    border-bottom: 1px solid var(--line);
+    transition: background 0.2s ease;
+  }
+  .mbr-table tbody tr:last-child {
+    border-bottom: none;
+  }
+  .mbr-table tbody tr:hover {
+    background: #faf9f6;
+  }
+  .mbr-table td {
+    padding: 12px 16px;
+    color: var(--ink);
+  }
+  .mbr-table td.font-medium { font-weight: 500; }
+  .mbr-table td.text-center { text-align: center; }
+  .mbr-table td.text-right { text-align: right; font-family: "Azeret Mono", monospace; font-size: 12.5px; }
+
+  /* Responsive Design */
+  @media (max-width: 900px) {
+    .mbr-card {
+      flex-direction: column; /* Stack vertically on mobile */
+    }
+    .mbr-card .mbr-media {
+      min-height: 300px;
+      border-right: none;
+      border-bottom: 1px solid var(--line);
+      padding: 20px;
+    }
+    .mbr-card .mbr-info {
+      padding: 24px;
+    }
+    .mbr-card .mbr-info h2 {
+      font-size: 26px;
+    }
+  }
 </style>
 </head>
 <body>
     <div id="header"></div>
 
     <!-- ===== HERO SECTION ===== -->
-<section class="relative w-full overflow-hidden" style="background: var(--bg);">
-  <div class="hero-container">
-    <div class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[90vh] md:min-h-[100vh]">
+<!-- ===== HERO SECTION ===== -->
+<section class="relative mt-10 py-2 bg-[#F5F7F6]">
+  <div class="max-w-[1700px] mx-auto px-2">
+    <div class="relative overflow-hidden rounded-[20px] border border-white/40 ring-1 ring-[#D7E5DF] shadow-[0_18px_50px_rgba(5,63,55,0.14)] min-h-[60vh]">
+
       <!-- Banner Image -->
-      <img 
-        src="./Images/contact_us_banner.png.jfif" 
-        alt="Skin & Body Essentials Collection" 
+      <img
+        src="./Images/aboutbanner.jfif"
+        alt="Water Treatment Solutions"
         class="absolute inset-0 w-full h-full object-cover"
       />
-      
+
       <!-- Overlay -->
       <div class="absolute inset-0 bg-gradient-to-br from-[#2A2620]/85 via-[#2A2620]/60 to-transparent"></div>
 
       <!-- Soft Highlight -->
       <div class="absolute inset-0 rounded-[12px] border border-white/10 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.06),inset_0_0_80px_rgba(255,255,255,0.04)]"></div>
-          
-      <!-- Text Content -->
-      <div class="absolute inset-0 flex items-center px-6 md:px-10 lg:px-14">
-        <div class="max-w-lg text-white">
-          <!-- Eyebrow -->
-          <div class="inline-flex items-center gap-3 mb-4">
-            <span class="w-8 h-px bg-[#C99B3E]"></span>
-            <span class="text-[11px] font-['Azeret_Mono'] tracking-[0.25em] uppercase text-[#C99B3E] font-medium">
-              New Arrivals
-            </span>
-          </div>
-          
-          <!-- Heading -->
-          <h1 class="font-['Fraunces'] text-3xl md:text-4xl lg:text-5xl font-semibold leading-[1.1] tracking-tight">
-            Clean Beauty, 
-            <span class="italic text-[#C99B3E] font-light">Conscious Choice</span>
-          </h1>
-          
-          <!-- Description -->
-          <p class="mt-4 text-sm md:text-base text-white/80 max-w-sm leading-relaxed font-['Quicksand']">
-            Discover our curated collection of skin and body essentials — crafted with clean ingredients and sustainable packaging.
-          </p>
-          
-          <!-- CTA Buttons -->
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#shop-grid" 
-              class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#C99B3E] text-white text-sm font-medium hover:bg-[#B88A35] transition-all duration-300 hover:scale-105 shadow-[0_8px_25px_rgba(201,155,62,0.3)] hover:shadow-[0_12px_35px_rgba(201,155,62,0.4)]">
-              <span>Shop Now</span>
-              <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
-            </a>
-            
-            <a href="#featured" 
-              class="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium hover:bg-white/20 transition-all duration-300 hover:scale-105">
-              <span>Explore</span>
-              <i class="fa-solid fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
-            </a>
-          </div>
-          
-          <!-- Trust Badges -->
-          <div class="mt-6 flex flex-wrap items-center gap-5">
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-leaf text-[#C99B3E] text-sm"></i>
-              <span class="text-xs text-white/70 font-['Quicksand'] font-medium">Plant-Based</span>
+
+      <!-- Content (matches About Us height/width) -->
+      <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-10 py-14">
+        <div class="grid lg:grid-cols-5 gap-12 items-center min-h-[72vh]">
+
+          <!-- LEFT: Text -->
+          <div class="lg:col-span-3 text-white">
+            <!-- Eyebrow -->
+            <div class="inline-flex items-center gap-3 mb-4">
+              <span class="w-8 h-px bg-[#C99B3E]"></span>
+              <span class="text-[11px] font-['Azeret_Mono'] tracking-[0.25em] uppercase text-[#C99B3E] font-medium">
+                Water Treatment
+              </span>
             </div>
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-recycle text-[#C99B3E] text-sm"></i>
-              <span class="text-xs text-white/70 font-['Quicksand'] font-medium">Sustainable</span>
+
+            <!-- Heading -->
+            <h1 class="font-['Fraunces'] text-5xl md:text-6xl lg:text-7xl font-semibold leading-[1.05] tracking-tighter">
+              MBR &amp; MBBR<br/>
+              <span class="italic text-[#C99B3E] font-light">Systems</span>
+            </h1>
+
+            <!-- Description -->
+            <p class="mt-6 text-white/90 text-lg max-w-xl leading-relaxed font-['Quicksand']">
+              High-performance Membrane Bioreactor (MBR) and Moving Bed Biofilm Reactor (MBBR) solutions designed for efficient wastewater treatment.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a href="#product-section"
+                class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-[#C99B3E] text-white font-medium shadow-[0_10px_30px_rgba(201,155,62,0.35)] transition-all duration-300 hover:bg-[#B88A35] hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(201,155,62,0.45)]">
+                <span>View Pricing</span>
+                <i class="fa-solid fa-arrow-right transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
+
+              <a href="#featured"
+                class="group inline-flex items-center gap-3 px-7 py-3.5 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 text-white font-medium transition-all duration-300 hover:bg-white hover:text-[#2A2620] hover:border-white hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(255,255,255,0.15)]">
+                <span>Request Quote</span>
+                <i class="fa-solid fa-arrow-right text-sm transition-transform duration-300 group-hover:translate-x-1"></i>
+              </a>
             </div>
-            <div class="flex items-center gap-2">
-              <i class="fa-solid fa-flask text-[#C99B3E] text-sm"></i>
-              <span class="text-xs text-white/70 font-['Quicksand'] font-medium">Cruelty-Free</span>
+
+            <!-- Trust Badges -->
+            <div class="mt-6 flex flex-wrap items-center gap-5">
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-leaf text-[#C99B3E] text-sm"></i>
+                <span class="text-xs text-white/70 font-['Quicksand'] font-medium">Sustainable</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-recycle text-[#C99B3E] text-sm"></i>
+                <span class="text-xs text-white/70 font-['Quicksand'] font-medium">Eco-Friendly</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <i class="fa-solid fa-flask text-[#C99B3E] text-sm"></i>
+                <span class="text-xs text-white/70 font-['Quicksand'] font-medium">Advanced Tech</span>
+              </div>
             </div>
           </div>
+
+          <!-- RIGHT: Decorative pattern (keeps grid balanced like About Us) -->
+          <div class="lg:col-span-2 hidden lg:flex justify-end">
+            <div class="w-40 h-40 opacity-20 pointer-events-none">
+              <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                <circle cx="60" cy="60" r="50" stroke="white" stroke-width="1" opacity="0.5"/>
+                <circle cx="60" cy="60" r="30" stroke="white" stroke-width="1" opacity="0.5"/>
+                <circle cx="60" cy="60" r="10" fill="white" opacity="0.5"/>
+              </svg>
+            </div>
+          </div>
+
         </div>
-      </div>
-      
-      <!-- Decorative Element - Bottom Right Pattern -->
-      <div class="absolute bottom-0 right-0 opacity-10 pointer-events-none">
-        <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="60" cy="60" r="50" stroke="white" stroke-width="1" opacity="0.3"/>
-          <circle cx="60" cy="60" r="30" stroke="white" stroke-width="1" opacity="0.3"/>
-          <circle cx="60" cy="60" r="10" fill="white" opacity="0.3"/>
-        </svg>
       </div>
     </div>
   </div>
 </section>
 
-  <div class="page">
+  <!-- ===== PRODUCT SECTION ===== -->
+  <div class="page" id="product-section">
     <div class="page-head">
       <div>
-        <span class="page-eyebrow">Curated Edit</span>
-        <h1>Skin &amp; Body <em>Essentials</em></h1>
+        <span class="page-eyebrow">Our Product</span>
+        <h1>Water &amp; Wastewater <em>Solutions</em></h1>
       </div>
-      <p class="page-sub">Clean formulas, considered packaging, and honest pricing on every drop.</p>
+      <p class="page-sub">High-performance treatment systems designed for industries, municipalities, and sustainable infrastructure.</p>
     </div>
 
-    <div class="grid" id="shop-grid">
+    <!-- Single Product Card: Image Left, Info Right -->
+    <div class="mbr-card">
+      
+      <!-- LEFT SIDE: Product Image -->
+      <div class="mbr-media">
+        <!-- Replace the src below with your actual product image -->
+        <img 
+          src="/Images/product.jpeg" 
+          alt="MBR and MBBR Water Treatment System" 
+        >
+      </div>
 
-      <!-- 1 -->
-      <a href="#" class="card">
-        <div class="media">
-          <img src="./Images/product-serum.jpg" alt="SilkSculpt Serum" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="media-art" style="background:linear-gradient(160deg,#E9D9B8 0%,#C9A96E 60%,#8C6B3F 100%);display:none;">
-            <i class="fa-solid fa-pump-soap" style="color:#3C2A16;"></i>
-          </div>
-          <span class="badge">50% off</span>
-          <div class="actions">
-            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
-            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
-            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
-          </div>
-        </div>
-        <div class="info">
-          <div class="meta-row">
-            <span class="category">Skin Care</span>
-            <span class="rating"><i class="fa-solid fa-star"></i>4.9</span>
-          </div>
-          <div class="name">SilkSculpt Serum</div>
-          <div class="price-row">
-            <span class="price">₹2,999</span>
-            <span class="price-old">₹5,999</span>
-          </div>
-        </div>
-      </a>
+      <!-- RIGHT SIDE: Product Details & Pricing Table -->
+      <div class="mbr-info">
+        <span class="mbr-badge">Water Treatment</span>
+        <h2>MBR & MBBR Systems</h2>
+        <p>
+          High-performance Membrane Bioreactor (MBR) and Moving Bed Biofilm Reactor (MBBR) solutions designed for efficient wastewater treatment. Choose the capacity that fits your project requirements.
+        </p>
 
-      <!-- 2 -->
-      <a href="#" class="card">
-        <div class="media">
-          <img src="./Images/product-skin-serum.jpg" alt="SilkSkin Serum" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="media-art" style="background:linear-gradient(160deg,#EDE6D6 0%,#CBB98F 60%,#8FA37C 100%);display:none;">
-            <i class="fa-solid fa-flask" style="color:#3C4A2E;"></i>
-          </div>
-          <span class="badge">20% off</span>
-          <div class="actions">
-            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
-            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
-            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
-          </div>
+        <!-- Pricing Table -->
+        <div class="mbr-table-wrapper">
+          <table class="mbr-table">
+            <thead>
+              <tr>
+                <th class="text-center">Sr. No.</th>
+                <th>Capacity</th>
+                <th class="text-right">MBBR Cost (INR)</th>
+                <th class="text-right">MBR Cost (INR)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-center font-medium">1</td>
+                <td class="font-medium">50 CMD</td>
+                <td class="text-right">914,900.00</td>
+                <td class="text-right">2,090,300.00</td>
+              </tr>
+              <tr>
+                <td class="text-center font-medium">2</td>
+                <td class="font-medium">100 CMD</td>
+                <td class="text-right">1,565,500.00</td>
+                <td class="text-right">3,113,500.00</td>
+              </tr>
+              <tr>
+                <td class="text-center font-medium">3</td>
+                <td class="font-medium">150 CMD</td>
+                <td class="text-right">1,928,000.00</td>
+                <td class="text-right">3,957,700.00</td>
+              </tr>
+              <tr>
+                <td class="text-center font-medium">4</td>
+                <td class="font-medium">200 CMD</td>
+                <td class="text-right">2,227,500.00</td>
+                <td class="text-right">5,698,700.00</td>
+              </tr>
+              <tr>
+                <td class="text-center font-medium">5</td>
+                <td class="font-medium">300 CMD</td>
+                <td class="text-right">2,616,400.00</td>
+                <td class="text-right">6,702,400.00</td>
+              </tr>
+              <tr>
+                <td class="text-center font-medium">6</td>
+                <td class="font-medium">400 CMD</td>
+                <td class="text-right">3,351,900.00</td>
+                <td class="text-right">8,831,000.00</td>
+              </tr>
+              <tr>
+                <td class="text-center font-medium">7</td>
+                <td class="font-medium">500 CMD</td>
+                <td class="text-right">4,285,400.00</td>
+                <td class="text-right">9,547,900.00</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="info">
-          <div class="meta-row">
-            <span class="category">Skin Care</span>
-            <span class="rating"><i class="fa-solid fa-star"></i>4.8</span>
-          </div>
-          <div class="name">SilkSkin Serum</div>
-          <div class="price-row">
-            <span class="price">₹3,999</span>
-            <span class="price-old">₹4,999</span>
-          </div>
-        </div>
-      </a>
+        
+        <!-- Capacity selector for quote -->
+<div class="mb-4">
+  <label for="quoteCapacity" class="block text-[11px] font-['Azeret_Mono'] uppercase tracking-widest text-[#8A8377] mb-2">
+    Select Capacity for Quote
+  </label>
+  <select id="quoteCapacity"
+    class="w-full max-w-xs px-4 py-2.5 rounded-xl border border-[#ECE7DC] bg-white text-sm text-[#2A2620] focus:outline-none focus:ring-2 focus:ring-[#C99B3E]/30 focus:border-[#C99B3E] transition-all">
+    <option value="50 CMD">50 CMD — MBBR: ₹914,900 / MBR: ₹2,090,300</option>
+    <option value="100 CMD">100 CMD — MBBR: ₹1,565,500 / MBR: ₹3,113,500</option>
+    <option value="150 CMD">150 CMD — MBBR: ₹1,928,000 / MBR: ₹3,957,700</option>
+    <option value="200 CMD">200 CMD — MBBR: ₹2,227,500 / MBR: ₹5,698,700</option>
+    <option value="300 CMD">300 CMD — MBBR: ₹2,616,400 / MBR: ₹6,702,400</option>
+    <option value="400 CMD">400 CMD — MBBR: ₹3,351,900 / MBR: ₹8,831,000</option>
+    <option value="500 CMD">500 CMD — MBBR: ₹4,285,400 / MBR: ₹9,547,900</option>
+  </select>
+</div>
 
-      <!-- 3 -->
-      <a href="#" class="card">
-        <div class="media">
-          <img src="./Images/product-argan-oil.jpg" alt="Argan Glow" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="media-art" style="background:linear-gradient(160deg,#F1D9AE 0%,#D9A96A 60%,#6B4A2A 100%);display:none;">
-            <i class="fa-solid fa-droplet" style="color:#3C2410;"></i>
-          </div>
-          <span class="badge">30% off</span>
-          <div class="actions">
-            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
-            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
-            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
-          </div>
-        </div>
-        <div class="info">
-          <div class="meta-row">
-            <span class="category">Hair Care</span>
-            <span class="rating"><i class="fa-solid fa-star"></i>5.0</span>
-          </div>
-          <div class="name">Argan Glow</div>
-          <div class="price-row">
-            <span class="price">₹4,499</span>
-            <span class="price-old">₹6,499</span>
-          </div>
-        </div>
-      </a>
+<!-- Action Buttons -->
+<div class="flex flex-wrap gap-3">
+  <button id="quoteBtn"
+    class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#2F3B2C] text-white text-sm font-medium hover:bg-[#1e261c] transition-all duration-300 hover:scale-105 shadow-md">
+    <i class="fa-brands fa-whatsapp"></i>
+    Request a Quote
+  </button>
 
-      <!-- 4 -->
-      <a href="#" class="card">
-        <div class="media">
-          <img src="./Images/product-body-lotion.jpg" alt="Nephrolepis Exaltata" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="media-art" style="background:linear-gradient(160deg,#EDEAE2 0%,#D6D2C4 60%,#A9A290 100%);display:none;">
-            <i class="fa-solid fa-pump-medical" style="color:#4A473D;"></i>
-          </div>
-          <span class="badge">10% off</span>
-          <div class="actions">
-            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
-            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
-            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
-          </div>
-        </div>
-        <div class="info">
-          <div class="meta-row">
-            <span class="category">Body Care</span>
-            <span class="rating"><i class="fa-solid fa-star"></i>5.0</span>
-          </div>
-          <div class="name">Nephrolepis Exaltata</div>
-          <div class="price-row">
-            <span class="price">₹3,499</span>
-            <span class="price-old">₹3,899</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 5 -->
-      <a href="#" class="card">
-        <div class="media">
-          <img src="./Images/product-foundation.jpg" alt="Smooth Foundation" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="media-art" style="background:linear-gradient(160deg,#E6D6C4 0%,#C79E7A 60%,#7A5138 100%);display:none;">
-            <i class="fa-solid fa-fill-drip" style="color:#3C2410;"></i>
-          </div>
-          <span class="badge">50% off</span>
-          <div class="actions">
-            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
-            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
-            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
-          </div>
-        </div>
-        <div class="info">
-          <div class="meta-row">
-            <span class="category">Makeup</span>
-            <span class="rating"><i class="fa-solid fa-star"></i>5.0</span>
-          </div>
-          <div class="name">Smooth Foundation</div>
-          <div class="price-row">
-            <span class="price">₹1,699</span>
-            <span class="price-old">₹3,399</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 6 -->
-      <a href="#" class="card">
-        <div class="media">
-          <img src="./Images/product-body-cream.jpg" alt="Smooth Body Cream" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="media-art" style="background:linear-gradient(160deg,#EFEAE0 0%,#D2C6A8 60%,#8C9A73 100%);display:none;">
-            <i class="fa-solid fa-spa" style="color:#3C4A2E;"></i>
-          </div>
-          <span class="badge">50% off</span>
-          <div class="actions">
-            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
-            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
-            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
-          </div>
-        </div>
-        <div class="info">
-          <div class="meta-row">
-            <span class="category">Body Care</span>
-            <span class="rating"><i class="fa-solid fa-star"></i>5.0</span>
-          </div>
-          <div class="name">Smooth Body Cream</div>
-          <div class="price-row">
-            <span class="price">₹2,499</span>
-            <span class="price-old">₹4,999</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 7 -->
-      <a href="#" class="card">
-        <div class="media">
-          <img src="./Images/product-wellness.jpg" alt="AquaAura Wellness" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="media-art" style="background:linear-gradient(160deg,#F1EDE3 0%,#E0D3B8 60%,#B79A6E 100%);display:none;">
-            <i class="fa-solid fa-jar" style="color:#4A3A22;"></i>
-          </div>
-          <span class="badge">50% off</span>
-          <div class="actions">
-            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
-            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
-            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
-          </div>
-        </div>
-        <div class="info">
-          <div class="meta-row">
-            <span class="category">Body Care</span>
-            <span class="rating"><i class="fa-solid fa-star"></i>4.8</span>
-          </div>
-          <div class="name">AquaAura Wellness</div>
-          <div class="price-row">
-            <span class="price">₹2,499</span>
-            <span class="price-old">₹4,999</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 8 -->
-      <a href="#" class="card">
-        <div class="media">
-          <img src="./Images/product-velvet-rose.jpg" alt="Velvet Rose" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="media-art" style="background:linear-gradient(160deg,#F0E6DC 0%,#D6B79E 60%,#8C4A3E 100%);display:none;">
-            <i class="fa-solid fa-wand-magic-sparkles" style="color:#4A1E18;"></i>
-          </div>
-          <span class="badge">50% off</span>
-          <div class="actions">
-            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
-            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
-            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
-          </div>
-        </div>
-        <div class="info">
-          <div class="meta-row">
-            <span class="category">Makeup</span>
-            <span class="rating"><i class="fa-solid fa-star"></i>4.9</span>
-          </div>
-          <div class="name">Velvet Rose</div>
-          <div class="price-row">
-            <span class="price">₹899</span>
-            <span class="price-old">₹1,799</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- 9 -->
-      <a href="#" class="card">
-        <div class="media">
-          <img src="./Images/product-herbal.jpg" alt="Herbal Haven" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <div class="media-art" style="background:linear-gradient(160deg,#EDE9DC 0%,#CFC6AA 60%,#A9926B 100%);display:none;">
-            <i class="fa-solid fa-seedling" style="color:#3C4A2E;"></i>
-          </div>
-          <span class="badge">50% off</span>
-          <div class="actions">
-            <button class="wish" aria-label="Add to wishlist" onclick="toggleWish(event,this)"><i class="fa-regular fa-heart"></i></button>
-            <button aria-label="Quick view"><i class="fa-solid fa-expand"></i></button>
-            <button aria-label="Add to bag"><i class="fa-solid fa-bag-shopping"></i></button>
-          </div>
-        </div>
-        <div class="info">
-          <div class="meta-row">
-            <span class="category">Body Care</span>
-            <span class="rating"><i class="fa-solid fa-star"></i>5.0</span>
-          </div>
-          <div class="name">Herbal Haven</div>
-          <div class="price-row">
-            <span class="price">₹899</span>
-            <span class="price-old">₹1,799</span>
-          </div>
-        </div>
-      </a>
+  <a href="/assets/catalog.pdf"
+     download="SIEC-Catalog.pdf"
+     target="_blank"
+     rel="noopener"
+     class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-[#2F3B2C] text-sm font-medium border border-[#2F3B2C] hover:bg-[#f0f0f0] transition-all duration-300 hover:scale-105">
+    <i class="fa-solid fa-download"></i>
+    Download Brochure
+  </a>
+</div>
+      </div>
 
     </div>
   </div>
@@ -637,16 +482,49 @@
     <script src="../header/header.js"></script>
     <script src="../footer/footer.js"></script>
 
-  <script>
-    function toggleWish(e, btn){
-      e.preventDefault();
-      e.stopPropagation();
-      btn.classList.toggle('active');
-      const icon = btn.querySelector('i');
-      icon.classList.toggle('fa-regular');
-      icon.classList.toggle('fa-solid');
-    }
-  </script>
+    <!-- ================= PRODUCT QUOTE → WHATSAPP ================= -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Target WhatsApp number (international format, digits only)
+    const WHATSAPP_NUMBER = '918009924800';
 
+    // Capacity → price map so we can include both MBBR & MBR in the message
+    const PRICE_MAP = {
+      '50 CMD':  { mbbr: '₹9,14,900',   mbr: '₹20,90,300' },
+      '100 CMD': { mbbr: '₹15,65,500',  mbr: '₹31,13,500' },
+      '150 CMD': { mbbr: '₹19,28,000',  mbr: '₹39,57,700' },
+      '200 CMD': { mbbr: '₹22,27,500',  mbr: '₹56,98,700' },
+      '300 CMD': { mbbr: '₹26,16,400',  mbr: '₹67,02,400' },
+      '400 CMD': { mbbr: '₹33,51,900',  mbr: '₹88,31,000' },
+      '500 CMD': { mbbr: '₹42,85,400',  mbr: '₹95,47,900' }
+    };
+
+    const quoteBtn = document.getElementById('quoteBtn');
+    const capacitySelect = document.getElementById('quoteCapacity');
+    if (!quoteBtn || !capacitySelect) return;
+
+    quoteBtn.addEventListener('click', function () {
+      const capacity = capacitySelect.value;
+      const price = PRICE_MAP[capacity] || { mbbr: '—', mbr: '—' };
+
+      const lines = [
+        '*New Quote Request – SIEC Website*',
+        '',
+        '*Product:* MBR & MBBR Systems',
+        '*Capacity:* ' + capacity,
+        '*MBBR Price:* ' + price.mbbr,
+        '*MBR Price:* ' + price.mbr,
+        '',
+        'I would like a detailed quotation for this configuration.',
+        'Please share the proposal along with lead time.'
+      ];
+
+      const text = lines.join('\n');
+      const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
+
+      window.open(url, '_blank');
+    });
+  });
+</script>
 </body>
 </html>

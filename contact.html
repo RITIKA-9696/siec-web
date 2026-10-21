@@ -642,14 +642,17 @@
   <script src="../footer/footer.js"></script>
   <script src="./index.js"></script>
 
-  <!-- Contact Form Handling -->
+  <!-- ================= CONTACT FORM → WHATSAPP ================= -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       var form = document.getElementById('contactForm');
       var status = document.getElementById('formStatus');
       if (!form) return;
 
-      form.addEventListener('submit', function(e) {
+      // Target WhatsApp number (international format, digits only)
+      var WHATSAPP_NUMBER = '918009924800';
+
+      form.addEventListener('submit', function (e) {
         e.preventDefault();
 
         if (!form.checkValidity()) {
@@ -657,14 +660,45 @@
           return;
         }
 
-        status.textContent = "Thanks — your message has been received. We'll be in touch shortly.";
+        // Collect field values
+        var fullName = (document.getElementById('fullName').value || '').trim();
+        var email    = (document.getElementById('email').value || '').trim();
+        var phone    = (document.getElementById('phone').value || '').trim();
+        var serviceSel = document.getElementById('service');
+        var service  = serviceSel && serviceSel.selectedIndex > 0
+                        ? serviceSel.options[serviceSel.selectedIndex].text
+                        : 'Not specified';
+        var message  = (document.getElementById('message').value || '').trim();
+
+        // Build the WhatsApp message
+        var lines = [
+          '*New Enquiry – SIEC Website*',
+          '',
+          '*Name:* ' + fullName,
+          '*Email:* ' + email,
+          phone ? '*Phone:* ' + phone : null,
+          '*Service:* ' + service,
+          '',
+          '*Message:*',
+          message
+        ].filter(Boolean);
+
+        var text = lines.join('\n');
+        var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text);
+
+        // Open WhatsApp in a new tab
+        window.open(url, '_blank');
+
+        // Show success status on the page
+        status.textContent = "Thanks — your enquiry is opening in WhatsApp. Please press Send there to deliver it.";
         status.className =
           "text-sm rounded-xl px-4 py-3 bg-[#D8F6EE] text-[#0F8F78] font-['Quicksand'] font-semibold block";
+
         form.reset();
 
-        setTimeout(() => {
+        setTimeout(function () {
           status.className = "hidden";
-        }, 5000);
+        }, 8000);
       });
     });
   </script>

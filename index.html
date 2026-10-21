@@ -47,6 +47,66 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </head>
 
+<style>
+  /* ===== CLIENT LOGOS: uniform size + true colour ===== */
+
+/* Track must size to its content, otherwise logos get squished
+   and the -50% loop breaks */
+.client-track {
+  width: max-content;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+/* Fixed-size card so every logo gets the same visual space */
+.client-logo-card {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 90px;
+  margin: 0 20px;
+  padding: 12px 12px;
+  /* background: #ffffff; */
+  /* border: 1px solid #dcebe4; */
+  border-radius: 18px;
+  /* box-shadow: 0 4px 14px rgba(15, 143, 120, 0.06); */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.client-logo-card:hover {
+  transform: translateY(-3px);
+  border-color: #26af93;
+  box-shadow: 0 10px 24px rgba(15, 143, 120, 0.15);
+}
+
+/* Logo fits fully inside the card without cropping or stretching */
+.client-logo-img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+
+  /* Force original colours, overriding any global img filter in index.css */
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+@media (min-width: 768px) {
+  .client-logo-card {
+    width: 220px;
+    height: 110px;
+    margin: 0 28px;
+    padding: 14px 22px;
+  }
+}
+</style>
+
 <body>
   <!---------------- HEADER ----------------------------------->
   <div id="header"></div>
@@ -223,13 +283,13 @@
           </div>
 
           <div class="text-[var(--ink2)] text-md font-['Zain'] leading-relaxed max-w-prose">
-           We believe in empowering environmental progress through smart water systems, contributing to a future where water security, ecological balance, and sustainability go hand in hand
+           We believe in empowering environmental progress through smart water systems, contributing to a future where water security, ecological balance, and sustainability go hand in hand.
           </div>
 
           <!-- Stats -->
           <div class="flex items-center pt-2">
             <div class="flex-1">
-              <div class="font-['Fraunces'] text-5xl text-[var(--t500)]">50+</div>
+              <div class="font-['Fraunces'] text-5xl text-[var(--t500)]">52+</div>
               <div class="mt-2 text-xs uppercase tracking-[0.25em] font-['Azeret_Mono'] text-[var(--ink4)]">
                 Projects
               </div>
@@ -300,8 +360,6 @@
       <span class="mi"><span class="mi-dot"></span>ESG &amp; Green Compliance</span>
     </div>
   </div>
-
-
 
   <!-------------------  INDUSTRY SOLUTIONS ------------------------------------->
   <section id="solutions" class="relative py-10 bg-[var(--mint)]">
@@ -449,7 +507,7 @@
     </div>
   </section>
 
-  <!--------------------------------  PROCESS SECTION  ------------------------------>
+ <!--------------------------------  PROCESS SECTION  ------------------------------>
   <section id="process" class="relative overflow-hidden py-12 text-white"
     style="background: linear-gradient(145deg, #0A3B35 0%, #0F5E52 55%, #12806A 100%);">
 
@@ -499,7 +557,7 @@
         </div>
 
         <h2 class="font-['Fraunces'] text-4xl md:text-5xl font-semibold">
-          Our Project Workflow
+          Our Project Execution Process
         </h2>
 
         <p class="mt-2 max-w-2xl mx-auto text-white/70 text-sm  leading-relaxed">
@@ -512,146 +570,182 @@
       <!-- Timeline -->
       <div class="relative">
 
-        <!-- Horizontal Line -->
-        <div class="hidden md:block absolute top-7 left-[8%] right-[8%] h-[2px] bg-white/15 rounded-full">
-
-          <div class="absolute inset-0 bg-gradient-to-r from-[#26AF93] via-[#7FE2CC] to-[#26AF93] opacity-80">
-          </div>
-
+        <!-- Central Vertical Line (Desktop) -->
+        <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-white/15 -translate-x-1/2">
+          <div class="absolute inset-0 bg-gradient-to-b from-[#26AF93] via-[#7FE2CC] to-[#26AF93] opacity-80"></div>
         </div>
 
-        <!-- Steps -->
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-10 relative z-10">
+        <!-- Steps Container -->
+        <div class="space-y-12 relative z-10">
 
           <!-- STEP 1 -->
-          <div class="group text-center">
-
-            <!-- Circle -->
-            <div
-              class="mx-auto w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)]">
-
-              <span class="font-medium text-lg font-['Georgia']">01</span>
-
-            </div>
-
-            <!-- Vertical Line -->
-            <div class="w-px h-8 mx-auto bg-gradient-to-b from-[#26AF93] to-transparent opacity-70"></div>
-
-            <div>
+          <div class="group flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0">
+            <!-- Left Content -->
+            <div class="md:w-1/2 md:text-right md:pr-16 order-2 md:order-1">
               <h3 class="font-['Fraunces'] text-xl mb-2 transition duration-300 group-hover:text-[#A6F1E3]">
-                Environmental Assessment
+                1. Requirement Analysis
               </h3>
-
-              <p
-                class="text-xs leading-6 text-white/70 max-w-[220px] mx-auto transition duration-300 group-hover:text-white">
-                Site surveys, environmental impact assessments, compliance reviews, and sustainability planning.
+              <p class="text-xs leading-6 text-white/70 max-w-[300px] md:ml-auto transition duration-300 group-hover:text-white">
+                Comprehensive water/wastewater quality studies, flow assessment, and feasibility evaluation to define clear project goals.
               </p>
             </div>
-
+            <!-- Circle -->
+            <div class="relative flex items-center justify-center order-1 md:order-2">
+              <div class="w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)] z-10">
+                <span class="font-medium text-lg font-['Georgia']">01</span>
+              </div>
+            </div>
+            <!-- Right Content (Empty for alternating) -->
+            <div class="hidden md:block md:w-1/2 md:pl-16 order-3"></div>
           </div>
 
           <!-- STEP 2 -->
-          <div class="group text-center">
-
-            <div
-              class="mx-auto w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)]">
-
-              <span class="font-medium text-lg font-['Georgia']">02</span>
-
+          <div class="group flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0">
+            <!-- Left Content (Empty for alternating) -->
+            <div class="hidden md:block md:w-1/2 md:pr-16 order-1"></div>
+            <!-- Circle -->
+            <div class="relative flex items-center justify-center order-1 md:order-2">
+              <div class="w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)] z-10">
+                <span class="font-medium text-lg font-['Georgia']">02</span>
+              </div>
             </div>
-
-            <div class="w-px h-8 mx-auto bg-gradient-to-b from-[#26AF93] to-transparent opacity-70"></div>
-
-            <div>
+            <!-- Right Content -->
+            <div class="md:w-1/2 md:pl-16 order-2 md:order-3">
               <h3 class="font-['Fraunces'] text-xl mb-2 transition duration-300 group-hover:text-[#A6F1E3]">
-                Planning & Design
+                2. Concept & Design
               </h3>
-
-              <p
-                class="text-xs leading-6 text-white/70 max-w-[220px] mx-auto transition duration-300 group-hover:text-white">
-                Engineering design, smart water planning, process optimization, and sustainable infrastructure
-                development.
+              <p class="text-xs leading-6 text-white/70 max-w-[300px] transition duration-300 group-hover:text-white">
+                Development of process flow diagrams, treatment schemes, and detailed engineering using the most suitable technologies.
               </p>
             </div>
-
           </div>
 
           <!-- STEP 3 -->
-          <div class="group text-center">
-
-            <div
-              class="mx-auto w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)]">
-
-              <span class="font-medium text-lg font-['Georgia']">03</span>
-
-            </div>
-
-            <div class="w-px h-8 mx-auto bg-gradient-to-b from-[#26AF93] to-transparent opacity-70"></div>
-
-            <div>
+          <div class="group flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0">
+            <!-- Left Content -->
+            <div class="md:w-1/2 md:text-right md:pr-16 order-2 md:order-1">
               <h3 class="font-['Fraunces'] text-xl mb-2 transition duration-300 group-hover:text-[#A6F1E3]">
-                Project Execution
+                3. Engineering & Procurement
               </h3>
-
-              <p
-                class="text-xs leading-6 text-white/70 max-w-[220px] mx-auto transition duration-300 group-hover:text-white">
-                Expert implementation, quality assurance, procurement coordination, and efficient project delivery.
+              <p class="text-xs leading-6 text-white/70 max-w-[300px] md:ml-auto transition duration-300 group-hover:text-white">
+                Selection and sourcing of world-class equipment, membranes, chemicals, and automation systems with strict quality checks.
               </p>
             </div>
-
+            <!-- Circle -->
+            <div class="relative flex items-center justify-center order-1 md:order-2">
+              <div class="w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)] z-10">
+                <span class="font-medium text-lg font-['Georgia']">03</span>
+              </div>
+            </div>
+            <!-- Right Content (Empty for alternating) -->
+            <div class="hidden md:block md:w-1/2 md:pl-16 order-3"></div>
           </div>
 
           <!-- STEP 4 -->
-          <div class="group text-center">
-
-            <div
-              class="mx-auto w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)]">
-
-              <span class="font-medium text-lg font-['Georgia']">04</span>
-
+          <div class="group flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0">
+            <!-- Left Content (Empty for alternating) -->
+            <div class="hidden md:block md:w-1/2 md:pr-16 order-1"></div>
+            <!-- Circle -->
+            <div class="relative flex items-center justify-center order-1 md:order-2">
+              <div class="w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)] z-10">
+                <span class="font-medium text-lg font-['Georgia']">04</span>
+              </div>
             </div>
-
-            <div class="w-px h-8 mx-auto bg-gradient-to-b from-[#26AF93] to-transparent opacity-70"></div>
-
-            <div>
+            <!-- Right Content -->
+            <div class="md:w-1/2 md:pl-16 order-2 md:order-3">
               <h3 class="font-['Fraunces'] text-xl mb-2 transition duration-300 group-hover:text-[#A6F1E3]">
-                Testing & Commissioning
+                4. Fabrication & Construction
               </h3>
-
-              <p
-                class="text-xs leading-6 text-white/70 max-w-[220px] mx-auto transition duration-300 group-hover:text-white">
-                Performance testing, regulatory validation, system commissioning, and operational readiness.
+              <p class="text-xs leading-6 text-white/70 max-w-[300px] transition duration-300 group-hover:text-white">
+                Custom skid fabrication, tank construction, and civil integration executed with safety, precision, and adherence to timelines.
               </p>
             </div>
-
           </div>
 
           <!-- STEP 5 -->
-          <div class="group text-center">
-
-            <div
-              class="mx-auto w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)]">
-
-              <span class="font-medium text-lg font-['Georgia']">05</span>
-
-            </div>
-
-            <div class="w-px h-8 mx-auto bg-gradient-to-b from-[#26AF93] to-transparent opacity-70"></div>
-
-            <div>
+          <div class="group flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0">
+            <!-- Left Content -->
+            <div class="md:w-1/2 md:text-right md:pr-16 order-2 md:order-1">
               <h3 class="font-['Fraunces'] text-xl mb-2 transition duration-300 group-hover:text-[#A6F1E3]">
-                Monitoring & Support
+                5. Installation & Commissioning
               </h3>
-
-              <p
-                class="text-xs leading-6 text-white/70 max-w-[220px] mx-auto transition duration-300 group-hover:text-white">
-                Continuous monitoring, maintenance, environmental audits, and long-term sustainability support.
+              <p class="text-xs leading-6 text-white/70 max-w-[300px] md:ml-auto transition duration-300 group-hover:text-white">
+                On-site installation, testing, calibration, and trial runs to deliver systems that perform reliably from day one.
               </p>
             </div>
-
+            <!-- Circle -->
+            <div class="relative flex items-center justify-center order-1 md:order-2">
+              <div class="w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)] z-10">
+                <span class="font-medium text-lg font-['Georgia']">05</span>
+              </div>
+            </div>
+            <!-- Right Content (Empty for alternating) -->
+            <div class="hidden md:block md:w-1/2 md:pl-16 order-3"></div>
           </div>
 
-          
+          <!-- STEP 6 -->
+          <div class="group flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0">
+            <!-- Left Content (Empty for alternating) -->
+            <div class="hidden md:block md:w-1/2 md:pr-16 order-1"></div>
+            <!-- Circle -->
+            <div class="relative flex items-center justify-center order-1 md:order-2">
+              <div class="w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)] z-10">
+                <span class="font-medium text-lg font-['Georgia']">06</span>
+              </div>
+            </div>
+            <!-- Right Content -->
+            <div class="md:w-1/2 md:pl-16 order-2 md:order-3">
+              <h3 class="font-['Fraunces'] text-xl mb-2 transition duration-300 group-hover:text-[#A6F1E3]">
+                6. Operations & Training
+              </h3>
+              <p class="text-xs leading-6 text-white/70 max-w-[300px] transition duration-300 group-hover:text-white">
+                Hands-on operator training, SOP development, and digital monitoring tools to ensure smooth day-to-day operations.
+              </p>
+            </div>
+          </div>
+
+          <!-- STEP 7 -->
+          <div class="group flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0">
+            <!-- Left Content -->
+            <div class="md:w-1/2 md:text-right md:pr-16 order-2 md:order-1">
+              <h3 class="font-['Fraunces'] text-xl mb-2 transition duration-300 group-hover:text-[#A6F1E3]">
+                7. Lifecycle Support
+              </h3>
+              <p class="text-xs leading-6 text-white/70 max-w-[300px] md:ml-auto transition duration-300 group-hover:text-white">
+                Preventive maintenance, chemical and spare supply, and technical audits to maximize reliability and performance.
+              </p>
+            </div>
+            <!-- Circle -->
+            <div class="relative flex items-center justify-center order-1 md:order-2">
+              <div class="w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)] z-10">
+                <span class="font-medium text-lg font-['Georgia']">07</span>
+              </div>
+            </div>
+            <!-- Right Content (Empty for alternating) -->
+            <div class="hidden md:block md:w-1/2 md:pl-16 order-3"></div>
+          </div>
+
+          <!-- STEP 8 -->
+          <div class="group flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-0">
+            <!-- Left Content (Empty for alternating) -->
+            <div class="hidden md:block md:w-1/2 md:pr-16 order-1"></div>
+            <!-- Circle -->
+            <div class="relative flex items-center justify-center order-1 md:order-2">
+              <div class="w-14 h-14 rounded-full bg-[#0A4B43] border border-[#86DBC8]/50 flex items-center justify-center transition-all duration-500 group-hover:bg-[#26AF93] group-hover:scale-110 group-hover:shadow-[0_0_35px_rgba(38,175,147,.45)] z-10">
+                <span class="font-medium text-lg font-['Georgia']">08</span>
+              </div>
+            </div>
+            <!-- Right Content -->
+            <div class="md:w-1/2 md:pl-16 order-2 md:order-3">
+              <h3 class="font-['Fraunces'] text-xl mb-2 transition duration-300 group-hover:text-[#A6F1E3]">
+                8. Sustainability & Future-Readiness
+              </h3>
+              <p class="text-xs leading-6 text-white/70 max-w-[300px] transition duration-300 group-hover:text-white">
+                Integration of energy-efficient processes, renewable energy, and automation to meet evolving regulations and sustainability goals.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -1317,8 +1411,6 @@
     </div>
   </section>
 
-
-
   <!------------------- WHY CHOOSE US  ------------------->
   <section id="why" class="relative py-16 overflow-hidden bg-[#0A2E2E]">
 
@@ -1511,8 +1603,6 @@
   </section>
 
 
-  <!------------ CLIENT SECTION ------------------->
-
   <!------------ CLIENT SECTION - FIXED ------------------->
 
   <section class="relative overflow-hidden bg-[#F8FCFA] border-b border-[#DCEBE4]">
@@ -1544,162 +1634,116 @@
           class="absolute right-0 top-0 w-16 md:w-32 h-full bg-gradient-to-l from-[#F8FCFA] to-transparent z-20 pointer-events-none">
         </div>
 
-        <!-- ===== MARQUEE STRIP 1 (Left to Right) ===== -->
-        <div class="flex overflow-hidden">
-          <div class="flex animate-marquee-slow whitespace-nowrap py-2 md:py-3">
-            <!-- Logo items -->
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">CLIENT</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">PARTNER</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">SIEC</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">ECO</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">GREEN</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">SUSTAIN</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">FUTURE</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">IMPACT</span>
-            </div>
+      <!-- ===== MARQUEE STRIP 1 (Left to Right) - LOGOS ===== -->
+<div class="flex overflow-hidden">
+  <div class="client-track flex animate-marquee-slow items-center py-4 md:py-6">
 
-            <!-- Duplicate for seamless loop -->
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">CLIENT</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">PARTNER</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">SIEC</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">ECO</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">GREEN</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">SUSTAIN</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">FUTURE</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-50 hover:opacity-100 transition-all duration-300">
-              <span
-                class="text-[#48675B] font-['Fraunces'] text-xl md:text-2xl font-light tracking-wider group-hover:text-[#26AF93] transition-colors duration-300">IMPACT</span>
-            </div>
-          </div>
+    <!-- ====== LOGO SET (8 logos) ====== -->
+    <div class="client-logo-card group">
+      <img src="./Images/client_logo1.webp" alt="Client Logo 1" class="client-logo-img" loading="eager" />
+    </div>
+    <div class="client-logo-card group">
+      <img src="./Images/client_logo2.png" alt="Client Logo 2" class="client-logo-img" loading="eager" />
+    </div>
+    <div class="client-logo-card group">
+      <img src="./Images/client_logo3.jpg" alt="Client Logo 3" class="client-logo-img" loading="eager" />
+    </div>
+    <div class="client-logo-card group">
+      <img src="./Images/client_logo4.png" alt="Client Logo 4" class="client-logo-img" loading="eager" />
+    </div>
+    <div class="client-logo-card group">
+      <img src="./Images/client_logo5.jpg" alt="Client Logo 5" class="client-logo-img" loading="eager" />
+    </div>
+    <div class="client-logo-card group">
+      <img src="./Images/client_logo6.jpg" alt="Client Logo 6" class="client-logo-img" loading="eager" />
+    </div>
+    <div class="client-logo-card group">
+      <img src="./Images/client_logo7.jfif" alt="Client Logo 7" class="client-logo-img" loading="eager" />
+    </div>
+    <div class="client-logo-card group">
+      <img src="./Images/client_logo8.png" alt="Client Logo 8" class="client-logo-img" loading="eager" />
+    </div>
+
+    <!-- ====== DUPLICATE SET (identical src — required for seamless loop) ====== -->
+    <div class="client-logo-card group" aria-hidden="true">
+      <img src="./Images/client_logo1.webp" alt="" class="client-logo-img" />
+    </div>
+    <div class="client-logo-card group" aria-hidden="true">
+      <img src="./Images/client_logo2.png" alt="" class="client-logo-img" />
+    </div>
+    <div class="client-logo-card group" aria-hidden="true">
+      <img src="./Images/client_logo3.jpg" alt="" class="client-logo-img" />
+    </div>
+    <div class="client-logo-card group" aria-hidden="true">
+      <img src="./Images/client_logo4.png" alt="" class="client-logo-img" />
+    </div>
+    <div class="client-logo-card group" aria-hidden="true">
+      <img src="./Images/client_logo5.jpg" alt="" class="client-logo-img" />
+    </div>
+    <div class="client-logo-card group" aria-hidden="true">
+      <img src="./Images/client_logo6.jpg" alt="" class="client-logo-img" />
+    </div>
+    <div class="client-logo-card group" aria-hidden="true">
+      <img src="./Images/client_logo7.jfif" alt="" class="client-logo-img" />
+    </div>
+    <div class="client-logo-card group" aria-hidden="true">
+      <img src="./Images/client_logo8.png" alt="" class="client-logo-img" />
+    </div>
+
+  </div>
+</div>
+
+      <!-- ===== MARQUEE STRIP 2 (Right to Left) ===== -->
+<div class="mx-4 md:mx-8 my-2 rounded-xl border border-[#DCEBE4] overflow-hidden bg-white/40">
+  <div class="relative">
+    <!-- Gradient Fades (left & right) -->
+    <div class="absolute left-0 top-0 w-16 md:w-32 h-full bg-gradient-to-r from-white to-transparent z-20 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 w-16 md:w-32 h-full bg-gradient-to-l from-white to-transparent z-20 pointer-events-none"></div>
+
+    <div class="flex overflow-hidden">
+      <div class="flex animate-marquee-fast-reverse whitespace-nowrap py-2 md:py-3">
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SOLUTIONS</span>
+        </div>
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">CONSULTING</span>
+        </div>
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SUSTAINABILITY</span>
+        </div>
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">INNOVATION</span>
+        </div>
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">EXCELLENCE</span>
+        </div>
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SUSTAINABLE</span>
         </div>
 
-        <!-- ===== MARQUEE STRIP 2 (Right to Left) ===== -->
-        <div class="flex overflow-hidden border-t border-[#DCEBE4]">
-          <div class="flex animate-marquee-fast-reverse whitespace-nowrap py-2 md:py-3">
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SOLUTIONS</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">CONSULTING</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SUSTAINABILITY</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">INNOVATION</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">EXCELLENCE</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SUSTAINABLE</span>
-            </div>
-
-            <!-- Duplicate -->
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SOLUTIONS</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">CONSULTING</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SUSTAINABILITY</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">INNOVATION</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">EXCELLENCE</span>
-            </div>
-            <div
-              class="group flex items-center justify-center mx-6 md:mx-10 opacity-40 hover:opacity-90 transition-all duration-300">
-              <span
-                class="text-[#6B897D] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SUSTAINABLE</span>
-            </div>
-          </div>
+        <!-- Duplicate -->
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SOLUTIONS</span>
         </div>
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">CONSULTING</span>
+        </div>
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SUSTAINABILITY</span>
+        </div>
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">INNOVATION</span>
+        </div>
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">EXCELLENCE</span>
+        </div>
+        <div class="group flex items-center justify-center mx-6 md:mx-10 opacity-80 hover:opacity-100 transition-all duration-300">
+          <span class="text-[#112A23] font-['Azeret_Mono'] text-[10px] md:text-xs tracking-[0.3em] uppercase group-hover:text-[#26AF93] transition-colors duration-300">SUSTAINABLE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
       </div>
 
