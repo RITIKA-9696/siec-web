@@ -372,7 +372,7 @@
         >
       </div>
 
-      <!-- RIGHT SIDE: Product Details & Pricing Table -->
+      <!-- RIGHT SIDE: Product Details -->
       <div class="mbr-info">
         <span class="mbr-badge">Water Treatment</span>
         <h2>MBR & MBBR Systems</h2>
@@ -380,59 +380,43 @@
           High-performance Membrane Bioreactor (MBR) and Moving Bed Biofilm Reactor (MBBR) solutions designed for efficient wastewater treatment. Choose the capacity that fits your project requirements.
         </p>
 
-        <!-- Pricing Table -->
+        <!-- Capacity-only Table -->
         <div class="mbr-table-wrapper">
           <table class="mbr-table">
             <thead>
               <tr>
                 <th class="text-center">Sr. No.</th>
                 <th>Capacity</th>
-                <th class="text-right">MBBR Cost (INR)</th>
-                <th class="text-right">MBR Cost (INR)</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td class="text-center font-medium">1</td>
                 <td class="font-medium">50 CMD</td>
-                <td class="text-right">914,900.00</td>
-                <td class="text-right">2,090,300.00</td>
               </tr>
               <tr>
                 <td class="text-center font-medium">2</td>
                 <td class="font-medium">100 CMD</td>
-                <td class="text-right">1,565,500.00</td>
-                <td class="text-right">3,113,500.00</td>
               </tr>
               <tr>
                 <td class="text-center font-medium">3</td>
                 <td class="font-medium">150 CMD</td>
-                <td class="text-right">1,928,000.00</td>
-                <td class="text-right">3,957,700.00</td>
               </tr>
               <tr>
                 <td class="text-center font-medium">4</td>
                 <td class="font-medium">200 CMD</td>
-                <td class="text-right">2,227,500.00</td>
-                <td class="text-right">5,698,700.00</td>
               </tr>
               <tr>
                 <td class="text-center font-medium">5</td>
                 <td class="font-medium">300 CMD</td>
-                <td class="text-right">2,616,400.00</td>
-                <td class="text-right">6,702,400.00</td>
               </tr>
               <tr>
                 <td class="text-center font-medium">6</td>
                 <td class="font-medium">400 CMD</td>
-                <td class="text-right">3,351,900.00</td>
-                <td class="text-right">8,831,000.00</td>
               </tr>
               <tr>
                 <td class="text-center font-medium">7</td>
                 <td class="font-medium">500 CMD</td>
-                <td class="text-right">4,285,400.00</td>
-                <td class="text-right">9,547,900.00</td>
               </tr>
             </tbody>
           </table>
@@ -445,13 +429,13 @@
   </label>
   <select id="quoteCapacity"
     class="w-full max-w-xs px-4 py-2.5 rounded-xl border border-[#ECE7DC] bg-white text-sm text-[#2A2620] focus:outline-none focus:ring-2 focus:ring-[#C99B3E]/30 focus:border-[#C99B3E] transition-all">
-    <option value="50 CMD">50 CMD — MBBR: ₹914,900 / MBR: ₹2,090,300</option>
-    <option value="100 CMD">100 CMD — MBBR: ₹1,565,500 / MBR: ₹3,113,500</option>
-    <option value="150 CMD">150 CMD — MBBR: ₹1,928,000 / MBR: ₹3,957,700</option>
-    <option value="200 CMD">200 CMD — MBBR: ₹2,227,500 / MBR: ₹5,698,700</option>
-    <option value="300 CMD">300 CMD — MBBR: ₹2,616,400 / MBR: ₹6,702,400</option>
-    <option value="400 CMD">400 CMD — MBBR: ₹3,351,900 / MBR: ₹8,831,000</option>
-    <option value="500 CMD">500 CMD — MBBR: ₹4,285,400 / MBR: ₹9,547,900</option>
+    <option value="50 CMD">50 CMD</option>
+    <option value="100 CMD">100 CMD</option>
+    <option value="150 CMD">150 CMD</option>
+    <option value="200 CMD">200 CMD</option>
+    <option value="300 CMD">300 CMD</option>
+    <option value="400 CMD">400 CMD</option>
+    <option value="500 CMD">500 CMD</option>
   </select>
 </div>
 
@@ -488,32 +472,18 @@
     // Target WhatsApp number (international format, digits only)
     const WHATSAPP_NUMBER = '918009924800';
 
-    // Capacity → price map so we can include both MBBR & MBR in the message
-    const PRICE_MAP = {
-      '50 CMD':  { mbbr: '₹9,14,900',   mbr: '₹20,90,300' },
-      '100 CMD': { mbbr: '₹15,65,500',  mbr: '₹31,13,500' },
-      '150 CMD': { mbbr: '₹19,28,000',  mbr: '₹39,57,700' },
-      '200 CMD': { mbbr: '₹22,27,500',  mbr: '₹56,98,700' },
-      '300 CMD': { mbbr: '₹26,16,400',  mbr: '₹67,02,400' },
-      '400 CMD': { mbbr: '₹33,51,900',  mbr: '₹88,31,000' },
-      '500 CMD': { mbbr: '₹42,85,400',  mbr: '₹95,47,900' }
-    };
-
     const quoteBtn = document.getElementById('quoteBtn');
     const capacitySelect = document.getElementById('quoteCapacity');
     if (!quoteBtn || !capacitySelect) return;
 
     quoteBtn.addEventListener('click', function () {
       const capacity = capacitySelect.value;
-      const price = PRICE_MAP[capacity] || { mbbr: '—', mbr: '—' };
 
       const lines = [
         '*New Quote Request – SIEC Website*',
         '',
         '*Product:* MBR & MBBR Systems',
         '*Capacity:* ' + capacity,
-        '*MBBR Price:* ' + price.mbbr,
-        '*MBR Price:* ' + price.mbr,
         '',
         'I would like a detailed quotation for this configuration.',
         'Please share the proposal along with lead time.'
